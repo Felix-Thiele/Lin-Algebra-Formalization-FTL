@@ -2,7 +2,7 @@
 
 Let K denote a Field.
 
-Theorem. Let f < Hom(K,V,W). Assume Ker(f) = {0{V}}. Then f is injective.
+Theorem. Let f <<< Hom(K,V,W). Assume Ker(f) = {0{V}}. Then f is injective.
 Proof.
  add{V} is from Prod(|V|,|V|) to |V|.
  Let u,v < V. 
