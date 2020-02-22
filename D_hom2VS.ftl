@@ -34,27 +34,9 @@ Axiom. Let 2Vectorspace(K,V,W). Hom2VS(K,V,W)[add]   = FuncAdd(K,V,W).
 Axiom. Let 2Vectorspace(K,V,W). Hom2VS(K,V,W)[neg]   = FuncNeg(K,V,W).
 Axiom. Let 2Vectorspace(K,V,W). Hom2VS(K,V,W)[smul]  = FuncSMul(K,V,W).
 
-Lemma. Let 2Vectorspace(K,V,W).
+Axiom. Let 2Vectorspace(K,V,W).
 Then 0{Hom2VS(K,V,W)} is linear over K from V to W.
-Proof. 
-  K is a field.
-  V and W are vector spaces over K. 
-  0{Hom2VS(K,V,W)} is a function.
-  0{Hom2VS(K,V,W)} is from |V| to |W|.
-  proof.
-    Dom(0{Hom2VS(K,V,W)}) = |V|.
-    for all v<V 0{Hom2VS(K,V,W)}[v] << |W|.
-  end.
-  for all u,v < V             : 0{Hom2VS(K,V,W)}[u +{V} v] 
-                              = 0{Hom2VS(K,V,W)}[u] +{W} 0{Hom2VS(K,V,W)}[v].
-  for all a < K for all v < V : a @{V} v < V.
-  for all a < K for all v < V : 0{Hom2VS(K,V,W)}[a @{V} v] = FuncZero(K,V,W)[a @{V} v] = 0{W}.
-  for all a < K for all v < V : 0{W} = a @{W} 0{W}.
-  for all a < K for all v < V : a @{W} 0{W} = a @{W} 0{Hom2VS(K,V,W)}[v].
-  for all a < K for all v < V : 0{Hom2VS(K,V,W)}[a @{V} v] = a @{W} 0{Hom2VS(K,V,W)}[v].
-End.
-
-
+#Proofs/Hom2VS/zero_func_linear.ftl
 
 Theorem. Let 2Vectorspace(K,V,W). 
 Then Hom2VS(K,V,W) is a vector space over K.
@@ -81,3 +63,4 @@ Proof.
   for all a < K for all v,w < H : a @{V} (v +{H} w) = (a @{H} v) +{H} (a @{H} w).
  qed.
 qed.
+
