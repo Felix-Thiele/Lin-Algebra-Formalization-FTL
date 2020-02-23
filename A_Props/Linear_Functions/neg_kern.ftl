@@ -2,8 +2,5 @@
 
 Let K denote a field.
 
-Theorem. 
+Axiom. 
 Let f <<< Hom(K,V,W). Let u,v < V. Let f[u] = f[v]. Then u -{V} v << Ker(f).
-Proof.
- u -{V} v < V.
-qed.

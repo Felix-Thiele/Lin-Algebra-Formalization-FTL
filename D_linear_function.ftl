@@ -19,22 +19,6 @@ Let f <<< Hom(K,V,W) stand for (V and W are vector spaces over K and f << Hom(K,
 Lemma. Let f <<< Hom(K,V,W). Let u,v < V. Then f[v +{V} u] = f[v] +{W} f[u].
 Lemma. Let f <<< Hom(K,V,W). Let a < K. Let v < V. Then f[a @{V} v] = a @{W} f[v].
 
-Axiom neg_linear.
- Let f <<< Hom(K,V,W). Let v < V. Then f[neg{V}[v]] = neg{W}[f[v]].
-#Proofs/Linear_Functions/neg_linear.ftl
-
-Axiom. Let f <<< Hom(K,V,W). Then f[0{V}] = 0{W}.
-#Proofs/Linear_Functions/zero_linear.ftl
-
 
 Signature. Ker(f) is a set.
 Axiom. Let f <<< Hom(K,V,W). Ker(f) = {v | v < V and f[v] = 0{W}}.
-
-Axiom neg_kern. Let f <<< Hom(K,V,W). Let u,v < V. Let f[u] = f[v]. Then u -{V} v << Ker(f).
-#Proofs/Linear_Functions/neg_kern.ftl
-
-Axiom kern_zero_inj. Let f <<< Hom(K,V,W). Assume Ker(f) = {0{V}}. Then f is injective.
-#Proofs/Linear_Functions/kern_zero_inj.ftl
-
-Axiom kern_subspace. Let f <<< Hom(K,V,W). Then Ker(f) is a subspace of V over K.
-#Proofs/Linear_Functions/kern_subspace.ftl

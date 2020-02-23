@@ -1,4 +1,12 @@
 [read linear_algebra_ftl/D_vectorspace.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/lem0.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/lem1.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/lem2.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/lem3.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/lem4.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/lem5.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/lem6.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/lem7.ftl]
 
 Let M,N,A denote sets.
 Let K denote a field.

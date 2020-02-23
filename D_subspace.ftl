@@ -23,10 +23,3 @@ Axiom. Let subspace(K,V,U). subspace2VS(U)[add] = (add{V}|{Prod(U,U)}).
 Axiom. Let subspace(K,V,U). subspace2VS(U)[neg] = (neg{V}|{U}).
 Axiom. Let subspace(K,V,U). subspace2VS(U)[smul] = (smul{V}|{Prod(|K|,U)}).
 
-
-Axiom . Let V be a vector space over K. Then |V| is a subspace of V over K.
-# Proofs/Subspace/V_subspace.ftl
-
-Axiom. Let subspace(K,V,U). Then subspace2VS(U) is a vector space over K.
-#Proofs/subspace2VS_VS.ftl
-

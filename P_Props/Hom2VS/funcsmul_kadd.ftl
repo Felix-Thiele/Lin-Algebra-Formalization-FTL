@@ -10,7 +10,6 @@ Then FuncSMul(K,V,W)[((a +{K} b),g)]
   = FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a, g)],FuncSMul(K,V,W)[(b, g)])].
 Proof.
   FuncSMul(K,V,W)[((a +{K} b),g)] << Hom(K,V,W).
-  FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a, g)],FuncSMul(K,V,W)[(b, g)])] is a function.
   a +{K} b < K.
   Dom(FuncSMul(K,V,W)[((a +{K} b),g)]) = |V| 
     = Dom(FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a, g)],FuncSMul(K,V,W)[(b, g)])]).

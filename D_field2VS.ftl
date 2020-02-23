@@ -10,6 +10,3 @@ Axiom. field2VS(K)[zero] = 0{K}.
 Axiom. field2VS(K)[add] = add{K}.
 Axiom. field2VS(K)[neg] = neg{K}.
 Axiom. field2VS(K)[smul] = mul{K}.
-
-Axiom. Let K be a field. Then field2VS(K) is a vector space over K.
-#Proofs/Field2VS/field2VS_field2VS.ftl

@@ -1,4 +1,8 @@
 [read linear_algebra_ftl/D_vectorspace.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/neg-smul.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/zero-smul.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/lem0.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/lem0.ftl]
 
 Let M,N,A denote sets.
 Let K denote a field.

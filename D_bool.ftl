@@ -30,6 +30,3 @@ Axiom. add{B} = xor.
 Axiom. mul{B} = and.
 Axiom. neg{B} = id{bools}.
 Axiom. inv{B} = id{bools\{ff}}.
-
-Axiom. B is a field.
-#Proofs/Bool/bool_B-field.ftl
