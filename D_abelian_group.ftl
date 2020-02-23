@@ -10,11 +10,3 @@ Definition. An abelian group is a structure G such that
  and (for all a < G     :          a -{G} a = 0{G})
  and (for all a,b,c < G : a +{G} (b +{G} c) = (a +{G} b) +{G} c)
  and (for all a,b < G   :          a +{G} b = b +{G} a).
-
-#Simple Facts
-
-Lemma NegZero. Let G be an abelian group.
-Then neg{G}[0{G}] = 0{G}.
-
-Lemma ZeroAdd. Let G be an abelian group. Let a < G.
-Then 0{G} +{G} a = a.

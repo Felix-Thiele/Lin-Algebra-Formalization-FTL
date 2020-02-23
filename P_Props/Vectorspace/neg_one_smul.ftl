@@ -1,12 +1,7 @@
 [read linear_algebra_ftl/D_vectorspace.ftl]
-[read linear_algebra_ftl/A_Props/Vectorspace/lem0.ftl]
-[read linear_algebra_ftl/A_Props/Vectorspace/lem1.ftl]
-[read linear_algebra_ftl/A_Props/Vectorspace/lem2.ftl]
-[read linear_algebra_ftl/A_Props/Vectorspace/lem3.ftl]
-[read linear_algebra_ftl/A_Props/Vectorspace/lem4.ftl]
-[read linear_algebra_ftl/A_Props/Vectorspace/lem5.ftl]
-[read linear_algebra_ftl/A_Props/Vectorspace/lem6.ftl]
-[read linear_algebra_ftl/A_Props/Vectorspace/lem7.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/neg_smul.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/smul_neg.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/zero_smul.ftl]
 
 Let K denote a field.
 

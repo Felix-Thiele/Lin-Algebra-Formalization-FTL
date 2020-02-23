@@ -1,8 +1,7 @@
 [read linear_algebra_ftl/D_vectorspace.ftl]
-[read linear_algebra_ftl/A_Props/Vectorspace/neg-smul.ftl]
-[read linear_algebra_ftl/A_Props/Vectorspace/zero-smul.ftl]
-[read linear_algebra_ftl/A_Props/Vectorspace/lem0.ftl]
-[read linear_algebra_ftl/A_Props/Vectorspace/lem0.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/neg_smul.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/zero_smul.ftl]
+[read linear_algebra_ftl/A_Props/Vectorspace/smul_neg.ftl]
 
 Let M,N,A denote sets.
 Let K denote a field.
@@ -25,6 +24,6 @@ Proof.
  ( (a @{V} v) , neg{V}[b @{V} v] ) << Prod(|V|,|V|).    # Eine (beliebige) von beiden reicht sogar. Weird.
 
  Let us show that (a @{V} v) +{V} (neg{K}[b] @{V} v) = (a @{V} v) +{V} neg{V}[b @{V} v].
-  neg{K}[b] @{V} v = neg{V}[b @{V} v] (by NegSmul).
+  neg{K}[b] @{V} v = neg{V}[b @{V} v].
  qed.
 qed.
