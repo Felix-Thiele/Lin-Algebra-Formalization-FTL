@@ -9,6 +9,8 @@ Let a < K. Let g,h << Hom(K,V,W).
 Then FuncSMul(K,V,W)[(a,FuncAdd(K,V,W)[(g,h)])] 
     = FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a,g)], FuncSMul(K,V,W)[(a,h)])].
 Proof.
+  FuncSMul(K,V,W)[(a,FuncAdd(K,V,W)[(g,h)])] << Hom(K,V,W).
+  FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a,g)], FuncSMul(K,V,W)[(a,h)])] << Hom(K,V,W).
   Dom(FuncSMul(K,V,W)[(a,FuncAdd(K,V,W)[(g,h)])]) = |V|
     = Dom(FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a,g)], FuncSMul(K,V,W)[(a,h)])]).
   Let v<V.
