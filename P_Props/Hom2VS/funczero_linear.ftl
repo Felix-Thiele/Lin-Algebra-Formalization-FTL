@@ -14,7 +14,8 @@ Proof.
   for all u,v < V             : FuncZero(K,V,W)[u +{V} v] 
                               = FuncZero(K,V,W)[u] +{W} FuncZero(K,V,W)[v].
   for all a < K for all v < V : a @{V} v < V.
-  for all a < K for all v < V : FuncZero(K,V,W)[a @{V} v] = 0{W}
-                                = a @{W} 0{W} = a @{W} FuncZero(K,V,W)[v]
-                                = a @{W} FuncZero(K,V,W)[v].
+  Let a < K. Let v < V.  
+    FuncZero(K,V,W)[a @{V} v] = 0{W}.
+    0{W}                      = a @{W} 0{W}.
+    a @{W} 0{W}               = a @{W} FuncZero(K,V,W)[v].
 End.

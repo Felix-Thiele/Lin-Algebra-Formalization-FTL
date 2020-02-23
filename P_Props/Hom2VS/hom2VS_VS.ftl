@@ -1,4 +1,18 @@
-[read linear_algebra_ftl/hom2VS.ftl]
+[read linear_algebra_ftl/D_hom2VS.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funczero_linear.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcadd_homxhomtohom.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcadd_zero_id.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcadd_res_hom.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcadd_commut.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcadd_assoc.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcneg_homtohom.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcadd_funcneg_funcezero.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcsmul_kxhomtohom.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcsmul_one_id.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcsmul_res_hom.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcsmul_kmul.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcsmul_kadd.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcsmul_homadd.ftl]
 
 Theorem. Let 2Vectorspace(K,V,W). 
 Then Hom2VS(K,V,W) is a vector space over K.

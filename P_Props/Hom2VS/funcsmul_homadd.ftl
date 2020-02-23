@@ -1,4 +1,8 @@
 [read linear_algebra_ftl/D_hom2VS.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcadd_homxhomtohom.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcadd_res_hom.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcsmul_kxhomtohom.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcsmul_res_hom.ftl]
 
 Theorem. Let 2Vectorspace(K,V,W).
 Let a < K. Let g,h << Hom(K,V,W).

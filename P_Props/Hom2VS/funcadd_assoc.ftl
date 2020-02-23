@@ -1,4 +1,5 @@
 [read linear_algebra_ftl/D_hom2VS.ftl]
+[read linear_algebra_ftl/A_Props/Hom2VS/funcadd_res_hom.ftl]
 
 Theorem. Let 2Vectorspace(K,V,W).
 Let g,h,j << Hom(K,V,W).  Then FuncAdd(K,V,W)[(FuncAdd(K,V,W)[(g,h)],j)] 
