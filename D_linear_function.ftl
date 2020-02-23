@@ -1,5 +1,4 @@
 [read linear_algebra_ftl/D_field2VS.ftl]
-[read linear_algebra_Ftl/D_subspace.ftl]
 
 Let K denote a Field.
 
