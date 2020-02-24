@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/D_vectorspace.ftl] 
+[read linear_algebra_ftl/A_Props/A_vectorspace.ftl] 
 
 Let K denote a field.
 

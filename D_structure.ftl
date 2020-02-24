@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/D_function.ftl]
+[read linear_algebra_ftl/A_Props/A_function.ftl]
 
 Signature. carr is a notion.
 Signature. zero is a notion.

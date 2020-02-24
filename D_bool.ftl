@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/D_field.ftl]
+[read linear_algebra_ftl/A_Props/A_field.ftl]
 
 Signature. ff is a notion.
 Signature. tt is a notion.
