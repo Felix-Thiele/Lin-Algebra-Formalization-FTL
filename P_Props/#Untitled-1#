@@ -1,0 +1,10 @@
+[read linear_algebra_ftl/D_dual.ftl]
+
+Let K denote a Field.
+
+Axiom. Let V be a vector space over K.
+V2ddV(K,V) is injective.
+
+
+Axiom. Let V be a vector space over K. Let v<V.
+V2ddV(K,V)[v] is linear over K from dual(K,V) to field2VS(K).
