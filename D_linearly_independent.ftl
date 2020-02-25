@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/D_list.ftl]
+[read linear_algebra_ftl/A_Props/A_list.ftl]
 
 Definition.
 Assume L be a List. Assume T be a List.
