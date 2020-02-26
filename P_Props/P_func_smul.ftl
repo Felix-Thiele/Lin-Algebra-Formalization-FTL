@@ -4,14 +4,14 @@ Lemma. Let 2Vectorspace(K,V,W). Let a,b < K. a *{K} b < K.
 Lemma. Let 2Vectorspace(K,V,W). Let a,b < K. a +{K} b < K.
 
 Theorem. Let 2Vectorspace(K,V,W).
-Then FuncSMul(K,V,W) is from Prod(|K|,Hom(K,V,W)) to Hom(K,V,W).
+Then FuncSMul(K,V,W) is from Prod(|K|,|Hom(K,V,W)|) to |Hom(K,V,W)|.
 Proof.
 
-  Dom(FuncSMul(K,V,W)) = Prod(|K|,Hom(K,V,W)).
+  Dom(FuncSMul(K,V,W)) = Prod(|K|,|Hom(K,V,W)|).
 
-  Let g << Hom(K,V,W).
+  Let g < Hom(K,V,W).
   Let a < K.
-  Let us show that FuncSMul(K,V,W)[(a,g)] << Hom(K,V,W).
+  Let us show that FuncSMul(K,V,W)[(a,g)] < Hom(K,V,W).
     Let us show that FuncSMul(K,V,W)[(a,g)] is linear over K from V to W.
 
       FuncSMul(K,V,W)[(a,g)] is from |V| to |W|.
@@ -56,7 +56,7 @@ Proof.
 End.
 
 Theorem. Let 2Vectorspace(K,V,W).
-Let g << Hom(K,V,W). Then FuncSMul(K,V,W)[(1{K},g)] = g.
+Let g < Hom(K,V,W). Then FuncSMul(K,V,W)[(1{K},g)] = g.
 Proof.
   Dom(FuncSMul(K,V,W)[(1{K},g)]) = |V| = Dom(g).
   Let v<V.
@@ -64,13 +64,13 @@ Proof.
 End.
 
 Theorem. Let 2Vectorspace(K,V,W).
-Let g << Hom(K,V,W). Let a < K.  Then FuncSMul(K,V,W)[(a,g)] << Hom(K,V,W).
+Let g < Hom(K,V,W). Let a < K.  Then FuncSMul(K,V,W)[(a,g)] < Hom(K,V,W).
 Proof.
-  (a,g) << Prod(|K|,Hom(K,V,W)).
+  (a,g) << Prod(|K|,|Hom(K,V,W)|).
 End.
 
 Theorem. Let 2Vectorspace(K,V,W).
-Let a,b < K. Let g << Hom(K,V,W). 
+Let a,b < K. Let g < Hom(K,V,W). 
 Then FuncSMul(K,V,W)[((a *{K} b),g)] = FuncSMul(K,V,W)[(a,FuncSMul(K,V,W)[(b,g)])].
 Proof.
   a *{K} b < K.
@@ -83,11 +83,11 @@ Proof.
 End.
 
 Theorem. Let 2Vectorspace(K,V,W).
-Let a,b < K. Let g << Hom(K,V,W). 
+Let a,b < K. Let g < Hom(K,V,W). 
 Then FuncSMul(K,V,W)[((a +{K} b),g)] 
   = FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a, g)],FuncSMul(K,V,W)[(b, g)])].
 Proof.
-  FuncSMul(K,V,W)[((a +{K} b),g)] << Hom(K,V,W).
+  FuncSMul(K,V,W)[((a +{K} b),g)] < Hom(K,V,W).
   FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a, g)],FuncSMul(K,V,W)[(b, g)])] is a function.
   a +{K} b < K.
   Dom(FuncSMul(K,V,W)[((a +{K} b),g)]) = |V| 
@@ -106,7 +106,7 @@ Proof.
 End.
 
 Theorem. Let 2Vectorspace(K,V,W).
-Let a < K. Let g,h << Hom(K,V,W).
+Let a < K. Let g,h < Hom(K,V,W).
 Then FuncSMul(K,V,W)[(a,FuncAdd(K,V,W)[(g,h)])] 
     = FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a,g)], FuncSMul(K,V,W)[(a,h)])].
 Proof.
