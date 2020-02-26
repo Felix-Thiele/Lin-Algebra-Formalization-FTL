@@ -1,5 +1,9 @@
 [read linear_algebra_ftl/D_linearly_independent.ftl]
 
+Axiom listdom.
+Let L be a list.
+Dom(L) = B(L).
+
 Theorem.
 Assume L be a List.
 Assume K is a field. Assume V is a vector space over K.
@@ -27,21 +31,35 @@ Proof.
     for all z << B(cut(cut(T,a),b)) cut(cut(T,a),b)[z] << |K|.
     for all z << B(cut(cut(T,a),b)) cut(cut(L,a),b)[z] << |V|.
     V is a vector space over K.
-    for all z << B(cut(cut(T,a),b)) (cut(cut(T,a),b)[z] @{V} cut(cut(L,a),b)[z] = 0{V}).
+    #for all z << B(cut(cut(T,a),b)) (cut(cut(T,a),b)[z] @{V} cut(cut(L,a),b)[z] = 0{V}).
+    
     #Assume for all z<<B(L) L[z] = 0{str(L)}.
     #listsum(L, f) = 0{str(L)}
+
+    # let us show that for all v listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)[v] = 0{V}
     str(cut(cut(T,a),b)) = K.
     str(cut(cut(L,a),b)) = V.
-    ... # doesnt work yet
-    for all z<<B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)) 
-        listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)[z]
-        = listmul(cut(cut(T,a),b),cut(cut(L,a),b),V[smul])[z].
-    lincomb(L,T,K,V) = listsum((listvmul(L,T,K,V)),(V[add])).
-    listsum((listvmul(L,T,K,V)),(V[add])) = 0{V}.
+    listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)
+    = listmul(cut(cut(T,a),b),cut(cut(L,a),b),V[smul]).
+    Dom(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V))
+    = Dom(listmul(cut(cut(T,a),b),cut(cut(L,a),b),V[smul])).
+    B(cut(cut(T,a),b)) = B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)).
+
+    ...#all this doesnt work
+
+    for all z << B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)) 
+      cut(cut(T,a),b)[z] @{V} cut(cut(L,a),b)[z] = 0{V}. 
+    for all z << B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)) 
+      V[smul][(cut(cut(T,a),b)[z], cut(cut(L,a),b)[z])] = 0{V}. 
+    B(cut(cut(T,a),b)) = B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)).
+    for all z << B(listmul(cut(cut(T,a),b),cut(cut(L,a),b),V[smul])) 
+      V[smul][(cut(cut(T,a),b)[z], cut(cut(L,a),b)[z])] = 0{V}. 
+    for all z << B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)) 
+      listmul(cut(cut(T,a),b),cut(cut(L,a),b),V[smul])[z] = V[smul][(cut(cut(T,a),b)[z], cut(cut(L,a),b)[z])]. 
+    for all z << B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)) 
+      listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)[z] = 0{V}.
+
   end.
 End.
 
-#iff  
-#  (for every List T such that 
-#  (B(T) = B(L) and str(T) = K and there exists a << B(T) such that T[a] != 0{str(T)})
-#  lincomb(T,L,K,V) != 0{str(L)}).
+

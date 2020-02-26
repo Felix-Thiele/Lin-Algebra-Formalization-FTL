@@ -39,7 +39,7 @@ Assume f[(0{str(L)}, 0{str(L)})] = 0{str(L)}.
 Assume for all z<<B(L) L[z] = 0{str(L)}.
 listsum(L, f) = 0{str(L)}.
 
-Signature.
+Definition.
 Assume L be a List.
 Assume K be a List.
 Assume B(L) = B(K).
@@ -76,3 +76,10 @@ Let n << |str(L)|.
 Let a be an object.
 Assume a is not an element of B(L).
 listsum(add(L,a,n), f) = f[(listsum(L,f),n)].
+
+Definition.
+Assume L be a List.
+A sublist over L is a List K such that
+  (str(K) = str(L))
+  and (B(K) is subset of B(L))
+  and (L|{B(K)} = K).

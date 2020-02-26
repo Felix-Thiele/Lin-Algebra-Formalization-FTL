@@ -1,7 +1,6 @@
-[read linear_algebra_ftl/A_Props/A_hom2VS.ftl]
 [read linear_algebra_ftl/A_Props/A_field2VS.ftl]
 
-Let K denote a field.
+Let K denote a field. 
 
 # We assume this axiom for now.
 Axiom Exi.
