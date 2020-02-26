@@ -11,3 +11,7 @@ To run this code install Naproche-SAD and Isabelle.
 ```
 https://github.com/Naproche/Naproche-SAD
 ```
+
+#
+
+![](data_structuring.png)
