@@ -1,5 +1,7 @@
 [read linear_algebra_ftl/A_Props/A_subspace.ftl]
 
+[synonym List/-s]
+
 Signature.
 A List is a function.
 
@@ -24,10 +26,32 @@ Assume L be a List.
 Assume f is a function from Prod(|str(L)|,|str(L)|) to |str(L)|.
 listsum(L, f) is an element of |str(L)|.
 
+Axiom.
+Assume L be a List.
+Assume f is a function from Prod(|str(L)|,|str(L)|) to |str(L)|.
+Assume B(L) has no elements.
+listsum(L, f) = 0{str(L)}.
+
+Axiom.
+Assume L be a List.
+Assume f is a function from Prod(|str(L)|,|str(L)|) to |str(L)|.
+Assume f[(0{str(L)}, 0{str(L)})] = 0{str(L)}.
+Assume for all z<<B(L) L[z] = 0{str(L)}.
+listsum(L, f) = 0{str(L)}.
+
+Signature.
+Assume L be a List.
+Assume K be a List.
+Assume B(L) = B(K).
+Assume f is a function from Prod(|str(L)|,|str(K)|) to |str(K)|.
+listmul(L, K, f) is a List R such that
+      B(R) = B(K)
+      and str(R) = str(K)
+      and for all z << B(R) R[z] = f[(L[z], K[z])].
+
 Definition.
 Assume L be a List.
-Assume |str(L)| has an element.
-Let a << |str(L)|.
+Let a << B(L).
 cut(L,a) is a List R such that
     B(R) = {x | x << B(L) and x != a}
     and str(R) = str(L)
@@ -35,13 +59,20 @@ cut(L,a) is a List R such that
 
 Definition.
 Assume L be a List.
-Assume |str(L)| has an element.
 Let a be an object.
 Assume a is not an element of B(L).
 Assume n << |str(L)|.
 add(L,a,n) is a List R such that
-    B(R) = {x | x << B(L) or x = a}
-    and str(R) = str(L)
-    and for all z << B(L) R[z] = L[z]
-    and R[a] = n. 
+    (B(R) = {x | x << B(L) or x = a})
+    and (str(R) = str(L))
+    and (for all z << B(L) R[z] = L[z])
+    and (R[a] = n).
 
+Axiom.
+Assume L be a List.
+Assume f is a function from Prod(|str(L)|,|str(L)|) to |str(L)|.
+Assume B(L) has an element.
+Let n << |str(L)|.
+Let a be an object.
+Assume a is not an element of B(L).
+listsum(add(L,a,n), f) = f[(listsum(L,f),n)].
