@@ -1,5 +1,4 @@
-[read linear_algebra_Ftl/A_Props/A_subspace.ftl]
-[read linear_algebra_Ftl/A_Props/A_field2VS.ftl]
+[read linear_algebra_Ftl/A_Props/A_vectorspace.ftl]
 
 Let K denote a Field.
 
@@ -11,9 +10,10 @@ Definition. Let V and W be vector spaces over K. Let f be a function.
 
 
 Signature. Let V and W be vector spaces over K.
-Hom(K,V,W) is the set of functions f such that f is linear over K from V to W.
+Hom(K,V,W) is a structure.
 
-Let f <<< Hom(K,V,W) stand for (V and W are vector spaces over K and f << Hom(K,V,W)).
+Axiom. Let V and W be vector spaces over K.
+carr << Dom(Hom(K,V,W)).
 
-Signature. Ker(f) is a set.
-Axiom. Let f <<< Hom(K,V,W). Ker(f) = {v | v < V and f[v] = 0{W}}.
+Axiom. Let V and W be vector spaces over K.
+|Hom(K,V,W)| is the set of functions f such that f is linear over K from V to W.

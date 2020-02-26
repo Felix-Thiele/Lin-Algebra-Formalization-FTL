@@ -1,9 +1,9 @@
 [read linear_algebra_ftl/D_hom2VS.ftl]
 
 Theorem. Let 2Vectorspace(K,V,W). 
-Then Hom2VS(K,V,W) is a vector space over K.
+Then Hom(K,V,W) is a vector space over K.
 Proof.
- Let H = Hom2VS(K,V,W).
+ Let H = Hom(K,V,W).
  Let us show that H is a vector space over K.
   carr,zero,add,neg,smul << Dom(H).
   H is an abelian group.

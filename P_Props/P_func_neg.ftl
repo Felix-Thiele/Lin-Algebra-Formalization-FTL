@@ -5,13 +5,13 @@ Let K denote a Field.
 # Func Neg
 
 Theorem. Let 2Vectorspace(K,V,W).
-Then FuncNeg(K,V,W) is from Hom(K,V,W) to Hom(K,V,W).
+Then FuncNeg(K,V,W) is from |Hom(K,V,W)| to |Hom(K,V,W)|.
 Proof.
 
-  Dom(FuncNeg(K,V,W)) = Hom(K,V,W).
+  Dom(FuncNeg(K,V,W)) = |Hom(K,V,W)|.
 
   Let g << Hom(K,V,W).
-  Let us show that FuncNeg(K,V,W)[g] << Hom(K,V,W).
+  Let us show that FuncNeg(K,V,W)[g] < Hom(K,V,W).
     Let us show that FuncNeg(K,V,W)[g] is linear over K from V to W.
 
       For all v<V g[~{V} v] = ~{W}g[v].

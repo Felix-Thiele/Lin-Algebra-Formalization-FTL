@@ -1,15 +1,16 @@
 [read linear_algebra_ftl/A_Props/A_hom2VS.ftl]
+[read linear_algebra_ftl/A_Props/A_field2VS.ftl]
 
-Let K denote a Field.
+Let K denote a field.
 
-# We assume this axiom for now
+# We assume this axiom for now.
 Axiom Exi.
 Let V be a vector space over K. Let x,y < V. Assume that x != y.
   There exists a function g such that g is linear over K from V to field2VS(K) and g[x] != g[y].
 
 Definition.
 Let V be a vector space over K. 
-dual(K,V) = Hom2VS(K,V,field2VS(K)).
+dual(K,V) = Hom(K,V,field2VS(K)).
 
 Definition.
 Let V be a vector space over K.

@@ -3,13 +3,13 @@
 # Function Addition
 
 Theorem. Let 2Vectorspace(K,V,W).
-Then FuncAdd(K,V,W) is from Prod(Hom(K,V,W),Hom(K,V,W)) to Hom(K,V,W).
+Then FuncAdd(K,V,W) is from Prod(|Hom(K,V,W)|,|Hom(K,V,W))| to |Hom(K,V,W)|.
 Proof.
 
-  Dom(FuncAdd(K,V,W)) = Prod(Hom(K,V,W),Hom(K,V,W)).
+  Dom(FuncAdd(K,V,W)) = Prod(|Hom(K,V,W),Hom(K,V,W)|).
 
-  Let g,h << Hom(K,V,W).
-  Let us show that FuncAdd(K,V,W)[(g,h)] << Hom(K,V,W).
+  Let g,h < Hom(K,V,W).
+  Let us show that FuncAdd(K,V,W)[(g,h)] < Hom(K,V,W).
     Let us show that FuncAdd(K,V,W)[(g,h)] is linear over K from V to W.
 
       FuncAdd(K,V,W)[(g,h)] is from |V| to |W|.
@@ -60,7 +60,7 @@ Proof.
 End.
 
 Theorem. Let 2Vectorspace(K,V,W).
-Let g << Hom(K,V,W). Then FuncAdd(K,V,W)[(g,FuncZero(K,V,W))] = g.
+Let g < Hom(K,V,W). Then FuncAdd(K,V,W)[(g,FuncZero(K,V,W))] = g.
 Proof.
   Dom(FuncAdd(K,V,W)[(g,FuncZero(K,V,W))]) = |V|.
   Let v < V. 
@@ -69,13 +69,13 @@ Proof.
 End.
 
 Theorem. Let 2Vectorspace(K,V,W).
-Let g,h << Hom(K,V,W).  Then FuncAdd(K,V,W)[(g,h)] << Hom(K,V,W).
+Let g,h < Hom(K,V,W).  Then FuncAdd(K,V,W)[(g,h)] < Hom(K,V,W).
 Proof.
-  (g,h) << Prod(Hom(K,V,W),Hom(K,V,W)).
+  (g,h) << Prod(|Hom(K,V,W)|,|Hom(K,V,W)|).
 End.
 
 Theorem. Let 2Vectorspace(K,V,W).
-Let g,h << Hom(K,V,W). Then FuncAdd(K,V,W)[(g,h)] = FuncAdd(K,V,W)[(h,g)].
+Let g,h < Hom(K,V,W). Then FuncAdd(K,V,W)[(g,h)] = FuncAdd(K,V,W)[(h,g)].
 Proof.
   Dom(FuncAdd(K,V,W)[(g,h)]) = |V| = Dom(FuncAdd(K,V,W)[(h,g)]).
   Let v<V.
@@ -83,7 +83,7 @@ Proof.
 End.
 
 Theorem. Let 2Vectorspace(K,V,W).
-Let g,h,j << Hom(K,V,W).  Then FuncAdd(K,V,W)[(FuncAdd(K,V,W)[(g,h)],j)] 
+Let g,h,j < Hom(K,V,W).  Then FuncAdd(K,V,W)[(FuncAdd(K,V,W)[(g,h)],j)] 
           = FuncAdd(K,V,W)[(g,FuncAdd(K,V,W)[(h,j)])].
 Proof.
   Dom(FuncAdd(K,V,W)[(FuncAdd(K,V,W)[(g,h)],j)]) = |V| 
