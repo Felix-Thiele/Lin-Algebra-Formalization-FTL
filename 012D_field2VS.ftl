@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/A_Props/A_hom2VS.ftl]
+[read linear_algebra_ftl/A_Props/011A_homomorphisms.ftl]
 
 Let K denote a field.
 
