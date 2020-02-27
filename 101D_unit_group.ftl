@@ -32,5 +32,5 @@ Axiom. For all r < Un(R) : ringInv(R)[r] *{R} r = 1{R}.
 
 Axiom. one, mul, inv << Dom(Un(R)).
 Axiom. 1{Un(R)} = 1{R}.
-Axiom. mul{Un(R)} = mul{R}|{|Un(R)|}.
+Axiom. mul{Un(R)} = mul{R}|{Prod(|Un(R)|,|Un(R)|)}.
 Axiom. inv{Un(R)} = ringInv(R).
