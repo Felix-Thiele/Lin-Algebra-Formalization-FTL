@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/A_Props/A_subspace.ftl]
+[read linear_algebra_ftl/A_Props/201A_subspace.ftl]
 
 [synonym List/-s]
 
