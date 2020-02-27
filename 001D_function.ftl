@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/A_Props/A_set.ftl]
+[read linear_algebra_ftl/000A_set.ftl]
 
 [synonym function/-s]
 
