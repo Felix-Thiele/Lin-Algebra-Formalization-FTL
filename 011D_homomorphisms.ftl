@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/A_Props/A_func_smul.ftl]
+[read linear_algebra_ftl/A_Props/010A_func_smul.ftl]
 
 Signature. Let 2Vectorspace(K,V,W). Hom2VS(K,V,W) is a function.
 
