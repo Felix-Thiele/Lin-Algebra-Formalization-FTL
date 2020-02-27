@@ -1,6 +1,6 @@
-# Vectorspaces in ForTheL
+# Vector Spaces in ForTheL
 
-The goal of this project is to formalize vectorspaces in ForTheL.
+The goal of this project is to formalize vector spaces in ForTheL.
 
 ## Getting Started
 
