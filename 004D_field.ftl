@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/A_Props/A_abelian_group.ftl]
+[read linear_algebra_ftl/A_Props/003A_abelian_group.ftl]
 
 
 Definition. A field is a structure K such that
