@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/D_endomorphisms.ftl]
+[read linear_algebra_ftl/102D_endomorphisms.ftl]
 
 Let K denote a field.
 
