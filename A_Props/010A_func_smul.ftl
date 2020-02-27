@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/D_func_smul.ftl]
+[read linear_algebra_ftl/010D_func_smul.ftl]
 
 Lemma. Let 2Vectorspace(K,V,W). Let a,b < K. a *{K} b < K.
 Lemma. Let 2Vectorspace(K,V,W). Let a,b < K. a +{K} b < K.
