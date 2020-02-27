@@ -2,7 +2,6 @@
 
 Let K denote a Field.
 
-#Doesnt Work
 
 Theorem. Let V be a vector space over K.
 V2ddV(K,V) is injective.
@@ -88,6 +87,7 @@ proof.
   V2ddV(K,V)[x] is linear over K from dual(K,V) to field2VS(K).
 end.
 
+#Doesnt Work
 
 Theorem.
 Assume V is a vector space over K.
@@ -96,6 +96,8 @@ Proof.
   V2ddV(K,V) is from |V| to |dual(K,dual(K,V))|.
 
   dual(K,dual(K,V)) is a vector space over K.
+  dual(K,dual(K,V))[add] is from Prod(|dual(K,dual(K,V))|,|dual(K,dual(K,V))|) to |dual(K,dual(K,V))|.
+  For all elements h,g of |dual(K,dual(K,V))| (h +{dual(K,dual(K,V))} g) < dual(K,dual(K,V)).
   For all x,y < V V2ddV(K,V)[x +{V} y] = V2ddV(K,V)[x] +{dual(K,dual(K,V))} V2ddV(K,V)[y].
   Proof.
     Let x,y << |V|. 
@@ -103,8 +105,8 @@ Proof.
     Therefore V2ddV(K,V)[x] +{dual(K,dual(K,V))} V2ddV(K,V)[y] is a function.
     Dom(V2ddV(K,V)[x +{V} y]) = |dual(K,V)|
       = Dom(V2ddV(K,V)[x] +{dual(K,dual(K,V))} V2ddV(K,V)[y]).
-    For every element g of |dual(K,V)| we have V2ddV(K,V)[x +{V} y][g]
-      = V2ddV(K,V)[x][g] +{K} V2ddV(K,V)[y][g].
+    Let  g << |dual(K,V)|.
+    V2ddV(K,V)[x +{V} y][g] = (V2ddV(K,V)[x] +{dual(K,dual(K,V))} V2ddV(K,V)[y])[g].
     Therefore the thesis (by FunExt).
   End.
   
