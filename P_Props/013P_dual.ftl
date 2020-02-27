@@ -110,15 +110,25 @@ Proof.
     Therefore the thesis (by FunExt).
   End.
   
-  For all a < K and all x < V V2ddV(K,V)[a @{V} x] = a @{dual(K,dual(K,V))} V2ddV(K,V)[x].
+  V[smul] is a function from Prod(|K|, |V|) to |V|.
+  For all a << |K| and all x << |V| a @{V} x < V.
+  dual(K,dual(K,V)) is a vector space over K.
+  dual(K,dual(K,V))[smul] is a function from Prod(|K|, |dual(K,dual(K,V))|) to |dual(K,dual(K,V))|.
+  For all a << |K| and all x << |dual(K,dual(K,V))| a @{dual(K,dual(K,V))} x < dual(K,dual(K,V)).
+  V2ddV(K,V) is a function from |V| to |dual(K,dual(K,V))|.
+  For all a << |K| and all x << |V| V2ddV(K,V)[a @{V} x] = a @{dual(K,dual(K,V))} (V2ddV(K,V)[x]).
   Proof.
-    Let a be an element of K and x be an element of |V|.
-    V2ddV(K,V)[a @{V} x] and 
-      a @{dual(K,dual(K,V))} V2ddV(K,V)[x] are functions.
+    Let a < K and x < V.
+    V2ddV(K,V)[a @{V} x] and  a @{dual(K,dual(K,V))} V2ddV(K,V)[x] are functions.
     Dom(V2ddV(K,V)[a @{V} x]) = |dual(K,V)|
       = Dom(a @{dual(K,dual(K,V))} V2ddV(K,V)[x]).
-    For every element g of |dual(K,V)| we have V2ddV(K,V)[a @{V} x][g]
-      = a @{dual(K,dual(K,V))} V2ddV(K,V)[x][g].
+    Let g < dual(K,V).
+    V2ddV(K,V)[a @{V} x][g] = eval(dual(K,V),a @{V} x)[g].
+    eval(dual(K,V),(a @{V} x))[g] = g[a @{V} x].
+    g[a @{V} x] = a @{V} g[x].
+    a @{V} g[x] = a @{V} (eval(dual(K,V),x)[g]).
+    a @{V} eval(dual(K,V),x)[g] = a @{V} V2ddV(K,V)[x][g].
+    a @{V} V2ddV(K,V)[x][g] = (a @{dual(K,dual(K,V))} V2ddV(K,V)[x])[g].
     Therefore the thesis (by FunExt).
   End.
 
