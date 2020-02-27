@@ -1,1 +1,0 @@
-[read linear_algebra_ftl/D_automorphisms.ftl]
