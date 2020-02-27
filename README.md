@@ -1,6 +1,6 @@
-# Vector Spaces in ForTheL
+# Linear Algebra in ForTheL
 
-The goal of this project is to formalize vector spaces in ForTheL.
+The goal of this project is to formalize some linear algebra in ForTheL.
 
 ## Getting Started
 
