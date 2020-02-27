@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/D_dual.ftl]
+[read linear_algebra_ftl/013D_dual.ftl]
 
 Let K denote a Field.
 
