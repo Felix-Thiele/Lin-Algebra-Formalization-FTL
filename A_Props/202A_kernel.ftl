@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/D_kernel.ftl]
+[read linear_algebra_ftl/202D_kernel.ftl]
 
 Let K denote a field.
 
