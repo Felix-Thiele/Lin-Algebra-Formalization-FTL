@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/D_linearly_independent.ftl]
+[read linear_algebra_ftl/204D_linearly_independent.ftl]
 
 Axiom listdom.
 Let L be a list.
