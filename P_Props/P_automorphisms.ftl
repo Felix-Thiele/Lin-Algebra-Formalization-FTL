@@ -1,1 +1,0 @@
-[read linear_albegra_ftl/D_automorphisms.ftl]
