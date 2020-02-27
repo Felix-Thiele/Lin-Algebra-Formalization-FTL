@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/D_function.ftl]
+[read linear_algebra_ftl/001D_function.ftl]
 
 Let f, g, h denote functions.
 Let K, L, M, N denote a set.
