@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/A_Props/A_linear_function.ftl]
+[read linear_algebra_ftl/A_Props/006A_linear_function.ftl]
 
 Let K denote a field.
 
