@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/A_Props/A_ring.ftl]
+[read linear_algebra_ftl/A_Props/100A_ring.ftl]
 
 
 Definition. A group is a structure G such that
