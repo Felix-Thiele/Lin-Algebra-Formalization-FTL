@@ -10,4 +10,3 @@ Definition. Let K be a field. A vector space over K is a structure V such that
  and (for all a,b < K for all v < V : (a *{K} b) @{V} v = a @{V} (b @{V} v))
  and (for all a,b < K for all v < V : (a +{K} b) @{V} v = (a @{V} v) +{V} (b @{V} v))
  and (for all a < K for all v,w < V : a @{V} (v +{V} w) = (a @{V} v) +{V} (a @{V} w)).
-
