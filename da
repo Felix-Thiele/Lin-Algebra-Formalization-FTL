@@ -1,0 +1,147 @@
+[1mdiff --git a/#D_dual.ftl# b/#D_dual.ftl#[m
+[1mnew file mode 100644[m
+[1mindex 0000000..12da532[m
+[1m--- /dev/null[m
+[1m+++ b/#D_dual.ftl#[m
+[36m@@ -0,0 +1,23 @@[m
+[32m+[m[32m[read linear_algebra_ftl/A_Props/A_field2VS.ftl][m
+[32m+[m
+[32m+[m[32mLet K denote a field.[m[41m [m
+[32m+[m
+[32m+[m[32m# We assume this axiom for now.[m
+[32m+[m[32mAxiom Exi.[m
+[32m+[m[32mLet V be a vector space over K. Let x,y < V. Assume that x != y.[m
+[32m+[m[32m  There exists a function g such that g is linear over K from V to field2VS(K) and g[x] != g[y].[m
+[32m+[m
+[32m+[m[32mDefinition.[m
+[32m+[m[32mLet V be a vector space over K.[m[41m [m
+[32m+[m[32mdual(K,V) = Hom(K,V,field2VS(K)).[m
+[32m+[m
+[32m+[m[32mDefinition.[m
+[32m+[m[32mLet V be a vector space over K.[m
+[32m+[m[32mLet v < V.[m
+[32m+[m[32meval(dual(K,V), v) is a function f such that Dom(f) = |dual(K,V)|[m
+[32m+[m[32m  and (for every element h of |dual(K,V)| f[h] = h[v]).[m
+[32m+[m
+[32m+[m[32mDefinition.[m
+[32m+[m[32mLet V be a vector space over K.[m
+[32m+[m[32mV2ddV(K,V) is a function f such that Dom(f) = |V|[m
+[32m+[m[32m  and (for every element v of |V| f[v] = eval(dual(K,V),v)).[m
+\ No newline at end of file[m
+[1mdiff --git a/A_Props/A_endormorphisms.ftl b/A_Props/A_endomorphisms.ftl[m
+[1msimilarity index 54%[m
+[1mrename from A_Props/A_endormorphisms.ftl[m
+[1mrename to A_Props/A_endomorphisms.ftl[m
+[1mindex ebc35d5..c76466a 100644[m
+[1m--- a/A_Props/A_endormorphisms.ftl[m
+[1m+++ b/A_Props/A_endomorphisms.ftl[m
+[36m@@ -2,4 +2,4 @@[m
+ [m
+ Let K denote a field.[m
+ [m
+[31m-Axiom. Let V be a vector space over K. End(K,V) is a ring.[m
+\ No newline at end of file[m
+[32m+[m[32mAxiom. Let V be a vector space over K. End(K,V) is a ring.[m
+[1mdiff --git a/D_dual.ftl b/D_dual.ftl[m
+[1mindex 12da532..4b945cf 100644[m
+[1m--- a/D_dual.ftl[m
+[1m+++ b/D_dual.ftl[m
+[36m@@ -1,6 +1,7 @@[m
+[32m+[m[32m[read linear_algebra_ftl/A_Props/A_hom2VS.ftl][m
+ [read linear_algebra_ftl/A_Props/A_field2VS.ftl][m
+ [m
+[31m-Let K denote a field. [m
+[32m+[m[32mLet K denote a field.[m
+ [m
+ # We assume this axiom for now.[m
+ Axiom Exi.[m
+[1mdiff --git a/D_list.ftl b/D_list.ftl[m
+[1mindex 8b5c6d4..4ccbd79 100644[m
+[1m--- a/D_list.ftl[m
+[1m+++ b/D_list.ftl[m
+[36m@@ -39,7 +39,7 @@[m [mAssume f[(0{str(L)}, 0{str(L)})] = 0{str(L)}.[m
+ Assume for all z<<B(L) L[z] = 0{str(L)}.[m
+ listsum(L, f) = 0{str(L)}.[m
+ [m
+[31m-Definition.[m
+[32m+[m[32mSignature.[m
+ Assume L be a List.[m
+ Assume K be a List.[m
+ Assume B(L) = B(K).[m
+[36m@@ -75,11 +75,4 @@[m [mAssume B(L) has an element.[m
+ Let n << |str(L)|.[m
+ Let a be an object.[m
+ Assume a is not an element of B(L).[m
+[31m-listsum(add(L,a,n), f) = f[(listsum(L,f),n)].[m
+[31m-[m
+[31m-Definition.[m
+[31m-Assume L be a List.[m
+[31m-A sublist over L is a List K such that[m
+[31m-  (str(K) = str(L))[m
+[31m-  and (B(K) is subset of B(L))[m
+[31m-  and (L|{B(K)} = K).[m
+\ No newline at end of file[m
+[32m+[m[32mlistsum(add(L,a,n), f) = f[(listsum(L,f),n)].[m
+\ No newline at end of file[m
+[1mdiff --git a/P_Props/P_linearly_independent.ftl b/P_Props/P_linearly_independent.ftl[m
+[1mindex 9f332c8..20afcc9 100644[m
+[1m--- a/P_Props/P_linearly_independent.ftl[m
+[1m+++ b/P_Props/P_linearly_independent.ftl[m
+[36m@@ -1,9 +1,5 @@[m
+ [read linear_algebra_ftl/D_linearly_independent.ftl][m
+ [m
+[31m-Axiom listdom.[m
+[31m-Let L be a list.[m
+[31m-Dom(L) = B(L).[m
+[31m-[m
+ Theorem.[m
+ Assume L be a List.[m
+ Assume K is a field. Assume V is a vector space over K.[m
+[36m@@ -31,35 +27,21 @@[m [mProof.[m
+     for all z << B(cut(cut(T,a),b)) cut(cut(T,a),b)[z] << |K|.[m
+     for all z << B(cut(cut(T,a),b)) cut(cut(L,a),b)[z] << |V|.[m
+     V is a vector space over K.[m
+[31m-    #for all z << B(cut(cut(T,a),b)) (cut(cut(T,a),b)[z] @{V} cut(cut(L,a),b)[z] = 0{V}).[m
+[31m-    [m
+[32m+[m[32m    for all z << B(cut(cut(T,a),b)) (cut(cut(T,a),b)[z] @{V} cut(cut(L,a),b)[z] = 0{V}).[m
+     #Assume for all z<<B(L) L[z] = 0{str(L)}.[m
+     #listsum(L, f) = 0{str(L)}[m
+[31m-[m
+[31m-    # let us show that for all v listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)[v] = 0{V}[m
+     str(cut(cut(T,a),b)) = K.[m
+     str(cut(cut(L,a),b)) = V.[m
+[31m-    listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)[m
+[31m-    = listmul(cut(cut(T,a),b),cut(cut(L,a),b),V[smul]).[m
+[31m-    Dom(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V))[m
+[31m-    = Dom(listmul(cut(cut(T,a),b),cut(cut(L,a),b),V[smul])).[m
+[31m-    B(cut(cut(T,a),b)) = B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)).[m
+[31m-[m
+[31m-    ...#all this doesnt work[m
+[31m-[m
+[31m-    for all z << B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)) [m
+[31m-      cut(cut(T,a),b)[z] @{V} cut(cut(L,a),b)[z] = 0{V}. [m
+[31m-    for all z << B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)) [m
+[31m-      V[smul][(cut(cut(T,a),b)[z], cut(cut(L,a),b)[z])] = 0{V}. [m
+[31m-    B(cut(cut(T,a),b)) = B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)).[m
+[31m-    for all z << B(listmul(cut(cut(T,a),b),cut(cut(L,a),b),V[smul])) [m
+[31m-      V[smul][(cut(cut(T,a),b)[z], cut(cut(L,a),b)[z])] = 0{V}. [m
+[31m-    for all z << B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)) [m
+[31m-      listmul(cut(cut(T,a),b),cut(cut(L,a),b),V[smul])[z] = V[smul][(cut(cut(T,a),b)[z], cut(cut(L,a),b)[z])]. [m
+[31m-    for all z << B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)) [m
+[31m-      listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)[z] = 0{V}.[m
+[31m-[m
+[32m+[m[32m    ... # doesnt work yet[m
+[32m+[m[32m    for all z<<B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V))[m[41m [m
+[32m+[m[32m        listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)[z][m
+[32m+[m[32m        = listmul(cut(cut(T,a),b),cut(cut(L,a),b),V[smul])[z].[m
+[32m+[m[32m    lincomb(L,T,K,V) = listsum((listvmul(L,T,K,V)),(V[add])).[m
+[32m+[m[32m    listsum((listvmul(L,T,K,V)),(V[add])) = 0{V}.[m
+   end.[m
+ End.[m
+ [m
+[31m-[m
+[32m+[m[32m#iff[m[41m  [m
+[32m+[m[32m#  (for every List T such that[m[41m [m
+[32m+[m[32m#  (B(T) = B(L) and str(T) = K and there exists a << B(T) such that T[a] != 0{str(T)})[m
+[32m+[m[32m#  lincomb(T,L,K,V) != 0{str(L)}).[m
+\ No newline at end of file[m
