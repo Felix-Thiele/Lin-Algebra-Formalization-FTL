@@ -1,5 +1,5 @@
-[read linear_algebra_Ftl/A_Props/A_linear_function.ftl]
-[read linear_algebra_Ftl/A_Props/A_subspace.ftl]
+[read linear_algebra_Ftl/A_Props/006A_linear_function.ftl]
+[read linear_algebra_Ftl/A_Props/201A_subspace.ftl]
 
 Let K denote a field.
 
