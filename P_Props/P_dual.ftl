@@ -39,7 +39,8 @@ Proof.
     dual(K,V)[add] = Hom(K,V,field2VS(K))[add].
     dual(K,V)[add][(h,g)] = Hom(K,V,field2VS(K))[add][(h,g)].
     dual(K,V)[add][(h,g)][x] = Hom(K,V,field2VS(K))[add][(h,g)][x].
-    Hom(K,V,field2VS(K))[add][(h,g)][x] = h[x] +{K} g[x].
+    Hom(K,V,field2VS(K))[add][(h,g)][x] = FuncAdd(K,V,field2VS(K))[(h,g)][x].
+    FuncAdd(K,V,field2VS(K))[(h,g)][x] = h[x] +{K} g[x].
      h[x] +{K} g[x] = V2ddV(K,V)[x][h] +{K} V2ddV(K,V)[x][g].
   end.
   For every element g of |dual(K,V)| and every element a of |K|
