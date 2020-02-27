@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/D_list.ftl]
+[read linear_algebra_ftl/203D_list.ftl]
 
 Theorem.
 Assume L be a List.
