@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/A_Props/A_func_neg.ftl]
+[read linear_algebra_ftl/A_Props/009A_func_neg.ftl]
 
 #Scalar Multiplication Funktion
 
