@@ -87,7 +87,6 @@ proof.
   V2ddV(K,V)[x] is linear over K from dual(K,V) to field2VS(K).
 end.
 
-#Doesnt Work
 
 Theorem.
 Assume V is a vector space over K.
@@ -105,30 +104,72 @@ Proof.
     Therefore V2ddV(K,V)[x] +{dual(K,dual(K,V))} V2ddV(K,V)[y] is a function.
     Dom(V2ddV(K,V)[x +{V} y]) = |dual(K,V)|
       = Dom(V2ddV(K,V)[x] +{dual(K,dual(K,V))} V2ddV(K,V)[y]).
-    Let  g << |dual(K,V)|.
-    V2ddV(K,V)[x +{V} y][g] = (V2ddV(K,V)[x] +{dual(K,dual(K,V))} V2ddV(K,V)[y])[g].
+
+    Let us show that for all g << |dual(K,V)| V2ddV(K,V)[x +{V} y][g] = (V2ddV(K,V)[x] +{dual(K,dual(K,V))} V2ddV(K,V)[y])[g].
+      Let  g << |dual(K,V)|.
+      dual(K,dual(K,V))[add] is from Prod(|dual(K,dual(K,V))|,|dual(K,dual(K,V))|) to |dual(K,dual(K,V))|.
+      x +{V} y < V.
+      V2ddV(K,V)[x +{V} y] = eval(dual(K,V),x +{V} y).
+      V2ddV(K,V)[x +{V} y][g] = eval(dual(K,V),x +{V} y)[g].
+      eval(dual(K,V),x +{V} y)[g] = g[x +{V} y].
+      g is linear over K from V to field2VS(K).
+      g[x +{V} y] = g[x] +{field2VS(K)} g[y].
+      g[x] +{field2VS(K)} g[y] = eval(dual(K,V),x)[g] +{field2VS(K)} eval(dual(K,V),y)[g].
+      eval(dual(K,V),x)[g] +{field2VS(K)} eval(dual(K,V),y)[g]
+        = V2ddV(K,V)[x][g] +{field2VS(K)} V2ddV(K,V)[y][g].
+  
+      field2VS(K) is a vector space over K.
+      dual(K,V) is a vector space over K.
+      V2ddV(K,V)[x] < dual(K,dual(K,V)).
+      V2ddV(K,V)[y] < dual(K,dual(K,V)).
+      FuncAdd(K,dual(K,V),field2VS(K)) = dual(K,dual(K,V))[add].
+      g < dual(K,V).
+      2Vectorspace(K,dual(K,V),field2VS(K)).
+      FuncAdd(K,dual(K,V),field2VS(K)) is a function such that (Dom(FuncAdd(K,dual(K,V),field2VS(K))) = Prod(|Hom(K,dual(K,V),field2VS(K))|,|Hom(K,dual(K,V),field2VS(K))|))
+      and (for all j,h < Hom(K,dual(K,V),field2VS(K)) FuncAdd(K,dual(K,V),field2VS(K))[(j,h)] is a function d such that
+        (Dom(d) = |dual(K,V)| and (for all v<dual(K,V) d[v] = j[v] +{field2VS(K)} h[v])))(by funcadd).
+   
+      V2ddV(K,V)[x][g] +{field2VS(K)} V2ddV(K,V)[y][g]
+        = FuncAdd(K,dual(K,V),field2VS(K))[(V2ddV(K,V)[x],V2ddV(K,V)[y])][g].
+      FuncAdd(K,dual(K,V),field2VS(K))[(V2ddV(K,V)[x],V2ddV(K,V)[y])][g]
+        = dual(K,dual(K,V))[add][(V2ddV(K,V)[x],V2ddV(K,V)[y])][g].
+      dual(K,dual(K,V))[add][(V2ddV(K,V)[x],V2ddV(K,V)[y])][g]
+        = (V2ddV(K,V)[x] +{dual(K,dual(K,V))} V2ddV(K,V)[y])[g].
+    end.
     Therefore the thesis (by FunExt).
   End.
-  
+    
   V[smul] is a function from Prod(|K|, |V|) to |V|.
-  For all a << |K| and all x << |V| a @{V} x < V.
   dual(K,dual(K,V)) is a vector space over K.
   dual(K,dual(K,V))[smul] is a function from Prod(|K|, |dual(K,dual(K,V))|) to |dual(K,dual(K,V))|.
   For all a << |K| and all x << |dual(K,dual(K,V))| a @{dual(K,dual(K,V))} x < dual(K,dual(K,V)).
   V2ddV(K,V) is a function from |V| to |dual(K,dual(K,V))|.
-  For all a << |K| and all x << |V| V2ddV(K,V)[a @{V} x] = a @{dual(K,dual(K,V))} (V2ddV(K,V)[x]).
+  For all a < K and all x < V V2ddV(K,V)[a @{V} x] = a @{dual(K,dual(K,V))} (V2ddV(K,V)[x]).
   Proof.
     Let a < K and x < V.
     V2ddV(K,V)[a @{V} x] and  a @{dual(K,dual(K,V))} V2ddV(K,V)[x] are functions.
     Dom(V2ddV(K,V)[a @{V} x]) = |dual(K,V)|
-      = Dom(a @{dual(K,dual(K,V))} V2ddV(K,V)[x]).
-    Let g < dual(K,V).
-    V2ddV(K,V)[a @{V} x][g] = eval(dual(K,V),a @{V} x)[g].
-    eval(dual(K,V),(a @{V} x))[g] = g[a @{V} x].
-    g[a @{V} x] = a @{V} g[x].
-    a @{V} g[x] = a @{V} (eval(dual(K,V),x)[g]).
-    a @{V} eval(dual(K,V),x)[g] = a @{V} V2ddV(K,V)[x][g].
-    a @{V} V2ddV(K,V)[x][g] = (a @{dual(K,dual(K,V))} V2ddV(K,V)[x])[g].
+      = Dom(a @{dual(K,dual(K,V))} V2ddV(K,V)[x]). 
+    Let us show that for all g < dual(K,V) V2ddV(K,V)[a @{V} x][g] = (a @{dual(K,dual(K,V))} V2ddV(K,V)[x])[g].
+      Let g < dual(K,V).
+      dual(K,dual(K,V))[smul] is from Prod(|K|,|dual(K,dual(K,V))|) to |dual(K,dual(K,V))|.
+      a @{V} x < V.
+      V2ddV(K,V)[a @{V} x] = eval(dual(K,V),a @{V} x).
+      V2ddV(K,V)[a @{V} x][g] = eval(dual(K,V),a @{V} x)[g].
+      eval(dual(K,V),a @{V} x)[g] = g[a @{V} x].
+      g is linear over K from V to field2VS(K).
+      g[a @{V} x] = a @{field2VS(K)} g[x].
+      a @{field2VS(K)} g[x] = a @{field2VS(K)} eval(dual(K,V),x)[g].
+      a @{field2VS(K)} eval(dual(K,V),x)[g] = a @{field2VS(K)} V2ddV(K,V)[x][g].
+      
+      a @{field2VS(K)} V2ddV(K,V)[x][g]
+        = FuncSMul(K,dual(K,V),field2VS(K))[(a,V2ddV(K,V)[x])][g].
+      FuncSMul(K,dual(K,V),field2VS(K))[(a,V2ddV(K,V)[x])][g]
+        = dual(K,dual(K,V))[smul][(a,V2ddV(K,V)[x])][g].
+      dual(K,dual(K,V))[smul][(a,V2ddV(K,V)[x])][g]
+        = (a @{dual(K,dual(K,V))} V2ddV(K,V)[x])[g].
+      
+    End.
     Therefore the thesis (by FunExt).
   End.
 
