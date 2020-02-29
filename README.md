@@ -12,7 +12,9 @@ To run this code install Naproche-SAD and Isabelle.
 https://github.com/Naproche/Naproche-SAD
 ```
 
-#
+## Project
+
+### Strucure
 
 ![](data_structuring.png)
 
