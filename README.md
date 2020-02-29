@@ -14,7 +14,12 @@ https://github.com/Naproche/Naproche-SAD
 
 ## Project
 
-### Strucure
+### Idea
+
+This project was developed to build a mathematical library for the formalization of linear algebra. 
+It is based on the lean library found under https://github.com/leanprover-community/mathlib.
+
+### Structure
 
 ![](data_structuring.png)
 
