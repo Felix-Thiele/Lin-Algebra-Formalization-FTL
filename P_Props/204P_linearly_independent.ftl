@@ -8,58 +8,70 @@ Theorem.
 Assume L be a List.
 Assume K is a field. Assume V is a vector space over K.
 Assume str(L) = V.
-Assume there exists a,b<<B(L) such that a != b and L[a] = L[b].
-Then L is linearly independent over K and V.
+Assume there exists a,b<<B(L) such that a != b and L[a] = L[b] and (for all c << B(L) c=a or c=b).
+Then L is not linearly independent over K and V.
 Proof.
-  Take a,b<<B(L) such that a != b and L[a] = L[b].
-  Let T be a List such that B(T) = B(L) 
-                        and (str(T) = K)
-                        and (for all z<<B(T) such that (z != a and z != b) T[z] = 0{str(T)})
-                        and (T[a] = 1{K})
-                        and (T[b] = ~{K} 1{K}).
-  Let us show that lincomb(T,L,K,V) = 0{str(L)}. 
-    Let us show that B(cut(cut(T,a),b)) = B(cut(cut(L,a),b)).
-      B(cut(cut(T,a),b)) is a set.
-      B(cut(cut(L,a),b)) is a set.
-      let c << B(cut(cut(T,a),b)).
-      Then c << B(T) and c != a and c != b.
-      Then c << B(cut(cut(L,a),b)).
-      let c << B(cut(cut(L,a),b)).
-      Then c << B(T) and c != a and c != b.
-      Then c << B(cut(cut(T,a),b)).
-    end.
-    for all z << B(cut(cut(T,a),b)) cut(cut(T,a),b)[z] << |K|.
-    for all z << B(cut(cut(T,a),b)) cut(cut(L,a),b)[z] << |V|.
-    V is a vector space over K.
-    #for all z << B(cut(cut(T,a),b)) (cut(cut(T,a),b)[z] @{V} cut(cut(L,a),b)[z] = 0{V}).
-    
-    #Assume for all z<<B(L) L[z] = 0{str(L)}.
-    #listsum(L, f) = 0{str(L)}
+  Let a,b be elements of B(L) such that a!=b.
+  Let K1 be a List such that B(K1) = B(L) and str(K1) = K and K1[a] = 1{K} and K1[b] = 0{K}.
+  Let K2 be a List such that B(K2) = B(L) and str(K2) = K and K2[a] = 1{K} and K2[b] = ~{K} 1{K}.
+  Let Z be a List such that B(Z) = B(L) and str(Z) = V and Z[a] = 0{str(Z)} and Z[b] = 0{str(Z)}.
 
-    # let us show that for all v listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)[v] = 0{V}
-    str(cut(cut(T,a),b)) = K.
-    str(cut(cut(L,a),b)) = V.
-    listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)
-    = listmul(cut(cut(T,a),b),cut(cut(L,a),b),V[smul]).
-    Dom(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V))
-    = Dom(listmul(cut(cut(T,a),b),cut(cut(L,a),b),V[smul])).
-    B(cut(cut(T,a),b)) = B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)).
 
-    ...#all this doesnt work
-
-    for all z << B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)) 
-      cut(cut(T,a),b)[z] @{V} cut(cut(L,a),b)[z] = 0{V}. 
-    for all z << B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)) 
-      V[smul][(cut(cut(T,a),b)[z], cut(cut(L,a),b)[z])] = 0{V}. 
-    B(cut(cut(T,a),b)) = B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)).
-    for all z << B(listmul(cut(cut(T,a),b),cut(cut(L,a),b),V[smul])) 
-      V[smul][(cut(cut(T,a),b)[z], cut(cut(L,a),b)[z])] = 0{V}. 
-    for all z << B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)) 
-      listmul(cut(cut(T,a),b),cut(cut(L,a),b),V[smul])[z] = V[smul][(cut(cut(T,a),b)[z], cut(cut(L,a),b)[z])]. 
-    for all z << B(listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)) 
-      listvmul(cut(cut(T,a),b),cut(cut(L,a),b),K,V)[z] = 0{V}.
-
+  Let us show that listsum(Z,(V[add])) = 0{str(L)}.
+      V[add] is from Prod(|str(Z)|,|str(Z)|) to |str(Z)|.
+      V[add][(0{str(Z)}, 0{str(Z)})] = 0{str(Z)}.
+      listsum(Z,(V[add])) = 0{str(Z)}.
+      0{str(Z)} =0{str(L)}.
   end.
+
+
+#Axiom.
+#Assume L be a List.
+#Assume f is a function from Prod(|str(L)|,|str(L)|) to |str(L)|.
+#Assume B(L) has an element.
+#Let a << B(L).
+#Assume T be a List.
+#Assume B(T) = B(L) and str(T) = str(L).
+#Assume for all c << B(L) such that c != a T[c] = L[c].
+#Assume L[a] = 0{str(L)}.
+#Then f[(listsum(L,f),T[a])] = listsum(T,f).
+
+  lincomb(K1,L,K,V) = listsum((listvmul(K1,L,K,V)),(V[add])).
+  lincomb(K1,L,K,V) < V.
+  Let us show that lincomb(K1,L,K,V) = L[a].
+      lincomb(K1,L,K,V) = listsum((listvmul(K1,L,K,V)),(V[add])).
+      V[add] is a function from Prod(|str(Z)|,|str(Z)|) to |str(Z)|.
+      B(Z) has an element.
+      B(Z) = B(listvmul(K1,L,K,V)) and str(Z) = str(listvmul(K1,L,K,V)).
+      B(listvmul(K1,L,K,V)) has an element.
+      V[smul] is a function from Prod(|K|, |V|) to |V|.
+      for all c << B(listvmul(K1,L,K,V)) listvmul(K1,L,K,V)[c] 
+        = listmul(K1,L,V[smul])[c] = K1[c] @{V} L[c] < V.
+      let us show that for all c << B(listvmul(K1,L,K,V)) such that c != a Z[c] = listvmul(K1,L,K,V)[c].
+        let c be an element of B(listvmul(K1,L,K,V)) such that c != a.
+        then c = b.
+        Z[b] = 0{V}.
+        0{V} = listvmul(K1,L,K,V)[b].
+      end.
+      str(listvmul(K1,L,K,V)) = V.
+      Z[a] = 0{V}.
+      0{V}= 0{str(listvmul(K1,L,K,V))}.
+      Then listsum(listvmul(K1,L,K,V),V[add]) 
+        = V[add][(listsum(Z,V[add]), listvmul(K1,L,K,V)[a])] (by listsumind).
+       V[add][(listsum(listvmul(K1,L,K,V),V[add]), listvmul(K1,L,K,V)[a])] = a.
+  end. 
+
 End.
 
 
+
+#Axiom.
+#Assume L be a List.
+#Assume f is a function from Prod(|str(L)|,|str(L)|) to |str(L)|.
+#Assume B(L) has an element.
+#Let a << B(L).
+#Assume T be a List.
+#Assume B(T) = B(L) and str(T) = str(L).
+#Assume for all c << B(L) such that c != a T[c] = L[c].
+#Assume L[a] = 0{str(L)}.
+#Then f[(listsum(L,f),T[a])] = listsum(T,f).

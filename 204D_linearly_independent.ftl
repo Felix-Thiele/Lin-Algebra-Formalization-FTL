@@ -28,7 +28,7 @@ Assume str(L) = V.
 L is linearly independent over K and V iff 
   (for every List T such that 
   (B(T) = B(L) and str(T) = K and there exists a << B(T) such that T[a] != 0{str(T)})
-  lincomb(T,L,K,V) != 0{str(L)}).
+  lincomb(T,L,K,V) = 0{str(L)}).
 
 Axiom.
 Assume L be a List.
@@ -36,3 +36,4 @@ Assume f is a function from Prod(|str(L)|,|str(L)|) to |str(L)|.
 Assume f[(0{str(L)}, 0{str(L)})] = 0{str(L)}.
 Assume for all z<<B(L) L[z] = 0{str(L)}.
 listsum(L, f) = 0{str(L)}.
+ 

@@ -68,14 +68,17 @@ add(L,a,n) is a List R such that
     and (for all z << B(L) R[z] = L[z])
     and (R[a] = n).
 
-Axiom.
+Axiom listsumind.
 Assume L be a List.
 Assume f is a function from Prod(|str(L)|,|str(L)|) to |str(L)|.
 Assume B(L) has an element.
-Let n << |str(L)|.
-Let a be an object.
-Assume a is not an element of B(L).
-listsum(add(L,a,n), f) = f[(listsum(L,f),n)].
+Let a << B(L).
+Assume T be a List.
+Assume B(T) = B(L) and str(T) = str(L).
+Assume for all c << B(L) such that c != a T[c] = L[c].
+Assume L[a] = 0{str(L)}.
+Then f[(listsum(L,f),T[a])] = listsum(T,f).
+
 
 Definition.
 Assume L be a List.
