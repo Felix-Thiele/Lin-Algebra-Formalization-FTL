@@ -2,7 +2,7 @@
 
 Let K denote a field.
 
-Lemma. Let V be a vector space over K. Then id{|V|} is linear over K from V to V.
+Theorem. Let V be a vector space over K. Then id{|V|} is linear over K from V to V.
 Proof.
  id{|V|} is from |V| to |V|.
  For all v < V : id{|V|}[v] = v.
@@ -20,7 +20,7 @@ Proof.
 qed.
 
 
-Lemma. Let U,V,W be vector spaces over K. Let f,g be functions.
+Theorem. Let U,V,W be vector spaces over K. Let f,g be functions.
 Let g be linear over K from U to V. Let f be linear over K from V to W.
 Then f*g is linear over K from U to W.
 Proof.
