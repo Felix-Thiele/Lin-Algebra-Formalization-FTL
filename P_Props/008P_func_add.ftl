@@ -3,10 +3,10 @@
 # Function Addition
 
 Theorem. Let 2Vectorspace(K,V,W).
-Then FuncAdd(K,V,W) is from Prod(|Hom(K,V,W)|,|Hom(K,V,W))| to |Hom(K,V,W)|.
+Then FuncAdd(K,V,W) is from Prod(|Hom(K,V,W)|,|Hom(K,V,W)|) to |Hom(K,V,W)|.
 Proof.
 
-  Dom(FuncAdd(K,V,W)) = Prod(|Hom(K,V,W),Hom(K,V,W)|).
+  Dom(FuncAdd(K,V,W)) = Prod(|Hom(K,V,W)|,|Hom(K,V,W)|).
 
   Let g,h < Hom(K,V,W).
   Let us show that FuncAdd(K,V,W)[(g,h)] < Hom(K,V,W).
