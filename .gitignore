@@ -1,1 +1,6 @@
 *.ftl~
+*.aux
+*.log
+*.gz
+*Report.pdf
+*.toc
