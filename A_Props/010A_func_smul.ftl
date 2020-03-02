@@ -1,7 +1,7 @@
 [read linear_algebra_ftl/010D_func_smul.ftl]
 
-Lemma. Let 2Vectorspace(K,V,W). Let a,b < K. a *{K} b < K.
-Lemma. Let 2Vectorspace(K,V,W). Let a,b < K. a +{K} b < K.
+Axiom. Let 2Vectorspace(K,V,W). Let a,b < K. a *{K} b < K.
+Axiom. Let 2Vectorspace(K,V,W). Let a,b < K. a +{K} b < K.
 
 Axiom. Let 2Vectorspace(K,V,W).
 Then FuncSMul(K,V,W) is from Prod(|K|,|Hom(K,V,W)|) to |Hom(K,V,W)|.
