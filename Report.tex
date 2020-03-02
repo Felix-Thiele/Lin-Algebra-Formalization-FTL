@@ -49,11 +49,19 @@ And the \textbf{Proofs} of:
 
 \section{Formalization}
 \subsection{Project structure}
-Giving the project a treelike structure with a file to each topic ensures increased readability and scalability. In contrast to having one large file building up mathematics, this enables us to pick what files need to be imported to each file. Our structure is depicted in the tree below.
+Giving the project a treelike structure with a file to each topic ensures increased readability and scalability. 
+In contrast to having one large file building up mathematics, this enables us to pick what files need to be imported to each file. 
+Our structure is depicted in the tree below.
 
 Picture.
 
-The e-prover is not fast enough to compile the entire library with all proofs in reasonable time. Instead for every file we introduce two new files inserting A\_ and P\_ respectively in the front of the file names. We insert D\_ before our original file. This gives us an Axiom, Proof and Definition file. The Definition file holds all the definition of the given topic. The Proof file holds the theorems and their proofs. The Axiom file holds all the statements of the Proof file in axiomatized form. The Proof and Axiom Files read in Definition Files and Definition Files read in Axiom files. This ensures a fast compilation since we don't need to reprove proven statements. This structure is depicted below.
+The e-prover is not fast enough to compile the entire library with all proofs in reasonable time. 
+Instead for every file we introduce two new files inserting A\_ and P\_ respectively in the front of the file names. We insert D\_ before our original file. This gives us an Axiom, Proof and Definition file. 
+The Definition file holds all the definition of the given topic. 
+The Proof file holds the theorems and their proofs. The Axiom file holds all the statements of the Proof file in axiomatized form. 
+The Proof and Axiom Files read in Definition Files and Definition Files read in Axiom files. 
+This ensures a fast compilation since we don't need to reprove proven statements. 
+This structure is depicted below.
 
 Picture.
 \section{Comparison to Lean}
