@@ -33,3 +33,11 @@ Let a /{S} b stand for mul{S}[(a,inv{S}[b])].
 Let a @{S} b stand for smul{S}[(a,b)].
 Let a < S stand for a << |S|.
 Let a < S* stand for a << |S|\{0{S}}.
+
+Let (S has a) stand for (a << Dom(S)).
+Let (S has a,b) stand for (a,b << Dom(S)).
+Let (S has a,b,c) stand for (a,b,c << Dom(S)).
+Let (S has a,b,c,d) stand for (a,b,c,d << Dom(S)).
+Let (S has a,b,c,d,e) stand for (a,b,c,d,e << Dom(S)).
+Let (S has a,b,c,d,e,f) stand for (a,b,c,d,e,f << Dom(S)).
+Let (S has a,b,c,d,e,f,g) stand for (a,b,c,d,e,f,g << Dom(S)).
