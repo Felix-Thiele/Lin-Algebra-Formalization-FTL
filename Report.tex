@@ -5,6 +5,10 @@
 \usepackage{enumitem}
 \usepackage[final]{graphicx}
 \graphicspath{{./project_structure.pdf}}
+\usepackage{xurl}
+
+\newcommand*{\courier}{\fontfamily{pcr}\selectfont}
+\DeclareTextFontCommand{\code}{\courier}
 
 \author{Erik Sturzenhecker, Felix Thiele}
 \title{A Start to the formalization of Linear Algebra in ForTheL}
@@ -28,29 +32,55 @@ In this project we build a linear algebra library in ForTheL with Naproche. ForT
 Some of the results given in this library are:
 \newline
 The \textbf{definitions} of:
-\setlist{nolistsep}
-\begin{enumerate}[noitemsep]
+\begin{itemize}[nolistsep, noitemsep]
 \item Groups, Rings, Fields
 \item Vector spaces, Subspaces, Dual spaces
 \item Homomorphisms, Endomorphisms, Automorphisms of vector spaces
 \item Lists, Linear independence
-\end{enumerate}
+\end{itemize}
 And the \textbf{proofs} of:
-\setlist{nolistsep}
-\begin{enumerate}[noitemsep]
+\begin{itemize}[nolistsep, noitemsep]
 \item A field is a vector space over itself.
 \item The linear maps between $K$-vector spaces $V§$ and $W$ form a vector space Hom($K$,$V$,$W$).
 \item If $f$ is linear, Ker($f$) is a subspace.
 \item If $f$ is linear and Ker($f$) $=$ \{0\}, then $f$ is injective.
+\item Any $K$-vector space $V$ can be embedded into the double dual space $(V^{*})^{*}$
 \item The endomorphisms of a $K$-vector space $V$ form a ring End($K$,$V$).
 \item The invertible elements of a ring form a multiplicative group.
-\item Any $K$-vector space $V$ can be embedded into the double dual space $(V^{*})^{*}$
-\end{enumerate}
+\end{itemize}
 
 \newpage
 
-\section{Formalization}
-\subsection{Project structure}
+\section{The Lean File}
+For inspiration on how to formalize linear algebra for a proof checker we looked into the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small lean library by Kenny Lau containing formalizations of various mathematical topics. Lean is a theorem prover and a programming language based on dependent type theory. There is an extensive library of mathematical lean texts, the mathlib (\url{https://github.com/leanprover-community/mathlib}), maintained by lean users, which is used and build upon in vector\_space.lean.
+
+\subsection{Mathematical Content}
+The file vector\_space.lean covers the following definitions and statements of linear algebra:
+\begin{itemize}
+\item \code{field.to\_vector\_space}: Any field is a vector space over itself.
+\item \code{sub\_vector\_space }: Definition of a vector subsace and the vector space structure on it.
+\item
+\end{itemize}
+The respective notions are defined in the canonical way and the proofs are of course trivial from the algebra standpoint. Thus, there is no need for huge lambda terms (which are otherwise are not uncommon in lean texts) and the code is fairly easy to understand.
+
+\subsection{Characteristic Features}
+- using the following notions from the mathilb: ... \\
+- type classes: has\_add, has\_zero, etc. \\
+- @[simp] \\
+- ...
+
+\subsection{Adjusting the Code}
+The latest version of vector\_space.lean is from November 2017. Since then, it seems that the mathlib has developed to a point where it became incompatible with vector\_space.lean.
+However, slight adjustments in the file made it work with the current version of the mathlib. This comprises the following changes:
+\begin{itemize}
+\item bla
+\item blub
+\end{itemize}
+
+\newpage
+
+\section{Formalization in ForTheL}
+\subsection{Project Structure}
 Giving the project a treelike structure with a file to each topic ensures increased readability and scalability. 
 In contrast to having one large file building up mathematics, this enables us to pick what files need to be imported to each file. 
 Our structure is depicted in the graph below.
@@ -64,12 +94,12 @@ Our structure is depicted in the graph below.
 \newpage
 
 The e-prover is not fast enough to compile the entire library with all proofs in reasonable time. 
-Instead, for every file we introduce two new files inserting A\_ and P\_ respectively in front of the file names. We insert D\_ before our original file. This gives us an Axiom, Proof and Definition file. 
+Instead, for every file we introduce two new files inserting "A\_" and "P\_" respectively in front of the file names. We insert "D\_" before our original file. This gives us an Axiom, Proof and Definition file. 
 The Definition file holds all the definitions of the given topic. 
 The Proof file holds the theorems and their proofs. The Axiom file holds all the statements of the Proof file in axiomatized form. 
 The Proof and Axiom files only read their corresponding Definition file, while Definition files read the Axiom files of all the topics they are building upon. 
 This ensures a fast compilation since we don't need to reprove proven statements. 
-This structure is depicted below.
+This file reading structure is depicted below.
 
 \begin{figure}[h]
 \begin{center}
@@ -80,14 +110,13 @@ This structure is depicted below.
 \end{figure}
 
 \subsection{The Implementation}
-
 \subsubsection{The structure object}
 Many of the objects we examine in this library have a similar structure. For examples groups, fields, vector spaces and rings all have a carrier, a zero element, and an addition defined on them. We introduce the object structure in 002D\_ structure.ftl. 
 A structure is a function S such that the domain of S is a subset of language =  \{carrier, zero, one, addition, multiplication, negation, inverse, scalar multiplication\}. We can now define a each of the linear algebra structures above as a structure with then necessary components of language in its domain. 
 
 
 
-\section{Comparison to Lean}
+\section{Comparison between Lean and Naproche}
 
 
 \section{Next Steps in Naproche}
