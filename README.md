@@ -24,7 +24,8 @@ The lean file uses the mathlib https://github.com/leanprover-community/mathlib.
 
 ### Structure
 
-![](data_structuring.png)
+![](project_structure.png)
+![](project_structure_explained.png)
 
 
 ### Endresults
