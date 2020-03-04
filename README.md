@@ -20,7 +20,7 @@ This project was developed to build a mathematical library for the formalization
 
 It is based on the lean file found under https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean.
 
-An updated version of this (working with the current mathlib) can be found above.
+An updated version of this (working with the current mathlib) can be found in our repository.
 
 The lean file uses the mathlib https://github.com/leanprover-community/mathlib.
 
