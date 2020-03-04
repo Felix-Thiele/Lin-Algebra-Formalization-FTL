@@ -15,7 +15,7 @@
 \maketitle
 
 \newpage 
-\setcounter{tocdepth}{4}
+\setcounter{tocdepth}{10}
 \tableofcontents
 
 
@@ -79,10 +79,23 @@ This structure is depicted below.
 \end{center}
 \end{figure}
 
+\subsection{The Implementation}
+
+\subsubsection{The structure object}
+Many of the objects we examine in this library have a similar structure. For examples groups, fields, vector spaces and rings all have a carrier, a zero element, and an addition defined on them. We introduce the object structure in 002D\_ structure.ftl. 
+A structure is a function S such that the domain of S is a subset of language =  \{carrier, zero, one, addition, multiplication, negation, inverse, scalar multiplication\}. We can now define a each of the linear algebra structures above as a structure with then necessary components of language in its domain. 
+
+
+
 \section{Comparison to Lean}
 
 
 \section{Next Steps in Naproche}
+
+Considering, that the naproche system is still in somewhat of a beta-phase we propose the following ideas to better the programming experience.
+Firstly naproche needs an increase transparency in what the e-prover is doing. On the one hand the e-prover is a huge blessing, simplifying many steps. On the other hand it is the source of many problems, since the programmer can not guess where the e-prover is gets stuck. Also the e-prover will often take longer or even cant compile working code, if it is copied to a later part of the file. This is due to the increased breadth of the internal search tree. To counter these effects, while keeping the luxury of an assisting e-prover, we suggest the e-prover return the proofs of each statement, which can then be either pasted into the code or be saved in a separate file. This decoupling of the e-prover to the checking process will not only save time, but also guarantee more stability. 
+
+
 
 
 \end{document}
