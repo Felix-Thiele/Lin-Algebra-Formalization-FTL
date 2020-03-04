@@ -6,6 +6,7 @@
 \usepackage[final]{graphicx}
 \graphicspath{{./project_structure.pdf}}
 \usepackage{xurl}
+\usepackage{float}
 
 \newcommand*{\courier}{\fontfamily{pcr}\selectfont}
 \DeclareTextFontCommand{\code}{\courier}
@@ -51,8 +52,12 @@ And the \textbf{proofs} of:
 
 \newpage
 
+
+
 \section{The Lean File}
 For inspiration on how to formalize linear algebra for a proof checker we looked into the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small lean library by Kenny Lau containing formalizations of various mathematical topics. Lean is a theorem prover and a programming language based on dependent type theory. There is an extensive library of mathematical lean texts, the mathlib (\url{https://github.com/leanprover-community/mathlib}), maintained by lean users, which is used and build upon in vector\_space.lean.
+
+
 
 \subsection{Mathematical Content}
 The file vector\_space.lean covers the following definitions and statements of linear algebra:
@@ -68,11 +73,15 @@ The file vector\_space.lean covers the following definitions and statements of l
 \end{itemize}
 The respective notions are defined in the canonical way and the proofs are of course trivial from an algebraic standpoint. Thus, there is no need for huge lambda terms (which are otherwise are not uncommon in lean texts) and the code is fairly easy to understand.
 
+
+
 \subsection{Characteristic Features}
 - using the following notions from the mathilb: ... \\
 - type classes: has\_add, has\_zero, etc. \\
 - @[simp] (-> easy statements named above)\\
 - ...
+
+
 
 \subsection{Adjusting the Code}
 The latest version of vector\_space.lean is from November 2017. Since then, it seems that the mathlib has developed to a point where it became incompatible with vector\_space.lean.
@@ -83,6 +92,8 @@ However, slight adjustments in the file made it work with the current version of
 \end{itemize}
 
 \newpage
+
+
 
 \section{Formalization in ForTheL}
 \subsection{Project Structure}
@@ -115,11 +126,43 @@ This file reading structure is depicted below.
 \end{figure}
 
 \subsection{The Implementation}
+
+\subsubsection{Sets and Functions}
+
+Our D\_ Set and D\_ Function files our kept very lightweight and only include key statements. This is due to both files being so close to the root node of the library tree. Adding more definitions will substantially slow down the e-prover in all following files.
+
 \subsubsection{The structure object}
 Many of the objects we examine in this library have a similar structure. For examples groups, fields, vector spaces and rings all have a carrier, a zero element, and an addition defined on them. We introduce the object structure in 002D\_ structure.ftl. 
-A structure is a function S such that the domain of S is a subset of language =  \{carrier, zero, one, addition, multiplication, negation, inverse, scalar multiplication\}. We can now define a each of the linear algebra structures above as a structure with then necessary components of language in its domain. 
 
+\begin{figure}[H]
+\begin{center}
+\makebox[\linewidth][c]{
+\includegraphics[scale=1]{./struc_def.png}
+}
+\end{center}
+\end{figure}
+We can now define a each of the linear algebra structures above as a structure with then necessary components of language in its domain. Now we define the following abbreviations:
+\begin{figure}[H]
+\centering
+\begin{minipage}{.5\textwidth}
+\makebox[\linewidth][c]{
+\includegraphics[scale=1]{./struc_simp1.png}
+}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+\makebox[\linewidth][c]{
+\includegraphics[scale=.8]{./struc_simp2.png}
+}
+\end{minipage}
+\end{figure}
 
+\subsubsection{Homomorphisms}
+
+After the definition of various structures on sets we define homomorphisms. These require quite an extensive preparation which is done in the func\_ files, defining the zero, addition, negation, and scalar multiplication on Hom(K,V,W). These are split from the D\_ Homomorphism file because the corresponding P\_ files hold long proofs which become easier to read.
+
+\subsubsection{Lists}
+
+A list is defined as function from a set to a structure with a carrier and a zero element. The zero element ensures, that the list is not defined over an empty set of objects. 
 
 \section{Comparison between Lean and Naproche}
 
