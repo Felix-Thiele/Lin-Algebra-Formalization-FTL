@@ -167,13 +167,15 @@ A list is defined as function from a set to a structure with a carrier and a zer
 \section{Comparison between Lean and Naproche}
 
 
-\section{Next Steps in Naproche}
+\section{Next Steps in Naproche and ForTheL}
 
-Considering, that the naproche system is still in somewhat of a beta-phase we propose the following ideas to better the programming experience.
-Firstly naproche needs an increase transparency in what the e-prover is doing. On the one hand the e-prover is a huge blessing, simplifying many steps. On the other hand it is the source of many problems, since the programmer can not guess where the e-prover is gets stuck. Also the e-prover will often take longer or even cant compile working code, if it is copied to a later part of the file. This is due to the increased breadth of the internal search tree. To counter these effects, while keeping the luxury of an assisting e-prover, we suggest the e-prover return the proofs of each statement, which can then be either pasted into the code or be saved in a separate file. This decoupling of the e-prover to the checking process will not only save time, but also guarantee more stability. 
+It seems like this project has hit somewhat of a ceiling in what naproche is capable of. 
+Even small changes in beginning files can massively impact the check times.
+While the main problem that needs to be addressed is a more efficient structuring and analysis of the cache, we propose the following ideas to improve the programming experience.
 
+Firstly naproche needs an increased transparency in what the e-prover is doing. On the one hand the e-prover is a huge blessing, simplifying many steps. On the other hand it is the source of many problems, since the programmer can not guess where the e-prover gets stuck. Also the e-prover will often take longer or even cant compile working code, if it is copied to a later part of the file. This is due to the increased breadth of the internal search tree. To counter these effects, while keeping the luxury of an assisting e-prover, we suggest the e-prover return the proofs of each statement, which can then be either pasted into the code or be saved in a separate file. This decoupling of the e-prover to the checking process will not only save time, but also guarantee more stability.
 
-
+ForTheL needs a Code Sectioning functionality. This would not only improve code transparency but also speed up checking times. At the moment the e-prover can only be restricted by (by theorem) commands. Introducing code sections will allow broader restrictions.
 
 \end{document}
 
