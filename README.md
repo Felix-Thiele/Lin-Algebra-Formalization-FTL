@@ -20,6 +20,8 @@ This project was developed to build a mathematical library for the formalization
 
 It is based on the lean file found under https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean.
 
+An updated version of this (working with the current mathlib) can be found above.
+
 The lean file uses the mathlib https://github.com/leanprover-community/mathlib.
 
 ### Structure
@@ -46,7 +48,7 @@ This graph translates to the actual file readings in the following way:
 
 - V is a subspace of V.
 
-- every subspace is a vector space.
+- Every subspace is a vector space.
 
 - Let f be linear. Ker(f) is a subspace of V.
 
