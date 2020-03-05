@@ -27,7 +27,6 @@ Let smul{S} stand for S[smul].
 Let a +{S} b stand for add{S}[(a,b)].
 Let a *{S} b stand for mul{S}[(a,b)].
 Let ~{S} a stand for neg{S}[a].
-#Let 1/{S} a stand for inv{S}[a].
 Let a -{S} b stand for add{S}[(a,neg{S}[b])].
 Let a /{S} b stand for mul{S}[(a,inv{S}[b])].
 Let a @{S} b stand for smul{S}[(a,b)].
