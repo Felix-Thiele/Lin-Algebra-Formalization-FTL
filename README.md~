@@ -68,7 +68,7 @@ This graph translates to the actual file readings in the following way:
 | 006 linear_function      | ? ||
 | 007 func_zero            | 06.03.2020 19:00 ||
 | 008 func_add             | 06.03.2020 19:00 ||
-| 009 func_neg             | ? ||
+| 009 func_neg             | 06.03.2020 22:00 ||
 | 010 func_smul            | not working ||
 | 011 homomorphisms        | ? ||
 | 012 field2VS             | 06.03.2020 14:00 ||

@@ -13,7 +13,7 @@ Proof.
  f[neg{K}[1{K}] @{V} v] = neg{K}[1{K}] @{W} f[v].
  neg{K}[1{K}] @{W} f[v] = neg{W}[f[v]].
 qed.
-
+ 
 Theorem zero_linear. Let V,W be vector spaces over K. Let f < Hom(K,V,W). Then f[0{V}] = 0{W}.
 Proof.
  0{V} = 0{K} @{V} 0{V}.
