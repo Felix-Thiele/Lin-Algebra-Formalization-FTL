@@ -65,7 +65,7 @@ This graph translates to the actual file readings in the following way:
 | 003 abelian_group        | 06.03.2020 14:00 ||
 | 004 field                | 06.03.2020 14:00 (empty) ||
 | 005 vector_space         | not working  (Translation used 5.95 GB RAM for line 34) | After commenting out the axioms in A_function and the composition stuff in D_function it got to line 52 where I stopped the Reasoner after some time. <br> Couldn't get it to work again yet. <br> It seems that the Translation doesn't do a good job when it comes to ignoring obviously irrelevant preliminaries. |
-| 006 linear_function      | ? ||
+| 006 linear_function      | 06.03.2020 22:00 ||
 | 007 func_zero            | 06.03.2020 19:00 ||
 | 008 func_add             | 06.03.2020 19:00 ||
 | 009 func_neg             | 06.03.2020 22:00 ||

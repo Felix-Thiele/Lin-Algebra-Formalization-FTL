@@ -1,13 +1,12 @@
 [read linear_algebra_ftl/011D_homomorphisms.ftl]
 
+
 Theorem. Let 2Vectorspace(K,V,W). 
 Then Hom(K,V,W) is a vector space over K.
 Proof.
  Let H = Hom(K,V,W).
- Let us show that H is a vector space over K.
   carr,zero,add,neg,smul << Dom(H).
-  H is an abelian group.
-  proof.
+  let us show that H is an abelian group.
     carr,zero,add,neg << Dom(H).
     |H| is a set.
     0{H} < H.
@@ -22,14 +21,38 @@ Proof.
       FuncAdd(K,V,W)[(a, FuncNeg(K,V,W)[a])] = FuncZero(K,V,W).
       FuncZero(K,V,W) = 0{H}.
     end.
-    For all a,b,c < H : a +{H} (b +{H} c) = (a +{H} b) +{H} c.
+    Let us show that for all a,b,c < H : a +{H} (b +{H} c) = (a +{H} b) +{H} c.
+      Let a,b,c < H.
+      a +{H} (b +{H} c) = FuncAdd(K,V,W)[(a,FuncAdd(K,V,W)[(b,c)])]
+      = FuncAdd(K,V,W)[(FuncAdd(K,V,W)[(a,b)],c)] = (a +{H} b) +{H} c.
+    end.
     For all a,b < H   :          a +{H} b = b +{H} a.
   end.
   smul{H} is a function from Prod(|K|,|H|) to |H|.
   for all u < H                 :       1{K} @{H} u = u.
-  for all a,b < K for all v < H : (a *{K} b) @{H} v = a @{H} (b @{H} v).
-  for all a,b < K for all v < H : (a +{K} b) @{H} v = (a @{H} v) +{H} (b @{H} v).
-  for all v,w < H (v +{H} w)<H.
-  for all a < K for all v,w < H : a @{H} (v +{H} w) = (a @{H} v) +{H} (a @{H} w).
-  qed.
+  let us show that for all a,b < K for all v < H : (a *{K} b) @{H} v =  a @{H} (b @{H} v).
+    let a,b < K and v < H.
+    (a *{K} b) @{H} v = FuncSMul(K,V,W)[((a *{K} b),v)]
+    = FuncSMul(K,V,W)[(a,FuncSMul(K,V,W)[(b,v)])] = a @{H} (b @{H} v).
+  end.
+  let us show that for all a,b < K for all v < H : (a +{K} b) @{H} v = (a @{H} v) +{H} (b @{H} v).
+    let a,b < K and v < H.
+    (a +{K} b) @{H} v = FuncSMul(K,V,W)[((a +{K} b),v)] 
+    = FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a, v)],FuncSMul(K,V,W)[(b, v)])] = (a @{H} v) +{H} (b @{H} v).
+  end.
+  let us show that for all a < K for all v,w < H : a @{H} (v +{H} w)  =(a @{H} v) +{H} (a @{H} w).
+    let a < K and v,w < H.
+    a @{H} (v +{H} w) = FuncSMul(K,V,W)[(a,FuncAdd(K,V,W)[(v,w)])] 
+    = FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a,v)], FuncSMul(K,V,W)[(a,w)])] =(a @{H} v) +{H} (a @{H} w).
+  end.
+  # for some reason, repetition accelerates the process massively
+  let us show that H is a vector space over K.
+    (carr,zero,add,neg,smul << Dom(H))
+     and (H is an abelian group)
+     and (smul{H} is a function from Prod(|K|,|H|) to |H|)
+     and (for all u < H                 :       1{K} @{H} u = u)
+     and (for all a,b < K for all v < H : (a *{K} b) @{H} v = a @{H} (b @{H} v))
+     and (for all a,b < K for all v < H : (a +{K} b) @{H} v = (a @{H} v) +{H} (b @{H} v))
+     and (for all a < K for all v,w < H : a @{H} (v +{H} w) = (a @{H} v) +{H} (a @{H} w)).
+  end.
 qed.

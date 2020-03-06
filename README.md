@@ -70,7 +70,7 @@ This graph translates to the actual file readings in the following way:
 | 008 func_add             | 06.03.2020 19:00 ||
 | 009 func_neg             | 06.03.2020 22:00 ||
 | 010 func_smul            | not working ||
-| 011 homomorphisms        | ? ||
+| 011 homomorphisms        | 06.03.2020 23:00 ||
 | 012 field2VS             | 06.03.2020 14:00 ||
 | 013 dual                 | 06.03.2020 14:00 ||
 | 100 ring                 | 06.03.2020 14:00 (empty) ||
