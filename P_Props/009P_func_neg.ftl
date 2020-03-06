@@ -1,8 +1,9 @@
 [read linear_algebra_ftl/009D_func_neg.ftl]
 
-Let K denote a Field.
-
 # Func Neg
+#takes about 15 min
+
+Let K denote a Field.
 
 Theorem. Let 2Vectorspace(K,V,W).
 Then FuncNeg(K,V,W) is from |Hom(K,V,W)| to |Hom(K,V,W)|.
@@ -10,7 +11,7 @@ Proof.
 
   Dom(FuncNeg(K,V,W)) = |Hom(K,V,W)|.
 
-  Let g << Hom(K,V,W).
+  Let g < Hom(K,V,W).
   Let us show that FuncNeg(K,V,W)[g] < Hom(K,V,W).
     Let us show that FuncNeg(K,V,W)[g] is linear over K from V to W.
 
@@ -32,6 +33,29 @@ Proof.
         g[u +{V} v] = g[u] +{W} g[v].
     
         FuncNeg(K,V,W)[g][u +{V} v]           = g[~{V} (u +{V} v)].
+        let us show that ~{V} (u +{V} v)                       = ~{V} u +{V} ~{V} v.
+          ~{V} (u +{V} v) = ~{V} (u +{V} v) +{V} 0{V}.
+         let us show that (u +{V} v) +{V} (~{V}u +{V} ~{V}v) = 0{V}.
+           for all x,y,z < V (x +{V} y) +{V} z = x +{V} (y +{V} z). 
+           (u +{V} v) +{V} (~{V}u +{V} ~{V}v) = u +{V} (v +{V} (~{V}u +{V} ~{V}v)).
+           u +{V} (v +{V} (~{V}u +{V} ~{V}v)) = u +{V} ((v +{V} ~{V}u) +{V} ~{V}v).
+           u +{V} ((v +{V} ~{V}u) +{V} ~{V}v) = u +{V} ((~{V}u +{V} v) +{V} ~{V}v).
+           u +{V} ((~{V}u +{V} v) +{V} ~{V}v) = u +{V} (~{V}u +{V} (v +{V} ~{V}v)).
+           u +{V} (~{V}u +{V} (v +{V} ~{V}v)) = (u +{V} ~{V}u) +{V} (v +{V} ~{V}v).
+           (v +{V} ~{V}v) = 0{V}.
+           (u +{V} ~{V}u) +{V} (v +{V} ~{V}v) = (u +{V} ~{V}u) +{V} 0{V}.
+           u +{V} ~{V}u = 0{V}.
+           (u +{V} ~{V}u) +{V} 0{V} = 0{V} +{V} 0{V}.
+           0{V} +{V} 0{V} = 0{V}.
+         end.
+         ~{V} (u +{V} v) +{V} 0{V} =  ~{V} (u +{V} v) +{V} ((u +{V} v) +{V} (~{V}u +{V} ~{V}v)).
+         ~{V} (u +{V} v) +{V} ((u +{V} v) +{V} (~{V}u +{V} ~{V}v))
+          = (~{V} (u +{V} v) +{V} (u +{V} v)) +{V} (~{V}u +{V} ~{V}v).
+         ~{V} (u +{V} v) +{V} (u +{V} v) = 0{V}.
+         (~{V} (u +{V} v) +{V} (u +{V} v)) +{V} (~{V}u +{V} ~{V}v)
+          = 0{V} +{V} (~{V}u +{V} ~{V}v).
+         0{V} +{V} (~{V}u +{V} ~{V}v) = ~{V}u +{V} ~{V}v.
+        end.
         g[~{V} (u +{V} v)]                    = g[~{V} u +{V} ~{V} v].
         g[~{V} u +{V} ~{V} v]                 = g[~{V} u] +{W} g[~{V} v].
         g[~{V} u] +{W} g[~{V} v]              = FuncNeg(K,V,W)[g][u] +{W} FuncNeg(K,V,W)[g][v].
@@ -55,8 +79,9 @@ Proof.
 End.
 
 Theorem. Let 2Vectorspace(K,V,W).
-Let g << Hom(K,V,W). Then FuncAdd(K,V,W)[(g,FuncNeg(K,V,W)[g])] = FuncZero(K,V,W).
+Let g < Hom(K,V,W). Then FuncAdd(K,V,W)[(g,FuncNeg(K,V,W)[g])] = FuncZero(K,V,W).
 Proof.
+  FuncAdd(K,V,W)[(g,FuncNeg(K,V,W)[g])] and FuncZero(K,V,W) are functions.
   Dom(FuncAdd(K,V,W)[(g,FuncNeg(K,V,W)[g])]) = |V| = Dom(FuncZero(K,V,W)).
   Let v<V. Then FuncAdd(K,V,W)[(g,FuncNeg(K,V,W)[g])][v] 
                 = g[v] +{W} FuncNeg(K,V,W)[g][v]
