@@ -57,28 +57,28 @@ This graph translates to the actual file readings in the following way:
 
 ## Issues
 
-| file name                        | P file last worked on |
-| -------------------------- | ---------------------- |
-| 000 set                           | 06.03.2020 14:00 (empty) |
-| 001 function                   | not working |
-| 002 structure                  | 06.03.2020 14:00 (empty) |
-| 003 abelian_group          | 06.03.2020 14:00 |
-| 004 field                          | 06.03.2020 14:00 (empty) |
-| 005 vector_space             | ? |
-| 006 linear_function          | ? |
-| 007 func_zero                   | ? |
-| 008 func_add                    | ? |
-| 009 func_neg                    | ? |
-| 010 func_smul                   | ? |
+| file name                | P file last worked on |
+| ------------------------ | ---------------------- |
+| 000 set                  | 06.03.2020 14:00 (empty) |
+| 001 function             | not working |
+| 002 structure            | 06.03.2020 14:00 (empty) |
+| 003 abelian_group        | 06.03.2020 14:00 |
+| 004 field                | 06.03.2020 14:00 (empty) |
+| 005 vector_space         | ? |
+| 006 linear_function      | ? |
+| 007 func_zero            | ? |
+| 008 func_add             | ? |
+| 009 func_neg             | ? |
+| 010 func_smul            | ? |
 | 011 homomorphisms        | ? |
-| 012 field2VS                      | 06.03.2020 14:00 |
-| 013 dual                            | 06.03.2020 14:00 |
-| 100 ring                             | 06.03.2020 14:00 (empty) |
-| 101 unit_group                  | 06.03.2020 14:00 |
-| 102 endomorphisms         | ? |
-| 103 automorphisms          | ? |
-| 200 bool                            | ? |
-| 201 subspace                    | ? |
-| 202 kernel                         | ? |
-| 203 list                              | ? |
+| 012 field2VS             | 06.03.2020 14:00 |
+| 013 dual                 | 06.03.2020 14:00 |
+| 100 ring                 | 06.03.2020 14:00 (empty) |
+| 101 unit_group           | 06.03.2020 14:00 |
+| 102 endomorphisms        | ? |
+| 103 automorphisms        | ? |
+| 200 bool                 | ? |
+| 201 subspace             | ? |
+| 202 kernel               | ? |
+| 203 list                 | ? |
 | 204 linearly_independent | ? |
