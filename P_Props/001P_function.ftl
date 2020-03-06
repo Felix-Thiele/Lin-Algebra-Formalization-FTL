@@ -3,8 +3,6 @@
 Let f, g, h denote functions.
 Let K, L, M, N denote a set.
 
-Let f:M->N stand for (f is a function from M to N).
-
 
 Theorem. Let f[x] << M for all x << Dom(f). Then id{M}*f = f.
 Proof.
