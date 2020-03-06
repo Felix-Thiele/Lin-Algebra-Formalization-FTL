@@ -60,7 +60,7 @@ This graph translates to the actual file readings in the following way:
 | file name                | P file last worked on |
 | ------------------------ | ---------------------- |
 | 000 set                  | 06.03.2020 14:00 (empty) |
-| 001 function             | not working |
+| 001 function             | 06.03.2020 14:25 |
 | 002 structure            | 06.03.2020 14:00 (empty) |
 | 003 abelian_group        | 06.03.2020 14:00 |
 | 004 field                | 06.03.2020 14:00 (empty) |
