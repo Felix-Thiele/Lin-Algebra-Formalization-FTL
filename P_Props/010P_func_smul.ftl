@@ -6,7 +6,7 @@ Lemma. Let 2Vectorspace(K,V,W). Let a,b < K. a +{K} b < K.
 Theorem. Let 2Vectorspace(K,V,W).
 Then FuncSMul(K,V,W) is from Prod(|K|,|Hom(K,V,W)|) to |Hom(K,V,W)|.
 Proof.
-
+ 
   Dom(FuncSMul(K,V,W)) = Prod(|K|,|Hom(K,V,W)|).
 
   Let g < Hom(K,V,W).
