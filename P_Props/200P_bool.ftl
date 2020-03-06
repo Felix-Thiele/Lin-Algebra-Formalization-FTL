@@ -1,4 +1,4 @@
-[read linear_algebra_ftl/D_200bool.ftl]
+[read linear_algebra_ftl/200D_bool.ftl]
 
 Theorem. B is a field.
 Proof.

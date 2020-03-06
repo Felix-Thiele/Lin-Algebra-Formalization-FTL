@@ -17,6 +17,9 @@ Proof.
       FuncSMul(K,V,W)[(a,g)] is from |V| to |W|.
       proof.
         Dom(FuncSMul(K,V,W)[(a,g)]) = |V|.
+        For all v<V FuncSMul(K,V,W)[(a,g)][v] = a @{W} g[v].
+        W[smul] is a function from Prod(|K|,|W|) to |W|.
+        For all v<V a @{W} g[v] << |W|.
         For all v<V FuncSMul(K,V,W)[(a,g)][v] = a @{W} g[v] << |W|.
       end.
     

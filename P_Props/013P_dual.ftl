@@ -1,7 +1,8 @@
 [read linear_algebra_ftl/013D_dual.ftl]
 
-Let K denote a Field.
+# takes about 5 min
 
+Let K denote a Field.
 
 Theorem. Let V be a vector space over K.
 V2ddV(K,V) is injective.
