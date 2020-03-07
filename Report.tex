@@ -51,8 +51,8 @@
 }
 \lstdefinelanguage{ForTheL}{
   keywords=[1]{Signature,Axiom,Theorem,Definition},
-  keywords=[2]{Proof,End,qed},
-  keywords=[3]{Assume,Let,us,show},
+  keywords=[2]{Proof,End,qed,by},
+  keywords=[3]{Assume,Let,us,show, Since, we, have},
 % Defining keywords that contain blank spaces seems to very inconvenient. Therefore "us" and "show" are individual keywords, "Let" must have the same color everywhere and "that" can not be higlighted as a keyword, because that would also show up at wrong places.
   sensitive=false,
   morecomment=[l]{\#},
@@ -269,7 +269,26 @@ While the main problem that needs to be addressed is a more efficient structurin
 
 Firstly Naproche needs an increased transparency in what the e-prover is doing. On the one hand the e-prover is a huge blessing, simplifying many steps. On the other hand it is the source of many problems, since the programmer can not guess where the e-prover gets stuck. Also the e-prover will often take longer or even cant compile working code, if it is copied to a later part of the file. This is due to the increased breadth of the internal search tree. To counter these effects, while keeping the luxury of an assisting e-prover, we suggest the e-prover return the proofs of each statement, which can then be either pasted into the code or be saved in a separate file. This decoupling of the e-prover to the checking process will not only save time, but also guarantee more stability.
 
-ForTheL needs a Code Sectioning functionality. This would not only improve code transparency but also speed up checking times. At the moment the e-prover can only be restricted by (by theorem) commands. Introducing code sections will allow broader restrictions.
+ForTheL has a 
+\begin{lstlisting}
+Let us show statementX
+reasoning
+end.
+\end{lstlisting} 
+functionality, to clean up the proof structure. We recommend adding a similar functionality
+\begin{lstlisting}
+Since 
+reasoning
+we have statementX
+\end{lstlisting} 
+that is only for ontological reasoning. In this project we find that these parts of the proofs, make up for an 
+extensive part of our code. This leads to less readability, since these parts are mostly superfluous from
+a human point of view.
+
+Additionally to this we ForTheL would greatly benefit from Code Sectioning functionality. This would not only improve code transparency but also speed up checking times. At the moment the e-prover can only be restricted by 
+\begin{lstlisting}
+statementX (by theoremY).
+\end{lstlisting}  commands. Introducing code sections will allow broader restrictions.
 
 \end{document}
 
