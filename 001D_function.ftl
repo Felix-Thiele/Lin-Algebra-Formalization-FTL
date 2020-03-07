@@ -29,4 +29,4 @@ Signature. comp(f,g) is a notion.
 Let f*g stand for comp(f,g).
 Axiom FunComp. Let f,g be functions such that for all x << Dom(g) we have g[x] << Dom(f).
  Then f*g is a function and Dom(f*g) = Dom(g)
-  and for all x << Dom(g) : (f*g)[x] = f[g[x]].
+ and for all x << Dom(g) : (f*g)[x] = f[g[x]].
