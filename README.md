@@ -78,7 +78,7 @@ This graph translates to the actual file readings in the following way:
 | 102 endomorphisms        | ? ||
 | 103 automorphisms        | ? ||
 | 200 bool                 | 06.03.2020 19:00 ||
-| 201 subspace             | 07.03.2020 14:00 ||
-| 202 kernel               | ? ||
+| 201 subspace             | 07.03.2020 13:50 ||
+| 202 kernel               | 07.03.2020 13:50 ||
 | 203 list                 | 06.03.2020 19:00 ||
 | 204 linearly_independent | 06.03.2020 19:00 (empty) ||
