@@ -1,5 +1,7 @@
 [read linear_algebra_ftl/102D_endomorphisms.ftl]
 
+# Takes about 8 minutes.
+
 Let K denote a field.
 
 Theorem. Let V be a vector space over K. Then id{|V|} is linear over K from V to V.
