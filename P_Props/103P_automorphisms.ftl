@@ -1,5 +1,7 @@
 [read linear_algebra_ftl/103D_automorphisms.ftl]
 
+# Takes about 5 minutes.
+
 Let K denote a field.
 Let M,N denote sets.
 Let f,g denote functions.
