@@ -2,41 +2,43 @@
 
 Let K denote a field.
 
-Lemma. Let V be a vector space over K. Let v < V.
+Lemma 1. Let V be a vector space over K. Let v < V.
 Then 0{K} @{V} v = (0{K} @{V} v) +{V} 0{V}.
 
-Lemma. Let V be a vector space over K. Let v < V.
+Lemma 2. Let V be a vector space over K. Let v < V.
 Then (0{K} @{V} v) +{V} 0{V} = (0{K} @{V} v) +{V} (v +{V} neg{V}[v]).
 
-Lemma. Let V be a vector space over K. Let v < V.
+Lemma 3. Let V be a vector space over K. Let v < V.
 Then (0{K} @{V} v) +{V} (v +{V} neg{V}[v]) = ((0{K} @{V} v) +{V} v) +{V} neg{V}[v].
 
-Lemma. Let V be a vector space over K. Let v < V.
+Lemma 4. Let V be a vector space over K. Let v < V.
 Then ((0{K} @{V} v) +{V} v) +{V} neg{V}[v] = ((0{K} @{V} v) +{V} (1{K} @{V} v)) +{V} neg{V}[v].
 
-Lemma. Let V be a vector space over K. Let v < V.
+Lemma 5. Let V be a vector space over K. Let v < V.
 Then ((0{K} @{V} v) +{V} (1{K} @{V} v)) +{V} neg{V}[v] = ((0{K} +{K} 1{K}) @{V} v) +{V} neg{V}[v].
 
-Lemma. Let V be a vector space over K. Let v < V.
+Lemma 6. Let V be a vector space over K. Let v < V.
 Then ((0{K} +{K} 1{K}) @{V} v) +{V} neg{V}[v] = (1{K} @{V} v) +{V} neg{V}[v].
 
-Lemma. Let V be a vector space over K. Let v < V.
+Lemma 7. Let V be a vector space over K. Let v < V.
 Then (1{K} @{V} v) +{V} neg{V}[v] = v +{V} neg{V}[v].
 
-Lemma. Let V be a vector space over K. Let v < V.
+Lemma 8. Let V be a vector space over K. Let v < V.
 Then  v +{V} neg{V}[v] = 0{V}.
 
 Theorem. Let V be a vector space over K. Let v < V.
 Then 0{K} @{V} v = 0{V}.
 Proof.
- 0{K} @{V} v = (0{K} @{V} v) +{V} 0{V}.
- (0{K} @{V} v) +{V} 0{V} = (0{K} @{V} v) +{V} (v +{V} neg{V}[v]).
- (0{K} @{V} v) +{V} (v +{V} (neg{V}[v])) = ((0{K} @{V} v) +{V} v) +{V} (neg{V}[v]).
- ((0{K} @{V} v) +{V} v) +{V} neg{V}[v] = ((0{K} @{V} v) +{V} (1{K} @{V} v)) +{V} neg{V}[v].
- ((0{K} @{V} v) +{V} (1{K} @{V} v)) +{V} neg{V}[v] = ((0{K} +{K} 1{K}) @{V} v) +{V} neg{V}[v].
- ((0{K} +{K} 1{K}) @{V} v) +{V} neg{V}[v] = (1{K} @{V} v) +{V} neg{V}[v].
- (1{K} @{V} v) +{V} neg{V}[v] = v +{V} neg{V}[v].
- v +{V} neg{V}[v] = 0{V}.
+  V[add] is a function from Prod(|V|,|V|) to |V|.
+  V[smul] is a function from Prod(|K|,|V|) to |V|.
+ 0{K} @{V} v = (0{K} @{V} v) +{V} 0{V} (by 1).
+ (0{K} @{V} v) +{V} 0{V} = (0{K} @{V} v) +{V} (v +{V} neg{V}[v]) (by 2).
+ (0{K} @{V} v) +{V} (v +{V} (neg{V}[v])) = ((0{K} @{V} v) +{V} v) +{V} (neg{V}[v]) (by 3).
+ ((0{K} @{V} v) +{V} v) +{V} neg{V}[v] = ((0{K} @{V} v) +{V} (1{K} @{V} v)) +{V} neg{V}[v] (by 4).
+ ((0{K} @{V} v) +{V} (1{K} @{V} v)) +{V} neg{V}[v] = ((0{K} +{K} 1{K}) @{V} v) +{V} neg{V}[v] (by 5).
+ ((0{K} +{K} 1{K}) @{V} v) +{V} neg{V}[v] = (1{K} @{V} v) +{V} neg{V}[v] (by 6).
+ (1{K} @{V} v) +{V} neg{V}[v] = v +{V} neg{V}[v] (by 7).
+ v +{V} neg{V}[v] = 0{V} (by 8).
 qed.
 
 Axiom SmulZero. Let V be a vector space over K. Let a < K.
@@ -51,24 +53,45 @@ Then v +{V}  0{V} =  v.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then neg{K}[a] @{V} v = (neg{K}[a] @{V} v) +{V} 0{V}.
+Proof.
+  V[smul] is a function from Prod(|K|,|V|) to |V|.
+End.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then (neg{K}[a] @{V} v) +{V} 0{V} = (neg{K}[a] @{V} v) +{V} ((a @{V} v) +{V} neg{V}[a @{V} v]).
+Proof.
+  V[smul] is a function from Prod(|K|,|V|) to |V|.
+End.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then (neg{K}[a] @{V} v) +{V} ((a @{V} v) +{V} neg{V}[a @{V} v]) = ((neg{K}[a] @{V} v) +{V} (a @{V} v)) +{V} neg{V}[a @{V} v].
+Proof.
+  V[smul] is a function from Prod(|K|,|V|) to |V|.
+End.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then ((neg{K}[a] @{V} v) +{V} (a @{V} v)) +{V} neg{V}[a @{V} v] = ((neg{K}[a] +{K} a) @{V} v) +{V} neg{V}[a @{V} v].
+Proof.
+  V[smul] is a function from Prod(|K|,|V|) to |V|.
+End.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then ((neg{K}[a] +{K} a) @{V} v) +{V} neg{V}[a @{V} v] = (0{K} @{V} v) +{V} neg{V}[a @{V} v].
+Proof.
+  V[smul] is a function from Prod(|K|,|V|) to |V|.
+End.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then (0{K} @{V} v) +{V} neg{V}[a @{V} v] = 0{V} +{V} neg{V}[a @{V} v].
+Proof.
+  V[smul] is a function from Prod(|K|,|V|) to |V|.
+End.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then 0{V} +{V} neg{V}[a @{V} v] = neg{V}[a @{V} v].
+Proof.
+  V[smul] is a function from Prod(|K|,|V|) to |V|.
+End.
 
 
 Theorem NegSmul. Let V be a vector space over K. Let a < K. Let v < V.
