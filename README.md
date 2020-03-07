@@ -75,8 +75,8 @@ This graph translates to the actual file readings in the following way:
 | 013 dual                 | 06.03.2020 14:00 ||
 | 100 ring                 | 06.03.2020 14:00 (empty) ||
 | 101 unit_group           | 06.03.2020 14:00 ||
-| 102 endomorphisms        | ? ||
-| 103 automorphisms        | ? ||
+| 102 endomorphisms        | 07.03.2020 15:00 ||
+| 103 automorphisms        | 07.03.2020 15:00 ||
 | 200 bool                 | 06.03.2020 19:00 ||
 | 201 subspace             | 07.03.2020 13:50 ||
 | 202 kernel               | 07.03.2020 13:50 ||
