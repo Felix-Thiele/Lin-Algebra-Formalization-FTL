@@ -8,7 +8,7 @@ V2ddV(K,V) is injective.
 Axiom.
 Assume V is a vector space over K.
 Let x be an element of |V|.
-V2ddV(K,V)[x] is linear over K from dual(K,V) to field2VS(K).
+V2ddV(K,V)[x] is linear over K from dual(K,V) to K.
 
 Axiom.
 Assume V is a vector space over K.

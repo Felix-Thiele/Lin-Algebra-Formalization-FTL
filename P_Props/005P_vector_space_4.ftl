@@ -3,13 +3,10 @@
 Let K denote a field.
 
 
-Signature. Let V be a vector space over K. Let a < K. Let v < V. dummy(K,V,a,v) is a notion.
+Definition. Let V be a vector space over K. Let a < K. Let v < V.
+dummy(K,V,a,v) is ((a @{V} (~{V} v)) +{V} (a @{V} v) , ~{V} (a @{V} v)).
 
-Axiom. Let V be a vector space over K. Let a < K. Let v < V.
-dummy(K,V,a,v) = ((a @{V} (~{V} v)) +{V} (a @{V} v) , ~{V} (a @{V} v)).
-
-# It doesn't work when you substitute the "dummy(K,V,a,v)" below
-# by "((a @{V} (~{V} v)) +{V} (a @{V} v) , ~{V} (a @{V} v))".
+# It doesn't work when you substitute the "dummy(K,V,a,v)" below by its Definition.
 
 
 Axiom. Let V be a vector space over K. Let a < K. Let v < V.
