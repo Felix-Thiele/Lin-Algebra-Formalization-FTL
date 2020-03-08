@@ -2,4 +2,4 @@
 
 Let K denote a field.
 
-Axiom. Let K be a field. Then field2VS(K) is a vector space over K.
+Axiom. Let K be a field. Then K is a vector space over K.
