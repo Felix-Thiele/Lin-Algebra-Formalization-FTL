@@ -6,14 +6,16 @@ Theorem. Let K be a field. Then field2VS(K) is a vector space over K.
 Proof.
  Let V = field2VS(K).
  Let us show that V is a vector space over K.
+  V[add] is a function from Prod(|V|,|V|) to |V|.
+  V[smul] is a function from Prod(|K|,|V|) to |V|.
   carr,zero,add,neg,smul << Dom(V).
   |V| is a set.
   0{V} < V.
   add{V} is a function from Prod(|V|,|V|) to |V|.
   neg{V} is a function from |V| to |V|.
   For all a < V     :       a +{V} 0{V} = a.
-  For all a < V     :          a -{V} a = 0{V}.
-  For all a,b,c < V : a +{V} (b +{V} c) = (a +{V} b) +{V} c.
+  For all a < V     :          a -{V} a = a -{K} a = 0{V}.
+  For all a,b,c < V : a +{V} (b +{V} c) =  (a +{V} b) +{V} c.
   For all a,b < V   :          a +{V} b = b +{V} a.
   smul{V} is a function from Prod(|K|,|V|) to |V|.
   for all u < V                 :       1{K} @{V} u = u.
