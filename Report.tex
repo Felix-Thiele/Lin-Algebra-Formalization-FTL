@@ -245,6 +245,14 @@ Definition. An abelian group is a structure G such that
 
 After the definition of various structures on sets we define homomorphisms. These require quite an extensive preparation which is done in the func\_ files, defining the zero, addition, negation, and scalar multiplication on Hom(K,V,W). These are split from the D\_homomorphisms file because the corresponding P\_ files hold long proofs which become easier to check.
 
+For brevity in D\_ func\_ zero we introduce the following abbreviations:
+
+\begin{lstlisting}
+Let 2Vectorspace(K,V,W) stand for
+(K is a field and (V is a vector space over K) and (W is a vector space over K)).
+\end{lstlisting}
+
+
 \subsubsection{Field2VS}
 Proving that a field is a vector space becomes easier through the structure construction. We don't have to 
 redefine the part of the structure that already exists but can instead just add scalar multiplication to
@@ -256,7 +264,8 @@ Axiom. (K has smul).
 Axiom. smul{K} = mul{K}.
 \end{lstlisting}
 
-We then prove in the the P\_ field2VS file that this really does create a vector space.
+We then prove in the the P\_ field2VS file that this really does create a vector space as follows.
+\newpage
 \begin{lstlisting}
 Theorem. Let K be a field. Then K is a vector space over K.
 Proof.
@@ -273,7 +282,6 @@ qed.
 \subsubsection{Lists}
 
 A list is defined as function from a set to a structure with a carrier and a zero element. The zero element ensures, that the list is not defined over an empty set of objects. 
-
 
 \subsection{Experiences}
 \subsubsection{Functional Approach to Algebraic Structures} \label{functionalapproach}
