@@ -3,4 +3,4 @@
 Let K denote a field.
 
 Axiom. (K has smul).
-Axiom. smul{K} = mul{K}.
+Definition. smul{K} = mul{K}.
