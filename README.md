@@ -64,7 +64,7 @@ This graph translates to the actual file readings in the following way:
 | 002 structure            | 06.03.2020 14:00 (empty) | 0 | 0 |
 | 003 abelian_group        | 06.03.2020 14:00         | ? | ? |
 | 004 field                | 06.03.2020 14:00 (empty) | 0 | 0 |
-| 005 vector_space         | 08.03.2020 01.00         | ? | ? |
+| 005 vector_space         | 08.03.2020 01:00         | ? | ? |
 | 006 linear_function      | 06.03.2020 22:00         | ? | ? |
 | 007 func_zero            | 06.03.2020 19:00         | ? | ? |
 | 008 func_add             | 06.03.2020 19:00         | ? | ? |
