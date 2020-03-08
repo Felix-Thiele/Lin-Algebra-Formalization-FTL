@@ -4,7 +4,7 @@
 
 Theorem. Let 2Vectorspace(K,V,W).
 Then FuncAdd(K,V,W) is from Prod(|Hom(K,V,W)|,|Hom(K,V,W)|) to |Hom(K,V,W)|.
-Proof.
+proof.
 
   Dom(FuncAdd(K,V,W)) = Prod(|Hom(K,V,W)|,|Hom(K,V,W)|).
 
@@ -67,7 +67,7 @@ end.
 
 Theorem. Let 2Vectorspace(K,V,W).
 Let g < Hom(K,V,W). Then FuncAdd(K,V,W)[(g,FuncZero(K,V,W))] = g.
-Proof.
+proof.
   FuncAdd(K,V,W)[(g,FuncZero(K,V,W))] and g are functions.
   Dom(FuncAdd(K,V,W)[(g,FuncZero(K,V,W))]) = |V| = Dom(g).
   For all v < V  FuncAdd(K,V,W)[(g,FuncZero(K,V,W))][v] = g[v] +{W} FuncZero(K,V,W)[v]
@@ -77,13 +77,13 @@ end.
 
 Theorem. Let 2Vectorspace(K,V,W).
 Let g,h < Hom(K,V,W).  Then FuncAdd(K,V,W)[(g,h)] < Hom(K,V,W).
-Proof.
+proof.
   (g,h) << Prod(|Hom(K,V,W)|,|Hom(K,V,W)|).
 end.
 
 Theorem. Let 2Vectorspace(K,V,W).
 Let g,h < Hom(K,V,W). Then FuncAdd(K,V,W)[(g,h)] = FuncAdd(K,V,W)[(h,g)].
-Proof.
+proof.
   FuncAdd(K,V,W)[(g,h)] and FuncAdd(K,V,W)[(h,g)] are functions.
   Dom(FuncAdd(K,V,W)[(g,h)]) = |V| = Dom(FuncAdd(K,V,W)[(h,g)]).
   For all v<V FuncAdd(K,V,W)[(g,h)][v] = g[v] +{W} h[v] = h[v] +{W} g[v] = FuncAdd(K,V,W)[(h,g)][v].
@@ -93,7 +93,7 @@ end.
 Theorem. Let 2Vectorspace(K,V,W).
 Let g,h,j < Hom(K,V,W).  Then FuncAdd(K,V,W)[(FuncAdd(K,V,W)[(g,h)],j)] 
           = FuncAdd(K,V,W)[(g,FuncAdd(K,V,W)[(h,j)])].
-Proof.
+proof.
   FuncAdd(K,V,W)[(FuncAdd(K,V,W)[(g,h)],j)] and FuncAdd(K,V,W)[(g,FuncAdd(K,V,W)[(h,j)])] are functions.
   Dom(FuncAdd(K,V,W)[(FuncAdd(K,V,W)[(g,h)],j)]) = |V| 
       = Dom(FuncAdd(K,V,W)[(g,FuncAdd(K,V,W)[(h,j)])]).

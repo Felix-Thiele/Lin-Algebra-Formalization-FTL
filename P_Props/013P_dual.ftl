@@ -9,7 +9,7 @@ Axiom. field2VS(K) = K.
 
 Theorem. Let V be a vector space over K.
 V2ddV(K,V) is injective.
-Proof.
+proof.
   Let x,y < V. Assume x != y. Take a function g 
     such that g is linear over K from V to field2VS(K) and g[x] != g[y].
   V2ddV(K,V)[x][g]  != V2ddV(K,V)[y][g].
@@ -20,10 +20,10 @@ Theorem.
 Assume V is a vector space over K.
 Let x be an element of |V|.
 V2ddV(K,V)[x] is linear over K from dual(K,V) to field2VS(K).
-Proof.
+proof.
   
   For all y << |dual(K,V)| y is function from |V| to |field2VS(K)|.
-  Proof.
+  proof.
     Let y << |dual(K,V)|.
     Then y << |Hom(K,V,field2VS(K))|.
     Then y is linear over K from V to field2VS(K).
@@ -95,14 +95,14 @@ end.
 Theorem.
 Assume V is a vector space over K.
 V2ddV(K,V) is linear over K from V to dual(K,dual(K,V)).
-Proof.
+proof.
   V2ddV(K,V) is from |V| to |dual(K,dual(K,V))|.
 
   dual(K,dual(K,V)) is a vector space over K.
   dual(K,dual(K,V))[add] is from Prod(|dual(K,dual(K,V))|,|dual(K,dual(K,V))|) to |dual(K,dual(K,V))|.
   For all elements h,g of |dual(K,dual(K,V))| (h +{dual(K,dual(K,V))} g) < dual(K,dual(K,V)).
   For all x,y < V V2ddV(K,V)[x +{V} y] = V2ddV(K,V)[x] +{dual(K,dual(K,V))} V2ddV(K,V)[y].
-  Proof.
+  proof.
     Let x,y << |V|. 
     V2ddV(K,V)[x] +{dual(K,dual(K,V))} V2ddV(K,V)[y] << |dual(K,dual(K,V))|.
     Therefore V2ddV(K,V)[x] +{dual(K,dual(K,V))} V2ddV(K,V)[y] is a function.
@@ -150,7 +150,7 @@ Proof.
   For all a << |K| and all x << |dual(K,dual(K,V))| a @{dual(K,dual(K,V))} x < dual(K,dual(K,V)).
   V2ddV(K,V) is a function from |V| to |dual(K,dual(K,V))|.
   For all a < K and all x < V V2ddV(K,V)[a @{V} x] = a @{dual(K,dual(K,V))} (V2ddV(K,V)[x]).
-  Proof.
+  proof.
     Let a < K and x < V.
     V2ddV(K,V)[a @{V} x] and  a @{dual(K,dual(K,V))} V2ddV(K,V)[x] are functions.
     Dom(V2ddV(K,V)[a @{V} x]) = |dual(K,V)|

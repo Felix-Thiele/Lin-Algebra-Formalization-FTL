@@ -1,7 +1,7 @@
 [read linear_algebra_ftl/200D_bool.ftl]
 
 Theorem. B is a field.
-Proof.
+proof.
  carr,zero,one,add,neg,mul,inv << Dom(B).
  |B| is a set.
  0{B} < B.

@@ -3,7 +3,7 @@
 
 Theorem. Let 2Vectorspace(K,V,W). 
 Then Hom(K,V,W) is a vector space over K.
-Proof.
+proof.
  Let H = Hom(K,V,W).
   carr,zero,add,neg,smul << Dom(H).
   let us show that H is an abelian group.

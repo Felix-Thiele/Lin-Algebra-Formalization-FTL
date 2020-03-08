@@ -5,7 +5,7 @@
 Let K denote a field.
 
 Theorem. Let V be a vector space over K. Then id{|V|} is linear over K from V to V.
-Proof.
+proof.
  id{|V|} is from |V| to |V|.
  For all v < V : id{|V|}[v] = v.
 
@@ -25,7 +25,7 @@ end.
 Theorem. Let U,V,W be vector spaces over K. Let f,g be functions.
 Let g be linear over K from U to V. Let f be linear over K from V to W.
 Then f*g is linear over K from U to W.
-Proof.
+proof.
  f*g is from |U| to |W|.
  For all u < U : (f*g)[u] = f[g[u]].
 
@@ -61,7 +61,7 @@ end.
 
 Lemma. Let V be a vector space over K. Let f,g < end(K,V).
 (f,g) << Dom(mul{end(K,V)}).
-Proof.
+proof.
  mul{end(K,V)} = FuncComp(K,V).
  Dom(FuncComp(K,V)) = Prod(|end(K,V)|,|end(K,V)|).
 end.
@@ -73,7 +73,7 @@ f *{end(K,V)} g = f*g.
 
 Lemma. Let V be a vector space over K.
 mul{end(K,V)} is from Prod(|end(K,V)|,|end(K,V)|) to |end(K,V)|.
-Proof.
+proof.
  Let x << Prod(|end(K,V)|,|end(K,V)|).
  Take f,g < end(K,V) such that x = (f,g).
  f is linear over K from V to V.
@@ -87,14 +87,14 @@ end.
 
 Lemma. Let V be a vector space over K. Let g,h < end(K,V).
 Then (g +{end(K,V)} h) < end(K,V).
-Proof.
+proof.
  add{end(K,V)} is from Prod(|end(K,V)|,|end(K,V)|) to |end(K,V)|.
 end.
 
 
 Lemma. Let V be a vector space over K. Let f,g,h < end(K,V).
 Then f *{end(K,V)} (g +{end(K,V)} h) < end(K,V).
-Proof.
+proof.
  (g +{end(K,V)} h) < end(K,V).
  mul{end(K,V)} is from Prod(|end(K,V)|,|end(K,V)|) to |end(K,V)|.
 end.
@@ -102,14 +102,14 @@ end.
 
 Lemma. Let V be a vector space over K. Let f,g,h < end(K,V).
 Then (f *{end(K,V)} g) < end(K,V).
-Proof.
+proof.
  mul{end(K,V)} is from Prod(|end(K,V)|,|end(K,V)|) to |end(K,V)|.
 end.
 
 
 Lemma. Let V be a vector space over K. Let f,g,h < end(K,V).
 Then (f *{end(K,V)} g) +{end(K,V)} (f *{end(K,V)} h) < end(K,V).
-Proof.
+proof.
  f *{end(K,V)} g < end(K,V).
  f *{end(K,V)} h < end(K,V).
 end.
@@ -129,7 +129,7 @@ Lemma. Let V be a vector space over K. Let g,h < end(K,V). Let v < V.
 
 Lemma. Let V be a vector space over K. Let f,g < end(K,V). Let v < V.
 (f*g)[v] = f[g[v]].
-Proof.
+proof.
  For all w << Dom(g) we have g[w] << Dom(f).
  For all w << Dom(g) : (f*g)[w] = f[g[w]].
 end.
@@ -137,7 +137,7 @@ end.
 
 Lemma. Let V be a vector space over K. Let f,g,h < end(K,V).
 Then f *{end(K,V)} (g +{end(K,V)} h) = (f *{end(K,V)} g) +{end(K,V)} (f *{end(K,V)} h).
-Proof.
+proof.
  Dom(f*g) = |V|.
  Dom(f*h) = |V|.
  For all v < V : f[g[v]] = (f*g)[v].
@@ -181,7 +181,7 @@ end.
 
 Lemma. Let V be a vector space over K. Let f,g,h < end(K,V).
 Then (f +{end(K,V)} g) *{end(K,V)} h = (f *{end(K,V)} h) +{end(K,V)} (g *{end(K,V)} h).
-Proof.
+proof.
  Dom(f*h) = |V|.
  Dom(g*h) = |V|.
  For all v < V : f[h[v]] = (f*h)[v].
@@ -217,7 +217,7 @@ end.
 
 
 Theorem. Let V be a vector space over K. end(K,V) is a ring.
-Proof.
+proof.
  Let R = end(K,V).
  Let us show that R is a ring.
   carr,zero,one,add,neg,mul << Dom(R).

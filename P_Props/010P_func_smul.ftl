@@ -5,7 +5,7 @@ Lemma. Let 2Vectorspace(K,V,W). Let a,b < K. a +{K} b < K.
 
 Theorem. Let 2Vectorspace(K,V,W).
 Then FuncSMul(K,V,W) is from Prod(|K|,|Hom(K,V,W)|) to |Hom(K,V,W)|.
-Proof.
+proof.
  
   Dom(FuncSMul(K,V,W)) = Prod(|K|,|Hom(K,V,W)|).
 
@@ -61,7 +61,7 @@ end.
 
 Theorem. Let 2Vectorspace(K,V,W).
 Let g < Hom(K,V,W). Then FuncSMul(K,V,W)[(1{K},g)] = g.
-Proof.
+proof.
   FuncSMul(K,V,W)[(1{K},g)] and g are functions.
   Dom(FuncSMul(K,V,W)[(1{K},g)]) = |V| = Dom(g).
   W[smul] is a function from Prod(|K|,|W|) to |W|.
@@ -71,7 +71,7 @@ end.
 
 Theorem. Let 2Vectorspace(K,V,W).
 Let g < Hom(K,V,W). Let a < K.  Then FuncSMul(K,V,W)[(a,g)] < Hom(K,V,W).
-Proof.
+proof.
   (a,g) << Prod(|K|,|Hom(K,V,W)|).
 end.
 
@@ -80,7 +80,7 @@ end.
 Theorem. Let 2Vectorspace(K,V,W).
 Let a,b < K. Let g < Hom(K,V,W). 
 Then FuncSMul(K,V,W)[((a *{K} b),g)] = FuncSMul(K,V,W)[(a,FuncSMul(K,V,W)[(b,g)])].
-Proof.
+proof.
   a *{K} b < K.
   Dom(FuncSMul(K,V,W)[((a *{K} b),g)]) = |V| = Dom(FuncSMul(K,V,W)[(a,FuncSMul(K,V,W)[(b,g)])]).
   Let v<V.
@@ -96,7 +96,7 @@ Theorem. Let 2Vectorspace(K,V,W).
 Let a,b < K. Let g < Hom(K,V,W). 
 Then FuncSMul(K,V,W)[((a +{K} b),g)] 
   = FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a, g)],FuncSMul(K,V,W)[(b, g)])].
-Proof.
+proof.
   FuncSMul(K,V,W)[((a +{K} b),g)] < Hom(K,V,W).
   FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a, g)],FuncSMul(K,V,W)[(b, g)])] is a function.
   a +{K} b < K.
@@ -120,7 +120,7 @@ Theorem. Let 2Vectorspace(K,V,W).
 Let a < K. Let g,h < Hom(K,V,W).
 Then FuncSMul(K,V,W)[(a,FuncAdd(K,V,W)[(g,h)])] 
     = FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a,g)], FuncSMul(K,V,W)[(a,h)])].
-Proof.
+proof.
   Dom(FuncSMul(K,V,W)[(a,FuncAdd(K,V,W)[(g,h)])]) = |V|
     = Dom(FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a,g)], FuncSMul(K,V,W)[(a,h)])]).
   Let v<V.

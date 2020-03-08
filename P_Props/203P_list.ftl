@@ -5,7 +5,7 @@ Assume L be a List.
 Assume |str(L)| has an element.
 Let a << B(L).
 add(cut(L,a),a,L[a]) = L.
-Proof.
+proof.
   Let us show that B(add(cut(L,a),a,L[a])) = B(L).
     B(L) is a set.
     B(add(cut(L,a),a,L[a])) is a set.

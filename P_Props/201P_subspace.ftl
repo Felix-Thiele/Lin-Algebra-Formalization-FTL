@@ -4,7 +4,7 @@ Let K denote a field.
 
 
 Theorem. Let V be a vector space over K. Then |V| is a subspace of V over K.
-Proof.
+proof.
  |V| is a set.
  0{V} << |V|.
  For all u,v << |V|             :  u +{V} v << |V|.
@@ -18,7 +18,7 @@ Then a @{V} (v +{V} w) = (a @{V} v) +{V} (a @{V} w).
 
 
 Theorem. Let subspace(K,V,U). Then subspace2VS(U) is a vector space over K.
-Proof.
+proof.
  Let W = subspace2VS(U).
 
  Let us show that W is a vector space over K.

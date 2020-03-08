@@ -7,7 +7,7 @@ Let K denote a Field.
 
 Theorem. Let 2Vectorspace(K,V,W).
 Then FuncNeg(K,V,W) is from |Hom(K,V,W)| to |Hom(K,V,W)|.
-Proof.
+proof.
 
   Dom(FuncNeg(K,V,W)) = |Hom(K,V,W)|.
 
@@ -80,7 +80,7 @@ end.
 
 Theorem. Let 2Vectorspace(K,V,W).
 Let g < Hom(K,V,W). Then FuncAdd(K,V,W)[(g,FuncNeg(K,V,W)[g])] = FuncZero(K,V,W).
-Proof.
+proof.
   FuncAdd(K,V,W)[(g,FuncNeg(K,V,W)[g])] and FuncZero(K,V,W) are functions.
   Dom(FuncAdd(K,V,W)[(g,FuncNeg(K,V,W)[g])]) = |V| = Dom(FuncZero(K,V,W)).
   Let v<V. Then FuncAdd(K,V,W)[(g,FuncNeg(K,V,W)[g])][v] 

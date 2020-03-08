@@ -4,13 +4,13 @@ Let K denote a field.
 
 Axiom SmulZero. Let V be a vector space over K. Let a < K.
 Then a @{V} 0{V} = 0{V}.
-# Proof : 005P_vector_space_1.ftl
+# proof : 005P_vector_space_1.ftl
 
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then (a @{V} (~{V} v)) +{V} ((a @{V} v) -{V} (a @{V} v))
    = ((a @{V} (~{V} v)) +{V} (a @{V} v)) -{V} (a @{V} v).
-Proof. 
+proof. 
  Take x < V such that x = a @{V} (~{V} v).
  Take y < V such that y = a @{V} v.
  Take z < V such that z = neg{V}[a @{V} v].
@@ -20,7 +20,7 @@ end.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then ((a @{V} (~{V} v)) +{V} (a @{V} v)) -{V} (a @{V} v) = ~{V} (a @{V} v).
-Proof.
+proof.
  Let us show that ((a @{V} (~{V} v)) +{V} (a @{V} v)) -{V} (a @{V} v)  = 0{V} -{V} (a @{V} v).
   Let us show that (a @{V} (~{V} v)) +{V} (a @{V} v) = 0{V}.
    ((a @{V} (~{V} v)) +{V} (a @{V} v)) = a @{V} ((~{V} v) +{V} v).
@@ -35,7 +35,7 @@ end.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then a @{V} (~{V} v) = (a @{V} (~{V} v)) +{V} ((a @{V} v) -{V} (a @{V} v)).
-Proof.
+proof.
  a @{V} (~{V} v) = (a @{V} (~{V} v)) +{V} 0{V}.
 
  Let us show that (a @{V} v , ~{V} (a @{V} v)) << Dom(add{V}).
@@ -53,7 +53,7 @@ end.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then a @{V} (~{V} v) = ((a @{V} (~{V} v)) +{V} (a @{V} v)) -{V} (a @{V} v).
-Proof.
+proof.
  (a @{V} (~{V} v)) +{V} ((a @{V} v) -{V} (a @{V} v))
    = ((a @{V} (~{V} v)) +{V} (a @{V} v)) -{V} (a @{V} v).
 

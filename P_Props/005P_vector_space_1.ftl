@@ -5,14 +5,14 @@ Let K denote a field.
 
 Lemma. Let V be a vector space over K. Let a < K.
 Then (a @{V} 0{V}) +{V} (a @{V} 0{V}) = a @{V} (0{V} +{V} 0{V}).
-Proof.
+proof.
  For all b < K and all v,w < V : (b @{V} v) +{V} (b @{V} w) = b @{V} (v +{V} w).
 end.
 
 
 Theorem ZeroSmul. Let V be a vector space over K. Let v < V.
 Then 0{K} @{V} v = 0{V}.
-Proof.
+proof.
  Let us show that ((0{K} @{V} v) +{V} (1{K} @{V} v)) +{V} neg{V}[v]
                 = ((0{K} +{K} 1{K}) @{V} v) +{V} neg{V}[v].
   Let us show that (0{K} @{V} v) +{V} (1{K} @{V} v) = (0{K} +{K} 1{K}) @{V} v.
@@ -63,7 +63,7 @@ end.
 
 Lemma. Let V be a vector space over K. Let a < K.
 Then a @{V} 0{V} = ((a @{V} 0{V}) +{V} (a @{V} 0{V})) -{V} (a @{V} 0{V}).
-Proof.
+proof.
  smul{V} is from Prod(|K|,|V|) to |V|.
  a @{V} 0{V} < V.
 
@@ -96,7 +96,7 @@ end.
 
 Theorem SmulZero. Let V be a vector space over K. Let a < K.
 Then a @{V} 0{V} = 0{V}.
-Proof.
+proof.
  Let us show that ((a @{V} 0{V}) +{V} (a @{V} 0{V})) -{V} (a @{V} 0{V})
                 = (a @{V} 0{V}) -{V} (a @{V} 0{V}).
   (a @{V} 0{V}) +{V} (a @{V} 0{V}) = a @{V} (0{V} +{V} 0{V}).

@@ -7,7 +7,7 @@ Let M,N denote sets.
 Let f,g denote functions.
 
 Lemma. Let f be bijective from M to N. Then f^(-1)*f = id{M}.
-Proof.
+proof.
  Dom(f^(-1)*f) = Dom(id{M}).
  Let us show that for all x << M : (f^(-1)*f)[x] = f^(-1)[f[x]].
   For all x << Dom(f) : f[x] << Dom(f^(-1)).
@@ -16,7 +16,7 @@ end.
 
 
 Lemma. Let f be bijective from M to N. Then f*f^(-1) = id{N}.
-Proof.
+proof.
  Dom(f*f^(-1)) = Dom(id{N}).
  Let us show that for all y << N : (f*f^(-1))[y] = f[f^(-1)[y]].
   For all y << Dom(f^(-1)) : f^(-1)[y] << Dom(f).
@@ -26,7 +26,7 @@ end.
 
 Lemma. Let f be from M to N. Let g be from N to M. Assume f*g=id{N} and g*f=id{M}.
 Then f is bijective from M to N.
-Proof.
+proof.
  Let us show that f is injective.
   Let us show that for all x,y << M : (f[x] = f[y] => x = y).
    Let x,y << M. Assume f[x] = f[y].
@@ -48,7 +48,7 @@ end.
 
 Lemma. Let V,W be vector spaces over K. Let f be an isomorphism over K from V to W.
 Then f^(-1) < Hom(K,W,V).
-Proof.
+proof.
  f^(-1) is from |W| to |V|.
  Let us show that for all v,w < W : f^(-1)[v +{W} w] = f^(-1)[v] +{V} f^(-1)[w].
   Let v,w < W.
@@ -85,7 +85,7 @@ end.
 
 Theorem. Let V be a vector space over K.
 |Aut(K,V)| = {h | h is an isomorphism over K from V to V}.
-Proof.
+proof.
  Then end(K,V) is a ring.
  mul{end(K,V)} is from Prod(|end(K,V)|,|end(K,V)|) to |end(K,V)|.
  Let us show that for all f : ((f < Aut(K,V)) => (f is an isomorphism over K from V to V)).

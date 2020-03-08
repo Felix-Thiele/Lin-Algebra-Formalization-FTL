@@ -9,14 +9,14 @@ Theorem. Let r,s,t < Un(R).
 
 
 Lemma. Let r,s < Un(R). Then r *{R} s < Un(R).
-Proof.
+proof.
  Take r1 < R such that r *{R} r1 = 1{R} and r1 *{R} r = 1{R}.
  Take s1 < R such that s *{R} s1 = 1{R} and s1 *{R} s = 1{R}.
 end.
 
 
 Lemma. Prod(|Un(R)|,|Un(R)|) is subset of Dom(mul{R}).
-Proof.
+proof.
  |Un(R)| is subset of |R|.
  Prod(|Un(R)|,|Un(R)|) is subset of Prod(|R|,|R|).
 end.
@@ -24,7 +24,7 @@ end.
 
 Lemma. Dom(mul{Un(R)}) = Prod(|Un(R)|,|Un(R)|)
  and for all x << Prod(|Un(R)|,|Un(R)|) : mul{Un(R)}[x] = mul{R}[x].
-Proof.
+proof.
  mul{Un(R)} = mul{R}|{Prod(|Un(R)|,|Un(R)|)}.
  Prod(|Un(R)|,|Un(R)|) is subset of Dom(mul{R}).
 end.
@@ -34,7 +34,7 @@ Lemma. Let r,s < Un(R). Then r *{Un(R)} s = r *{R} s.
 
 
 Theorem. Un(R) is a group.
-Proof.
+proof.
  carr,one,mul,inv << Dom(Un(R)).
  |Un(R)| is a set.
  1{Un(R)} < Un(R).
