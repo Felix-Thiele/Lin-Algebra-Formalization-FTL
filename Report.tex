@@ -8,7 +8,6 @@
 \usepackage{xurl}
 \usepackage{float}
 
-%Menu –> Options –> Configure Texmaker –> Quick build –> Select ‘XeLaTeX + View PDF’
 \usepackage{fontspec}
 \newfontfamily{\lean}[Scale=MatchLowercase]{Consolas}
 \newfontfamily{\ftl}[Scale=MatchLowercase]{DejaVuSansMono}
@@ -50,10 +49,10 @@
     framesep=3pt,
 }
 \lstdefinelanguage{ForTheL}{
-  keywords=[1]{Signature,Axiom,Theorem,Definition},
-  keywords=[2]{Proof,End,qed,by},
-  keywords=[3]{Assume,Let,us,show, Since, we, have},
-% Defining keywords that contain blank spaces seems to very inconvenient. Therefore "us" and "show" are individual keywords, "Let" must have the same color everywhere and "that" can not be higlighted as a keyword, because that would also show up at wrong places.
+  keywords=[1]{Signature, Axiom, Theorem, Definition},
+  keywords=[2]{Proof, End, qed, by},
+  keywords=[3]{Assume, Let, us, show, Since, we, have},
+% Defining keywords that contain blank spaces seems to be very inconvenient. Therefore "us" and "show" are individual keywords, "Let" must have the same color everywhere and "that" can not be higlighted as a keyword, because that would also show up at wrong places.
   sensitive=false,
   morecomment=[l]{\#},
   morestring=[s]{[read}{]},
@@ -86,7 +85,7 @@
 \newpage 
 \section{Introduction}
 \subsection{Naproche}
-In this project we build a linear algebra library in ForTheL with Naproche. ForTheL, which stands for Formal Theory Language, is a language that comes close to human language. This reduces many of the initial hurdles people encounter in the formalization of mathematics. Naproche can not only interpret ForTheL code, but is also backed with a strong Automated Theorem Prover, to which we shall refer to as e-prover. This makes many Proofs in our library easier, since some trivial steps can be skipped. At the same time this comes with massive performance issues, since checking this small library is a comparably very time intensive task.
+In this project we build a linear algebra library in ForTheL with Naproche-SAD. ForTheL, which stands for Formal Theory Language, is a language that comes close to human language. This reduces many of the initial hurdles people encounter in the formalization of mathematics. Naproche can not only interpret ForTheL code, but is also backed with a strong Automated Theorem Prover, to which we shall refer to as e-prover. This makes many Proofs in our library easier, since some trivial steps can be skipped. At the same time this comes with massive performance issues, since checking this small library is a comparably very time intensive task.
 
 \subsection{Results}
 Some of the results given in this library are:
@@ -185,6 +184,9 @@ This file reading structure is depicted below.
 \end{center}
 \end{figure}
 
+Additionally, it can sometimes be helpful to split the P\_ files even more, especially when more multiple theorems are supposed to follow on a single D\_ file. In our case, P\_vector\_space contained five (partly independent) theorems, each needing some lemmata. Reasoning and ontological checking of the proofs became considerably slower when the respective theorem was preceded by other lemmata and theorems. The solution was to write four different proof files (P\_vector\_space\_1, \_2, \_3 and \_4), each starting with only the required statements of the preceding proof files - in axiomatized form.
+
+
 \subsection{The Implementation}
 
 \subsubsection{Sets and Functions}
@@ -193,23 +195,8 @@ Our D\_ Set and D\_ Function files our kept very lightweight and only include ke
 
 \subsubsection{Algebraic Structures}
 Many of the objects we examine in this library have a similar structure. For example abelian groups, fields, vector spaces and rings all have a carrier, a zero element, and an addition operation. We introduce an object called structure in 002D\_structure.ftl.
-%\begin{figure}[H]
-%\begin{center}
-%\makebox[\linewidth][c]{
-%\includegraphics[scale=1]{./struc_def.png}
-%}
-%\end{center}
-%\end{figure}
-\begin{lstlisting}
-[read bla.ftl]
-#test
-Definition. a0b.
-Theorem. A = B.
-Proof.
-Let us show that B=A.
-qed.
-#nextcomment
 
+\begin{lstlisting}
 Signature. lang is a set.
 Axiom. lang = {carr,zero,one,add,mul,neg,inv,smul}.
 Definition. A structure is a function S such that Dom(S) is subset of lang.
@@ -239,7 +226,7 @@ Let a < S* stand for a << |S|\{0{S}}.
 \end{lstlisting}
 
 \newpage
-As an example this is our definition of an abelian group:
+As an example, this is our definition of an abelian group:
 \begin{lstlisting}
 Definition. An abelian group is a structure G such that
      (carr,zero,add,neg << Dom(G))
@@ -265,9 +252,8 @@ the field. This done in the following way:
 
 \begin{lstlisting}
 Let K denote a field.
-
 Axiom. (K has smul).
-Definition. smul{K} = mul{K}.
+Axiom. smul{K} = mul{K}.
 \end{lstlisting}
 
 We then prove in the the P\_ field2VS file that this really does create a vector space.
@@ -288,20 +274,31 @@ qed.
 
 A list is defined as function from a set to a structure with a carrier and a zero element. The zero element ensures, that the list is not defined over an empty set of objects. 
 
-\section{Comparison between Lean and Naproche}
+
+\subsection{Experiences}
+\subsubsection{Functional Approach to Algebraic Structures} \label{functionalapproach}
+
+\subsubsection{Instability regarding Changes in the Preliminaries}
+
+\subsubsection{Other Experiences}
 
 
+\newpage
+\section{Comparison of Lean and Naproche/ForTheL}
+
+
+\newpage 
 \section{Next Steps in Naproche and ForTheL}
 
 It seems like this project has hit somewhat of a ceiling in what Naproche is capable of. 
-Even small changes in beginning files can massively impact the check times.
-While the main problem that needs to be addressed is a more efficient structuring and analysis of the cache, we propose the following ideas to improve the programming experience.
+Even small changes in beginning files can massively impact the check times of files further down the project graph.
+While the main problem that needs to be addressed is a more efficient structuring and analysis of the cache, we propose the following ideas to improve the writing experience.
 
-Firstly Naproche needs an increased transparency in what the e-prover is doing. On the one hand the e-prover is a huge blessing, simplifying many steps. On the other hand it is the source of many problems, since the programmer can not guess where the e-prover gets stuck. Also the e-prover will often take longer or even cant compile working code, if it is copied to a later part of the file. This is due to the increased breadth of the internal search tree. To counter these effects, while keeping the luxury of an assisting e-prover, we suggest the e-prover return the proofs of each statement, which can then be either pasted into the code or be saved in a separate file. This decoupling of the e-prover to the checking process will not only save time, but also guarantee more stability.
+Firstly Naproche needs an increased transparency in what the e-prover is doing. On the one hand the e-prover is a huge blessing, simplifying many steps. On the other hand it is the source of many problems, since the mathematician can not guess where the e-prover gets stuck. Also, the e-prover will often take longer or even can't compile working code, if it is copied to a later part of the file. This is probably due to the increased breadth of the internal search tree. To counter these effects, while keeping the luxury of an assisting e-prover, we suggest the e-prover return the proofs of each statement, which can then be either pasted into the code or be saved in a separate file. This decoupling of the e-prover to the checking process will not only save time, but also guarantee more stability.
 
 ForTheL has a 
 \begin{lstlisting}
-Let us show statementX
+Let us show statementX.
 reasoning
 end.
 \end{lstlisting} 
@@ -309,18 +306,16 @@ functionality, to clean up the proof structure. We recommend adding a similar fu
 \begin{lstlisting}
 Since 
 reasoning
-we have statementX
+we have statementX.
 \end{lstlisting} 
-that is only for ontological reasoning. In this project we find that these parts of the proofs, make up for an 
-extensive part of our code. This leads to less readability, since these parts are mostly superfluous from
-a human point of view.
+that is only for ontological reasoning. In this project we find that these parts of the proofs make up for an extensive part of our code. This leads to less readability, since these parts are mostly superfluous from a human point of view.
 
-Additionally to this we ForTheL would greatly benefit from Code Sectioning functionality. This would not only improve code transparency but also speed up checking times. At the moment the e-prover can only be restricted by 
+Additionally to this, we think ForTheL would greatly benefit from code sectioning functionality. This would not only improve code transparency but also speed up checking times. At the moment the e-prover can only be restricted by 
 \begin{lstlisting}
 statementX (by theoremY).
 \end{lstlisting}  commands. Introducing code sections will allow broader restrictions.
 
-At the moment, functions and sets are hard coded into the naproche system. Bigger projects will require more transparency in precisely what is axiomatized and how these basic definitions are defined.
+At the moment, functions and sets are hard coded into the naproche system. Bigger projects will require more transparency in precisely what is axiomatized and how these basic notions are defined. The observations described in \ref{functionalapproach} suggest a built-in support for polyadic functions.
 
 \end{document}
 
