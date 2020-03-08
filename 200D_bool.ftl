@@ -1,5 +1,8 @@
 [read linear_algebra_ftl/A_Props/004A_field.ftl]
 
+# This definition of the field with two elements is an example
+# of how to define new algebraic structures in our formalization.
+
 Signature. ff is a notion.
 Signature. tt is a notion.
 Signature. bools is a set.
