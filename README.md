@@ -33,26 +33,24 @@ This graph translates to the actual file readings in the following way:
 ![](project_structure_explained.png)
 
 
-### Endresults
+### Results
 
+The **definitions** of
+- groups, rings, fieldsgroups, rings, fields
+- vector spaces, subspaces, dual spaces
+- homomorphisms, endomorphisms, automorphisms of vector spaces
+- lists, linear independence
 
-- Hom(K,V,W) is a vector space.
-
+And the **proofs** of:
 - A field is a vector space over itself.
-
-- There is an injective function that is linear from a vector space to its double dual space.
-
-- The unit group over a ring is a group.
-
-- End(K,V) is a ring.
-
-- V is a subspace of V.
-
-- Every subspace is a vector space.
-
-- Let f be linear. Ker(f) is a subspace of V.
-
-- Let Ker(f) be {0}. Then f is injective.
+- The linear maps between K-vector spaces V and W form a vector
+space Hom(K,V,W).
+- If f is linear, Ker(f) is a subspace.
+- If f is linear and Ker(f) = {0}, then f is injective.
+- Any K-vector space V can be embedded into the double dual space
+(V*)*
+- The endomorphisms of a K-vector space V form a ring End(K,V).
+- The invertible elements of a ring form a multiplicative group
 
 
 ## Issues
