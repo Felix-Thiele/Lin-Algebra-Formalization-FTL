@@ -215,20 +215,8 @@ Axiom. lang = {carr,zero,one,add,mul,neg,inv,smul}.
 Definition. A structure is a function S such that Dom(S) is subset of lang.
 \end{lstlisting}
 
-We can now define a each of the linear algebra structures above as a structure with the necessary components of {\ftl lang} in its domain. Now we define the following abbreviations:
-%\begin{figure}[H]
-%\centering
-%\begin{minipage}{.5\textwidth}
-%\makebox[\linewidth][c]{
-%\includegraphics[scale=1]{./struc_simp1.png}
-%}
-%\end{minipage}%
-%\begin{minipage}{.5\textwidth}
-%\makebox[\linewidth][c]{
-%\includegraphics[scale=.8]{./struc_simp2.png}
-%}
-%\end{minipage}
-%\end{figure}
+We can now define a each of the linear algebra structures above as a structure with the necessary components of {\ftl lang} in its domain. This allows for easy expansions of these structures one example of which we shall see in the section about Field2VS. Now we define the following abbreviations:
+
 \begin{lstlisting}
 Let S denote a structure.
 Let |S| stand for S[carr].
@@ -269,6 +257,9 @@ Definition. An abelian group is a structure G such that
 \subsubsection{Homomorphisms}
 
 After the definition of various structures on sets we define homomorphisms. These require quite an extensive preparation which is done in the func\_ files, defining the zero, addition, negation, and scalar multiplication on Hom(K,V,W). These are split from the D\_homomorphisms file because the corresponding P\_ files hold long proofs which become easier to check.
+
+\subsubsection{Field2VS}
+Prooving that a field is a vector space 
 
 \subsubsection{Lists}
 
