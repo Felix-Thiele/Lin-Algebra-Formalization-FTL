@@ -76,7 +76,7 @@ Proof.
       end.
     end.
   end.   
-End.
+end.
 
 Theorem. Let 2Vectorspace(K,V,W).
 Let g < Hom(K,V,W). Then FuncAdd(K,V,W)[(g,FuncNeg(K,V,W)[g])] = FuncZero(K,V,W).
@@ -90,4 +90,4 @@ Proof.
                 = g[v] -{W} g[v]
                 = 0{W} 
                 = FuncZero(K,V,W)[v].
-End.
+end.

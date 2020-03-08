@@ -39,7 +39,7 @@ Proof.
  ((0{K} +{K} 1{K}) @{V} v) +{V} neg{V}[v] = (1{K} @{V} v) +{V} neg{V}[v] (by 6).
  (1{K} @{V} v) +{V} neg{V}[v] = v +{V} neg{V}[v] (by 7).
  v +{V} neg{V}[v] = 0{V} (by 8).
-qed.
+end.
 
 Axiom SmulZero. Let V be a vector space over K. Let a < K.
 Then a @{V} 0{V} = 0{V}.
@@ -55,43 +55,43 @@ Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then neg{K}[a] @{V} v = (neg{K}[a] @{V} v) +{V} 0{V}.
 Proof.
   V[smul] is a function from Prod(|K|,|V|) to |V|.
-End.
+end.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then (neg{K}[a] @{V} v) +{V} 0{V} = (neg{K}[a] @{V} v) +{V} ((a @{V} v) +{V} neg{V}[a @{V} v]).
 Proof.
   V[smul] is a function from Prod(|K|,|V|) to |V|.
-End.
+end.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then (neg{K}[a] @{V} v) +{V} ((a @{V} v) +{V} neg{V}[a @{V} v]) = ((neg{K}[a] @{V} v) +{V} (a @{V} v)) +{V} neg{V}[a @{V} v].
 Proof.
   V[smul] is a function from Prod(|K|,|V|) to |V|.
-End.
+end.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then ((neg{K}[a] @{V} v) +{V} (a @{V} v)) +{V} neg{V}[a @{V} v] = ((neg{K}[a] +{K} a) @{V} v) +{V} neg{V}[a @{V} v].
 Proof.
   V[smul] is a function from Prod(|K|,|V|) to |V|.
-End.
+end.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then ((neg{K}[a] +{K} a) @{V} v) +{V} neg{V}[a @{V} v] = (0{K} @{V} v) +{V} neg{V}[a @{V} v].
 Proof.
   V[smul] is a function from Prod(|K|,|V|) to |V|.
-End.
+end.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then (0{K} @{V} v) +{V} neg{V}[a @{V} v] = 0{V} +{V} neg{V}[a @{V} v].
 Proof.
   V[smul] is a function from Prod(|K|,|V|) to |V|.
-End.
+end.
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
 Then 0{V} +{V} neg{V}[a @{V} v] = neg{V}[a @{V} v].
 Proof.
   V[smul] is a function from Prod(|K|,|V|) to |V|.
-End.
+end.
 
 
 Theorem NegSmul. Let V be a vector space over K. Let a < K. Let v < V.
@@ -105,7 +105,7 @@ Proof.
  ((neg{K}[a] +{K} a) @{V} v) +{V} neg{V}[a @{V} v] = (0{K} @{V} v) +{V} neg{V}[a @{V} v].
  (0{K} @{V} v) +{V} neg{V}[a @{V} v] = 0{V} +{V} neg{V}[a @{V} v].
  0{V} +{V} neg{V}[a @{V} v] = neg{V}[a @{V} v].
-qed.
+end.
 
 Axiom SmulNeg. Let V be a vector space over K. Let a < K. Let v < V.
 Then a @{V} neg{V}[v] = neg{V}[a @{V} v].
@@ -117,4 +117,4 @@ Proof.
  neg{K}[1{K}] @{V} v = neg{V}[1{K} @{V} v].
  1{K} @{V} v = v.
  neg{V}[1{K} @{V} v] = neg{V}[v].
-qed.
+end.

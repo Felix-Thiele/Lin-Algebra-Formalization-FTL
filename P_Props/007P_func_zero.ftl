@@ -26,4 +26,4 @@ Proof.
     0{W} = a @{W} 0{W} = a @{W} FuncZero(K,V,W)[v].
     a @{W} FuncZero(K,V,W)[v] = a @{W} FuncZero(K,V,W)[v].
   end.
-End.
+end.

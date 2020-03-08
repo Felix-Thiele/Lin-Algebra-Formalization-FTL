@@ -10,8 +10,8 @@ Proof.
   Let x << Dom(f).
   Dom(id{M}) = M.
   (id{M}*f)[x] = id{M}[f[x]].
- qed.
-qed.
+ end.
+end.
 
 
 Theorem. Let Dom(f) = M. Then f*id{M} = f.
@@ -20,14 +20,14 @@ Proof.
   Let x << M.
   Dom(id{M}) = M.
   (f*id{M})[x] = f[id{M}[x]].
- qed.
-qed.
+ end.
+end.
 
 
 Theorem. Let g:L->M. Let f:M->N. Then f*g : L->N.
 Proof.
  Dom(f*g) = L.
-qed.
+end.
 
 
 Theorem. Let h:K->L. Let g:L->M. Let f:M->N.
@@ -45,5 +45,5 @@ Proof.
   g*h : K->M.
   (g*h)[x] = g[h[x]].
   (f*(g*h))[x] = f[(g*h)[x]].
- qed.
-qed.
+ end.
+end.

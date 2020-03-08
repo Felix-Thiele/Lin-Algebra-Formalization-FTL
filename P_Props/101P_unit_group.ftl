@@ -12,14 +12,14 @@ Lemma. Let r,s < Un(R). Then r *{R} s < Un(R).
 Proof.
  Take r1 < R such that r *{R} r1 = 1{R} and r1 *{R} r = 1{R}.
  Take s1 < R such that s *{R} s1 = 1{R} and s1 *{R} s = 1{R}.
-qed.
+end.
 
 
 Lemma. Prod(|Un(R)|,|Un(R)|) is subset of Dom(mul{R}).
 Proof.
  |Un(R)| is subset of |R|.
  Prod(|Un(R)|,|Un(R)|) is subset of Prod(|R|,|R|).
-qed.
+end.
 
 
 Lemma. Dom(mul{Un(R)}) = Prod(|Un(R)|,|Un(R)|)
@@ -27,7 +27,7 @@ Lemma. Dom(mul{Un(R)}) = Prod(|Un(R)|,|Un(R)|)
 Proof.
  mul{Un(R)} = mul{R}|{Prod(|Un(R)|,|Un(R)|)}.
  Prod(|Un(R)|,|Un(R)|) is subset of Dom(mul{R}).
-qed.
+end.
 
 
 Lemma. Let r,s < Un(R). Then r *{Un(R)} s = r *{R} s.
@@ -45,11 +45,11 @@ Proof.
    Let x << Prod(|Un(R)|,|Un(R)|).
    Take r,s < Un(R) such that x = (r,s).
    r *{R} s < Un(R).
-  qed.
- qed.
+  end.
+ end.
 
  inv{Un(R)} is a function from |Un(R)| to |Un(R)|.
  For all a < Un(R)     :       a *{Un(R)} 1{Un(R)} = a.
  For all a < Un(R)     :          a /{Un(R)} a = 1{Un(R)}.
  For all a,b,c < Un(R) : a *{Un(R)} (b *{Un(R)} c) = (a *{Un(R)} b) *{Un(R)} c.
-qed.
+end.

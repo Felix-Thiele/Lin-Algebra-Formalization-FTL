@@ -29,5 +29,5 @@ Proof.
     b << B(cut(L,a)) or b=a.
     if b << B(cut(L,a)) then add(cut(L,a),a,L[a])[b] = L[b].
     if b = a then add(cut(L,a),a,L[a])[a] = L[a].
-  End.
-End.
+  end.
+end.

@@ -13,7 +13,7 @@ Proof.
   Let x,y < V. Assume x != y. Take a function g 
     such that g is linear over K from V to field2VS(K) and g[x] != g[y].
   V2ddV(K,V)[x][g]  != V2ddV(K,V)[y][g].
-End.
+end.
 
 
 Theorem.
@@ -28,7 +28,7 @@ Proof.
     Then y << |Hom(K,V,field2VS(K))|.
     Then y is linear over K from V to field2VS(K).
     Then y is a function from |V| to |field2VS(K)|.
-  End.
+  end.
   Dom(V2ddV(K,V)[x]) = |dual(K,V)|.
   let us show that for every element y of |dual(K,V)| V2ddV(K,V)[x][y] < K.
     let y < dual(K,V).
@@ -79,7 +79,7 @@ Proof.
     end.
     a *{K} g[x] = a *{K} V2ddV(K,V)[x][g].
   end.
-qed.
+end.
 
 
 Theorem.
@@ -142,7 +142,7 @@ Proof.
         = (V2ddV(K,V)[x] +{dual(K,dual(K,V))} V2ddV(K,V)[y])[g].
     end.
     Therefore the thesis (by FunExt).
-  End.
+  end.
     
   V[smul] is a function from Prod(|K|, |V|) to |V|.
   dual(K,dual(K,V)) is a vector space over K.
@@ -174,8 +174,8 @@ Proof.
       dual(K,dual(K,V))[smul][(a,V2ddV(K,V)[x])][g]
         = (a @{dual(K,dual(K,V))} V2ddV(K,V)[x])[g].
       
-    End.
+    end.
     Therefore the thesis (by FunExt).
-  End.
+  end.
 
-End.
+end.

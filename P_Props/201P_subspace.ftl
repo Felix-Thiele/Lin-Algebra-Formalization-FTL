@@ -10,7 +10,7 @@ Proof.
  For all u,v << |V|             :  u +{V} v << |V|.
  For all u << |V|               : neg{V}[u] << |V|.
  For all a < K for all u << |V| :  a @{V} u << |V|.
-qed.
+end.
 
 
 Lemma. Let V be a vector space over K. Let a < K. Let v,w < V.
@@ -31,7 +31,7 @@ Proof.
    Dom(add{W}) = Prod(|W|,|W|).
    Let x << Prod(|W|,|W|).
    Then add{W}[x] << U.
-  qed.
+  end.
 
   neg{W} is a function from |W| to |W|.
   0{W} = 0{V}.
@@ -46,21 +46,21 @@ Proof.
    a +{W} 0{W} = a +{V} 0{W}.
    a +{V} 0{W} = a +{V} 0{V}.
    a +{V} 0{V} = a.
-  qed.
+  end.
 
   Let us show that for all v < W : v -{W} v = 0{W}.
    Let v < W.
    v -{W} v = v -{V} v.
    v -{V} v = 0{V}.
    0{V} = 0{W}.
-  qed.
+  end.
 
   Let us show that for all u,v,w < W :u +{W} (v +{W} w) = (u +{W} v) +{W} w.
    Let u,v,w < W.
     u +{W} (v +{W} w) = u +{V} (v +{V} w).
     u +{V} (v +{V} w) = (u +{V} v) +{V} w.
     (u +{V} v) +{V} w = (u +{W} v) +{W} w.
-  qed.
+  end.
 
   For all v,w < W : v +{W} w = v +{W} w.
 
@@ -75,14 +75,14 @@ Proof.
    Take a < K and v << |W| such that x = (a,v).
    Then smul{W}[x] = smul{V}[(a,v)].
    smul{V}[(a,v)] << U.
-  qed.
+  end.
 
   Let us show that for all a < K for all v,w < W : a @{W} (v +{W} w) = (a @{W} v) +{W} (a @{W} w).
    Let a < K. Let v,w < W.
    a @{W} (v +{W} w) = a @{V} (v +{V} w).
    a @{V} (v +{V} w) = (a @{V} v) +{V} (a @{V} w).
    (a @{V} v) +{V} (a @{V} w) = (a @{W} v) +{W} (a @{W} w).
-  qed.
+  end.
 
   For all u < W : 1{K} @{W} u = u.
 
@@ -91,13 +91,13 @@ Proof.
    (a *{K} b) @{W} v = (a *{K} b) @{V} v.
    (a *{K} b) @{V} v = a @{V} (b @{V} v).
    a @{V} (b @{V} v) = a @{W} (b @{W} v).
-  qed.
+  end.
 
   Let us show that for all a,b < K for all v < W : (a +{K} b) @{W} v = (a @{W} v) +{W} (b @{W} v).
    Let a,b < K. Let v < W.
    (a +{K} b) @{W} v = (a +{K} b) @{W} v.
    (a +{K} b) @{V} v = (a @{V} v) +{V} (b @{V} v).
    (a @{W} v) +{V} (b @{V} v) = (a @{W} v) +{W} (b @{W} v).
-  qed.
- qed.
-qed.
+  end.
+ end.
+end.

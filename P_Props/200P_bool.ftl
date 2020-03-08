@@ -19,4 +19,4 @@ Proof.
  For all a,b,c < B : a *{B} (b *{B} c) = (a *{B} b) *{B} c.
  For all a,b < B   :          a *{B} b = b *{B} a.
  For all a,b,c < B : a *{B} (b +{B} c) = (a *{B} b) +{B} (a *{B} c).
-qed.
+end.

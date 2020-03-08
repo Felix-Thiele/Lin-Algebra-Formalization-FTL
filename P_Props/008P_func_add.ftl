@@ -62,7 +62,7 @@ Proof.
       
     end.
   end.   
-End.
+end.
 
 
 Theorem. Let 2Vectorspace(K,V,W).
@@ -73,13 +73,13 @@ Proof.
   For all v < V  FuncAdd(K,V,W)[(g,FuncZero(K,V,W))][v] = g[v] +{W} FuncZero(K,V,W)[v]
         = g[v] +{W} 0{W} = g[v].
   Hence the thesis (by FunExt).
-End.
+end.
 
 Theorem. Let 2Vectorspace(K,V,W).
 Let g,h < Hom(K,V,W).  Then FuncAdd(K,V,W)[(g,h)] < Hom(K,V,W).
 Proof.
   (g,h) << Prod(|Hom(K,V,W)|,|Hom(K,V,W)|).
-End.
+end.
 
 Theorem. Let 2Vectorspace(K,V,W).
 Let g,h < Hom(K,V,W). Then FuncAdd(K,V,W)[(g,h)] = FuncAdd(K,V,W)[(h,g)].
@@ -88,7 +88,7 @@ Proof.
   Dom(FuncAdd(K,V,W)[(g,h)]) = |V| = Dom(FuncAdd(K,V,W)[(h,g)]).
   For all v<V FuncAdd(K,V,W)[(g,h)][v] = g[v] +{W} h[v] = h[v] +{W} g[v] = FuncAdd(K,V,W)[(h,g)][v].
   Hence the thesis (by FunExt).
-End.
+end.
 
 Theorem. Let 2Vectorspace(K,V,W).
 Let g,h,j < Hom(K,V,W).  Then FuncAdd(K,V,W)[(FuncAdd(K,V,W)[(g,h)],j)] 
@@ -107,5 +107,5 @@ Proof.
     g[v] +{W} FuncAdd(K,V,W)[(h,j)][v] = FuncAdd(K,V,W)[(g,FuncAdd(K,V,W)[(h,j)])][v].
   end.
   Hence the thesis (by FunExt).
-End.
+end.
  

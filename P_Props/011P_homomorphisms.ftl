@@ -55,4 +55,4 @@ Proof.
      and (for all a,b < K for all v < H : (a +{K} b) @{H} v = (a @{H} v) +{H} (b @{H} v))
      and (for all a < K for all v,w < H : a @{H} (v +{H} w) = (a @{H} v) +{H} (a @{H} w)).
   end.
-qed.
+end.

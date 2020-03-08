@@ -16,7 +16,7 @@ Proof.
   Take y < V such that y = a @{V} v.
   Take z < V such that z = neg{V}[a @{V} v].
   x +{V} (y +{V} z) = (x +{V} y) +{V} z.
- qed.
+ end.
  
  smul{V} is from Prod(|K|,|V|) to |V|.
  add{V} is from Prod(|V|,|V|) to |V|.
@@ -28,11 +28,11 @@ Proof.
   neg{V}[a @{V} v] < V.
   (a @{V} v , neg{V}[a @{V} v]) << Prod(|V|,|V|).
   Dom(add{V}) = Prod(|V|,|V|).
- qed.
+ end.
 
  0{V} = (a @{V} v) +{V} neg{V}[a @{V} v].
  (neg{K}[a] @{V} v) +{V} 0{V} = (neg{K}[a] @{V} v) +{V} ((a @{V} v) +{V} neg{V}[a @{V} v]).
-qed.
+end.
 
 
 Lemma. Let V be a vector space over K. Let a < K. Let v < V.
@@ -40,30 +40,30 @@ Then ((neg{K}[a] @{V} v) +{V} (a @{V} v)) +{V} neg{V}[a @{V} v] = neg{V}[a @{V} 
 Proof.
  Let us show that ((neg{K}[a] @{V} v) +{V} (a @{V} v)) +{V} neg{V}[a @{V} v] = ((neg{K}[a] +{K} a) @{V} v) +{V} neg{V}[a @{V} v].
    (neg{K}[a] @{V} v) +{V} (a @{V} v) = (neg{K}[a] +{K} a) @{V} v.
- qed.
+ end.
 
  Let us show that ((neg{K}[a] +{K} a) @{V} v ,  neg{V}[a @{V} v]) << Dom(add{V}).
   (neg{K}[a] +{K} a) @{V} v < V.
   neg{V}[a @{V} v] < V.
   ((neg{K}[a] +{K} a) @{V} v ,  neg{V}[a @{V} v]) << Prod(|V|,|V|).
   Dom(add{V}) =  Prod(|V|,|V|).
- qed.
+ end.
  Let us show that (0{K} @{V} v , neg{V}[a @{V} v]) << Dom(add{V}).
   0{K} @{V} v < V.
   neg{V}[a @{V} v] < V.
   (0{K} @{V} v ,  neg{V}[a @{V} v]) << Prod(|V|,|V|).
   Dom(add{V}) =  Prod(|V|,|V|).
- qed.
+ end.
  Let us show that ((neg{K}[a] +{K} a) @{V} v) +{V} neg{V}[a @{V} v] = (0{K} @{V} v) +{V} neg{V}[a @{V} v].
   (neg{K}[a] +{K} a) = 0{K}.
- qed.
+ end.
 
  Let us show that (0{K} @{V} v) +{V} neg{V}[a @{V} v] = 0{V} +{V} neg{V}[a @{V} v].
   0{K} @{V} v = 0{V}.
- qed.
+ end.
 
  0{V} +{V} neg{V}[a @{V} v] = neg{V}[a @{V} v].
-qed.
+end.
 
 
 Theorem NegSmul. Let V be a vector space over K. Let a < K. Let v < V.
@@ -76,4 +76,4 @@ Proof.
  neg{K}[1{K}] @{V} v = neg{V}[1{K} @{V} v].
  1{K} @{V} v = v.
  neg{V}[1{K} @{V} v] = neg{V}[v].
-qed.
+end.

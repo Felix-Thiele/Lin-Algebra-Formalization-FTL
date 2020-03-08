@@ -11,4 +11,4 @@ Proof.
  For all a,b < K for all v < K : (a *{K} b) @{K} v = a @{K} (b @{K} v).
  For all a,b < K for all v < K : (a +{K} b) @{K} v = (a @{K} v) +{K} (b @{K} v).
  For all a < K for all v,w < K : a @{K} (v +{K} w) = (a @{K} v) +{K} (a @{K} w).
-qed.
+end.
