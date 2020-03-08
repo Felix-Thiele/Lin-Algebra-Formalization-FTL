@@ -2,13 +2,16 @@
 
 # takes about 5 min
 
-Let K denote a Field.
+Let K denote a field.
+
+Signature. field2VS(K) is a notion.
+Axiom. field2VS(K) = K.
 
 Theorem. Let V be a vector space over K.
 V2ddV(K,V) is injective.
 Proof.
   Let x,y < V. Assume x != y. Take a function g 
-    such that g is linear over K from V to field2VS(K) and g[x] != g[y] (by Exi).
+    such that g is linear over K from V to field2VS(K) and g[x] != g[y].
   V2ddV(K,V)[x][g]  != V2ddV(K,V)[y][g].
 End.
 
@@ -72,7 +75,7 @@ Proof.
       Hom(K,V,field2VS(K))[smul][(a,g)] = FuncSMul(K,V,field2VS(K))[(a,g)]. 
       Dom(Hom(K,V,field2VS(K))[smul][(a,g)]) = Dom(FuncSMul(K,V,field2VS(K))[(a,g)]).
       Hom(K,V,field2VS(K))[smul][(a,g)][x] = FuncSMul(K,V,field2VS(K))[(a,g)][x].
-      FuncSMul(K,V,field2VS(K))[(a,g)][x] = a *{K} g[x]    .
+      FuncSMul(K,V,field2VS(K))[(a,g)][x] = a *{K} g[x].
     end.
     a *{K} g[x] = a *{K} V2ddV(K,V)[x][g].
   end.
@@ -126,9 +129,10 @@ Proof.
       FuncAdd(K,dual(K,V),field2VS(K)) = dual(K,dual(K,V))[add].
       g < dual(K,V).
       2Vectorspace(K,dual(K,V),field2VS(K)).
-      FuncAdd(K,dual(K,V),field2VS(K)) is a function such that (Dom(FuncAdd(K,dual(K,V),field2VS(K))) = Prod(|Hom(K,dual(K,V),field2VS(K))|,|Hom(K,dual(K,V),field2VS(K))|))
-      and (for all j,h < Hom(K,dual(K,V),field2VS(K)) FuncAdd(K,dual(K,V),field2VS(K))[(j,h)] is a function d such that
-        (Dom(d) = |dual(K,V)| and (for all v<dual(K,V) d[v] = j[v] +{field2VS(K)} h[v])))(by funcadd).
+      Dom(FuncAdd(K,dual(K,V),field2VS(K))) = Prod(|Hom(K,dual(K,V),field2VS(K))|,|Hom(K,dual(K,V),field2VS(K))|).
+      For all j,h < Hom(K,dual(K,V),field2VS(K)) : (j,h) << Prod(|Hom(K,dual(K,V),field2VS(K))|,|Hom(K,dual(K,V),field2VS(K))|).
+      For all j,h < Hom(K,dual(K,V),field2VS(K)) : Dom(FuncAdd(K,dual(K,V),field2VS(K))[(j,h)]) = |dual(K,V)| .
+      For all j,h < Hom(K,dual(K,V),field2VS(K)) and all v<dual(K,V) : FuncAdd(K,dual(K,V),field2VS(K))[(j,h)][v] = j[v] +{field2VS(K)} h[v].
    
       V2ddV(K,V)[x][g] +{field2VS(K)} V2ddV(K,V)[y][g]
         = FuncAdd(K,dual(K,V),field2VS(K))[(V2ddV(K,V)[x],V2ddV(K,V)[y])][g].
