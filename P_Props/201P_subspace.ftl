@@ -2,10 +2,8 @@
 
 Let K denote a field.
 
-Lemma. Let V be a vector space over K.
-  For all v,w < V and all a < K : a @{V} (v +{V} w) = (a @{V} v) +{V} (a @{V} w).
 
-Theorem . Let V be a vector space over K. Then |V| is a subspace of V over K.
+Theorem. Let V be a vector space over K. Then |V| is a subspace of V over K.
 Proof.
  |V| is a set.
  0{V} << |V|.
@@ -13,6 +11,11 @@ Proof.
  For all u << |V|               : neg{V}[u] << |V|.
  For all a < K for all u << |V| :  a @{V} u << |V|.
 qed.
+
+
+Lemma. Let V be a vector space over K. Let a < K. Let v,w < V.
+Then a @{V} (v +{V} w) = (a @{V} v) +{V} (a @{V} w).
+
 
 Theorem. Let subspace(K,V,U). Then subspace2VS(U) is a vector space over K.
 Proof.
@@ -74,6 +77,13 @@ Proof.
    smul{V}[(a,v)] << U.
   qed.
 
+  Let us show that for all a < K for all v,w < W : a @{W} (v +{W} w) = (a @{W} v) +{W} (a @{W} w).
+   Let a < K. Let v,w < W.
+   a @{W} (v +{W} w) = a @{V} (v +{V} w).
+   a @{V} (v +{V} w) = (a @{V} v) +{V} (a @{V} w).
+   (a @{V} v) +{V} (a @{V} w) = (a @{W} v) +{W} (a @{W} w).
+  qed.
+
   For all u < W : 1{K} @{W} u = u.
 
   Let us show that for all a,b < K for all v < W : (a *{K} b) @{W} v = a @{W} (b @{W} v).
@@ -88,13 +98,6 @@ Proof.
    (a +{K} b) @{W} v = (a +{K} b) @{W} v.
    (a +{K} b) @{V} v = (a @{V} v) +{V} (b @{V} v).
    (a @{W} v) +{V} (b @{V} v) = (a @{W} v) +{W} (b @{W} v).
-  qed.
-
-  Let us show that for all a < K for all v,w < W : a @{W} (v +{W} w) = (a @{W} v) +{W} (a @{W} w).
-   Let a < K. Let v,w < W.
-   a @{W} (v +{W} w) = a @{V} (v +{V} w).
-   a @{V} (v +{V} w) = (a @{V} v) +{V} (a @{V} w).
-   (a @{V} v) +{V} (a @{V} w) = (a @{W} v) +{W} (a @{W} w).
   qed.
  qed.
 qed.
