@@ -15,15 +15,14 @@
 \usepackage{listings}
 \lstdefinestyle{lean}{
     basicstyle=\lean\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=10pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=none,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=2,
     breakindent=0pt,
     frame=trbl,
@@ -31,17 +30,16 @@
     framesep=3pt,
 }
 \lstdefinestyle{ftl}{
-    language={ForTheL},    
+    language={ForTheL},
     basicstyle=\ftl\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=10pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=none,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=2,
     breakindent=0pt,
     frame=trbl,
@@ -229,7 +227,7 @@ Let a < S* stand for a << |S|\{0{S}}.
 As an example, this is our definition of an abelian group:
 \begin{lstlisting}
 Definition. An abelian group is a structure G such that
-     (carr,zero,add,neg << Dom(G))
+     (G has carr,zero,add,neg)
  and (|G| is a set)
  and (0{G} < G)
  and (add{G} is a function from Prod(|G|,|G|) to |G|)
@@ -243,33 +241,46 @@ Definition. An abelian group is a structure G such that
 
 \subsubsection{Homomorphisms}
 
-After the definition of various structures on sets we define homomorphisms. These require quite an extensive preparation which is done in the func\_ files, defining the zero, addition, negation, and scalar multiplication on Hom(K,V,W). These are split from the D\_homomorphisms file because the corresponding P\_ files hold long proofs which become easier to check.
+After the definition of various structures on sets we define linear functions. We introduce the set of homomorphisms immediately as the carrier set of a new structure Hom(K,V,W).
+\begin{lstlisting}
+Let K denote a Field.
 
-For brevity in D\_ func\_ zero we introduce the following abbreviations:
+Definition. Let V and W be vector spaces over K. Let f be a function.
+ f is linear over K from V to W iff
+     (f is from |V| to |W|)
+ and (for all u,v < V             : f[u +{V} v] = f[u] +{W} f[v])
+ and (for all a < K for all v < V : f[a @{V} v] = a @{W} f[v]).
 
+Signature. Let V and W be vector spaces over K.
+Hom(K,V,W) is a structure.
+
+Axiom. Let V and W be vector spaces over K.
+(Hom(K,V,W) has carr).
+
+Axiom. Let V and W be vector spaces over K.
+|Hom(K,V,W)| is the set of functions f such that f is linear over K from V to W.
+\end{lstlisting}
+
+Regarding this structure as a vector space requires quite an extensive preparation, which is done in the func\_ files, defining the zero, addition, negation, and scalar multiplication on Hom(K,V,W). These are split from the D\_homomorphisms file because the corresponding P\_ files hold long proofs which become easier to check separately.
+For brevity in D\_func\_zero we introduce the following abbreviation:
 \begin{lstlisting}
 Let 2Vectorspace(K,V,W) stand for
 (K is a field and (V is a vector space over K) and (W is a vector space over K)).
 \end{lstlisting}
-
+The {\ftl structure} approach allows us to also regard Hom(K,V,V) as a ring, which is done in the endomorphism files.
 
 \subsubsection{Field2VS}
-Proving that a field is a vector space becomes easier through the structure construction. We don't have to 
-redefine the part of the structure that already exists but can instead just add scalar multiplication to
-the field. This done in the following way:
-
+Proving that a field is a vector space over itself becomes again easy through the structure construction. We don't have to redefine the part of the structure that already exists but can instead just add scalar multiplication to the field. This is done in the following way:
 \begin{lstlisting}
 Let K denote a field.
 Axiom. (K has smul).
 Axiom. smul{K} = mul{K}.
 \end{lstlisting}
-
-We then prove in the the P\_ field2VS file that this really does create a vector space as follows.
-\newpage
+We then prove in the the P\_field2VS file that this really does create a vector space:
 \begin{lstlisting}
 Theorem. Let K be a field. Then K is a vector space over K.
-Proof.
- carr,zero,add,neg,smul << Dom(K).
+proof.
+ (K has carr,zero,add,neg,smul).
  K is an abelian group.
  smul{K} is a function from Prod(|K|,|K|) to |K|.
  For all u < K                 :       1{K} @{K} u = u.
@@ -279,14 +290,25 @@ Proof.
 qed.
 \end{lstlisting}
 
+
+\subsubsection{Automorphism Group}
+While the lean file introduces the general linear group by proving statements about invertible linear maps, we took a step back and defined the multiplicative group of an arbitrary ring in D\_unit\_group. This branching at the top of the project graph reduces the required reasoning in the proof file.
+
+
 \subsubsection{Lists}
 
 A list is defined as function from a set to a structure with a carrier and a zero element. The zero element ensures, that the list is not defined over an empty set of objects. 
 
+
 \subsection{Experiences}
 \subsubsection{Functional Approach to Algebraic Structures} \label{functionalapproach}
 
-\subsubsection{Instability regarding Changes in the Preliminaries}
+\subsubsection{Instability regarding Changes in the Preliminaries} \label{instabilites}
+The e-prover (especially the Reasoner) seems to not always make a good job in ignoring preliminaries that are "obviously" irrelevant for the current task.
+For example, we tried removing definitions and axioms regarding function composition from the files D\_function and A\_function. Although they are only needed for the files about endomorphisms and automorphisms, this had a huge impact on the checking of most of the other proof files.
+Some proofs benefited from this reduction of preliminaries, needing only half the checking time as before.
+P\_dual, on the other hand, now needed about 20 minutes instead of seven.
+Both behaviors are especially surprising, since all the statements about compostion use notions that do not appear and can not be used in these other contexts.
 
 \subsubsection{Other Experiences}
 
@@ -321,9 +343,8 @@ that is only for ontological reasoning. In this project we find that these parts
 Additionally to this, we think ForTheL would greatly benefit from code sectioning functionality. This would not only improve code transparency but also speed up checking times. At the moment the e-prover can only be restricted by 
 \begin{lstlisting}
 statementX (by theoremY).
-\end{lstlisting}  commands. Introducing code sections will allow broader restrictions.
+\end{lstlisting}  commands. Introducing code sections will allow broader restrictions. This would also reduce the instabilities described in \ref{instabilites}.
 
 At the moment, functions and sets are hard coded into the naproche system. Bigger projects will require more transparency in precisely what is axiomatized and how these basic notions are defined. The observations described in \ref{functionalapproach} suggest a built-in support for polyadic functions.
 
 \end{document}
-
