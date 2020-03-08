@@ -238,8 +238,8 @@ Let a < S stand for a << |S|.
 Let a < S* stand for a << |S|\{0{S}}.
 \end{lstlisting}
 
+\newpage
 As an example this is our definition of an abelian group:
-
 \begin{lstlisting}
 Definition. An abelian group is a structure G such that
      (carr,zero,add,neg << Dom(G))
@@ -259,7 +259,30 @@ Definition. An abelian group is a structure G such that
 After the definition of various structures on sets we define homomorphisms. These require quite an extensive preparation which is done in the func\_ files, defining the zero, addition, negation, and scalar multiplication on Hom(K,V,W). These are split from the D\_homomorphisms file because the corresponding P\_ files hold long proofs which become easier to check.
 
 \subsubsection{Field2VS}
-Prooving that a field is a vector space 
+Proving that a field is a vector space becomes easier through the structure construction. We don't have to 
+redefine the part of the structure that already exists but can instead just add scalar multiplication to
+the field. This done in the following way:
+
+\begin{lstlisting}
+Let K denote a field.
+
+Axiom. (K has smul).
+Definition. smul{K} = mul{K}.
+\end{lstlisting}
+
+We then prove in the the P\_ field2VS file that this really does create a vector space.
+\begin{lstlisting}
+Theorem. Let K be a field. Then K is a vector space over K.
+Proof.
+ carr,zero,add,neg,smul << Dom(K).
+ K is an abelian group.
+ smul{K} is a function from Prod(|K|,|K|) to |K|.
+ For all u < K                 :       1{K} @{K} u = u.
+ For all a,b < K for all v < K : (a *{K} b) @{K} v = a @{K} (b @{K} v).
+ For all a,b < K for all v < K : (a +{K} b) @{K} v = (a @{K} v) +{K} (b @{K} v).
+ For all a < K for all v,w < K : a @{K} (v +{K} w) = (a @{K} v) +{K} (a @{K} w).
+qed.
+\end{lstlisting}
 
 \subsubsection{Lists}
 
