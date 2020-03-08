@@ -250,6 +250,22 @@ Let a < S stand for a << |S|.
 Let a < S* stand for a << |S|\{0{S}}.
 \end{lstlisting}
 
+As an example this is our definition of an abelian group:
+
+\begin{lstlisting}
+Definition. An abelian group is a structure G such that
+     (carr,zero,add,neg << Dom(G))
+ and (|G| is a set)
+ and (0{G} < G)
+ and (add{G} is a function from Prod(|G|,|G|) to |G|)
+ and (neg{G} is a function from |G| to |G|)
+ and (for all a < G     :       a +{G} 0{G} = a)
+ and (for all a < G     :          a -{G} a = 0{G})
+ and (for all a,b,c < G : a +{G} (b +{G} c) = (a +{G} b) +{G} c)
+ and (for all a,b < G   :          a +{G} b = b +{G} a). 
+\end{lstlisting}
+
+
 \subsubsection{Homomorphisms}
 
 After the definition of various structures on sets we define homomorphisms. These require quite an extensive preparation which is done in the func\_ files, defining the zero, addition, negation, and scalar multiplication on Hom(K,V,W). These are split from the D\_homomorphisms file because the corresponding P\_ files hold long proofs which become easier to check.
@@ -289,6 +305,8 @@ Additionally to this we ForTheL would greatly benefit from Code Sectioning funct
 \begin{lstlisting}
 statementX (by theoremY).
 \end{lstlisting}  commands. Introducing code sections will allow broader restrictions.
+
+At the moment, functions and sets are hard coded into the naproche system. Bigger projects will require more transparency in precisely what is axiomatized and how these basic definitions are defined.
 
 \end{document}
 
