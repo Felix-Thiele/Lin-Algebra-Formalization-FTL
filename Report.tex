@@ -27,13 +27,6 @@
 \lstdefinelanguage{Lean}{
   keywords=[1]{class, lemma, theorem, lemma, def, \textlambda, by, include, @[simp], end, Type, extends, universe, universes, variable, variables, namespace, import},
   keywordstyle=[1]{\color{leanBlue}},
-  stringstyle={\color{leanYellow}},
-  moredelim=[s][\color{leanBlue}]{class}{\ },
-  morestring=*[s]{class\ }{\ },
-  %morestring=[s][\color{leanYellow}]{instance\ }{\ },
-  %morestring=[s][\color{leanYellow}]{lemma\ }{\ },
-  %morestring=[s][\color{leanYellow}]{theorem\ }{\ },
-  %morestring=[s][\color{leanYellow}]{def\ }{\ },  
 }
 \lstdefinestyle{lean}{
     language={Lean},
@@ -158,25 +151,25 @@ The following is an example of how algebraic structures are successively defined
 \begin{lstlisting}
 universe u
 
-class has_zero (§\textalpha§ : Type u) := (zero : §\textalpha§)
-class has_add  (§\textalpha§ : Type u) := (add : §\textalpha§ → §\textalpha§ → §\textalpha§)
-class has_neg  (§\textalpha§ : Type u) := (neg : §\textalpha§ → §\textalpha§)
+class §\textcolor{leanYellow}{has\_zero}§ (§\textalpha§ : Type u) := (zero : §\textalpha§)
+class §\textcolor{leanYellow}{has\_add}§  (§\textalpha§ : Type u) := (add : §\textalpha§ → §\textalpha§ → §\textalpha§)
+class §\textcolor{leanYellow}{has\_neg}§  (§\textalpha§ : Type u) := (neg : §\textalpha§ → §\textalpha§)
 
-class add_semigroup (§\textalpha§ : Type u) extends has_add §\textalpha§ :=
+class §\textcolor{leanYellow}{add\_semigroup}§ (§\textalpha§ : Type u) extends has_add §\textalpha§ :=
 (add_assoc : $\forall$ a b c : §\textalpha§, a + b + c = a + (b + c))
 
-class add_comm_semigroup (§\textalpha§ : Type u) extends add_semigroup §\textalpha§ :=
+class §\textcolor{leanYellow}{add\_comm\_semigroup}§ (§\textalpha§ : Type u) extends add_semigroup §\textalpha§ :=
 (add_comm : $\forall$ a b : §\textalpha§, a + b = b + a)
 
-class add_monoid (§\textalpha§ : Type u) extends add_semigroup §\textalpha§, has_zero §\textalpha§ :=
+class §\textcolor{leanYellow}{add\_monoid}§ (§\textalpha§ : Type u) extends add_semigroup §\textalpha§, has_zero §\textalpha§ :=
 (zero_add : $\forall$ a : §\textalpha§, 0 + a = a) (add_zero : $\forall$ a : §\textalpha§, a + 0 = a)
 
-class add_comm_monoid (§\textalpha§ : Type u) extends add_monoid §\textalpha§, add_comm_semigroup §\textalpha§
+class §\textcolor{leanYellow}{add\_comm\_monoid}§ (§\textalpha§ : Type u) extends add_monoid §\textalpha§, add_comm_semigroup §\textalpha§
 
-class add_group (§\textalpha§ : Type u) extends add_monoid §\textalpha§, has_neg §\textalpha§ :=
+class §\textcolor{leanYellow}{add\_group}§ (§\textalpha§ : Type u) extends add_monoid §\textalpha§, has_neg §\textalpha§ :=
 (add_left_neg : $\forall$ a : §\textalpha§, -a + a = 0)
 
-class add_comm_group (§\textalpha§ : Type u) extends add_group §\textalpha§, add_comm_monoid §\textalpha§
+class §\textcolor{leanYellow}{add\_comm\_group}§ (§\textalpha§ : Type u) extends add_group §\textalpha§, add_comm_monoid §\textalpha§
 \end{lstlisting}
 
 
