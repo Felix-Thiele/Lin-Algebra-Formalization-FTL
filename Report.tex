@@ -90,10 +90,10 @@ Some of the results given in this library are:
 \newline
 The \textbf{definitions} of:
 \begin{itemize}[nolistsep, noitemsep]
-\item Groups, Rings, Fields
-\item Vector spaces, Subspaces, Dual spaces
-\item Homomorphisms, Endomorphisms, Automorphisms of vector spaces
-\item Lists, Linear independence
+\item groups, rings, fields
+\item vector spaces, subspaces, dual spaces
+\item homomorphisms, endomorphisms, automorphisms of vector spaces
+\item lists, linear independence
 \end{itemize}
 And the \textbf{proofs} of:
 \begin{itemize}[nolistsep, noitemsep]
@@ -131,6 +131,9 @@ The file vector\_space.lean covers the following definitions and statements of l
 
 \subsection{Characteristic Features}
 The notions above are defined in the canonical way and the proofs are of course trivial from an algebraic standpoint. Thus, there is no need for huge lambda terms (which are otherwise not uncommon in lean texts) and the code is fairly easy to understand.
+
+
+
 - using the following notions from the mathilb: ... \\
 - type classes: has\_add, has\_zero, etc. \\
 - @[simp] (-> easy statements named above)\\
@@ -241,7 +244,8 @@ Definition. An abelian group is a structure G such that
 
 \subsubsection{Homomorphisms}
 
-After the definition of various structures on sets we define linear functions. We introduce the set of homomorphisms immediately as the carrier set of a new structure Hom(K,V,W).
+After the definition of various structures on sets, we define linear maps between vector spaces.
+We introduce the set of homomorphisms as the carrier set of a new structure Hom(K,V,W).
 \begin{lstlisting}
 Let K denote a Field.
 
@@ -267,7 +271,8 @@ For brevity in D\_func\_zero we introduce the following abbreviation:
 Let 2Vectorspace(K,V,W) stand for
 (K is a field and (V is a vector space over K) and (W is a vector space over K)).
 \end{lstlisting}
-The {\ftl structure} approach allows us to also regard Hom(K,V,V) as a ring, which is done in the endomorphism files.
+
+The {\ftl structure} approach allows us to also regard Hom(K,V,V) as a ring, which is done in the files about endomorphisms.
 
 \subsubsection{Field2VS}
 Proving that a field is a vector space over itself becomes again easy through the structure construction. We don't have to redefine the part of the structure that already exists but can instead just add scalar multiplication to the field. This is done in the following way:
@@ -276,7 +281,7 @@ Let K denote a field.
 Axiom. (K has smul).
 Axiom. smul{K} = mul{K}.
 \end{lstlisting}
-We then prove in the the P\_field2VS file that this really does create a vector space:
+We then prove in P\_field2VS that this really does create a vector space:
 \begin{lstlisting}
 Theorem. Let K be a field. Then K is a vector space over K.
 proof.
@@ -293,7 +298,7 @@ qed.
 
 \subsubsection{Automorphism Group}
 While the lean file introduces the general linear group by proving statements about invertible linear maps, we took a step back and defined the multiplicative group of an arbitrary ring in D\_unit\_group. This branching at the top of the project graph reduces the required reasoning in the proof file.
-
+We then define the group of automorphisms of a given vector space simply as the unit group of its endomorphism ring. P\_autmorphisms contains the proof, that this group is exactly the set of bijective endomorphisms.
 
 \subsubsection{Lists}
 
