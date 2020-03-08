@@ -12,8 +12,31 @@
 \newfontfamily{\lean}[Scale=MatchLowercase]{Consolas}
 \newfontfamily{\ftl}[Scale=MatchLowercase]{DejaVuSansMono}
 
+\usepackage{color}
+\definecolor{leanBlue}{RGB}{86,156,214}
+\definecolor{leanYellow}{RGB}{179,160,0}
+\definecolor{ftlComment}{RGB}{204,0,0}
+\definecolor{ftlRead}{RGB}{255,132,0}
+\definecolor{ftlSignature}{RGB}{0,102,153}
+\definecolor{ftlProof}{RGB}{0,153,255}
+\definecolor{ftlAssume}{RGB}{0,153,102}
+
+\usepackage{textgreek}
 \usepackage{listings}
+
+\lstdefinelanguage{Lean}{
+  keywords=[1]{class, lemma, theorem, lemma, def, \textlambda, by, include, @[simp], end, Type, extends, universe, universes, variable, variables, namespace, import},
+  keywordstyle=[1]{\color{leanBlue}},
+  stringstyle={\color{leanYellow}},
+  moredelim=[s][\color{leanBlue}]{class}{\ },
+  morestring=*[s]{class\ }{\ },
+  %morestring=[s][\color{leanYellow}]{instance\ }{\ },
+  %morestring=[s][\color{leanYellow}]{lemma\ }{\ },
+  %morestring=[s][\color{leanYellow}]{theorem\ }{\ },
+  %morestring=[s][\color{leanYellow}]{def\ }{\ },  
+}
 \lstdefinestyle{lean}{
+    language={Lean},
     basicstyle=\lean\footnotesize,
     breakatwhitespace=false,
     breaklines=true,
@@ -28,7 +51,10 @@
     frame=trbl,
     frameround=tttt,
     framesep=3pt,
+    mathescape=true,
+    escapeinside={§}{§},
 }
+
 \lstdefinestyle{ftl}{
     language={ForTheL},
     basicstyle=\ftl\footnotesize,
@@ -49,25 +75,18 @@
 \lstdefinelanguage{ForTheL}{
   keywords=[1]{Signature, Axiom, Theorem, Definition},
   keywords=[2]{Proof, End, qed, by},
-  keywords=[3]{Assume, Let, us, show, Since, we, have},
+  keywords=[3]{and, Assume, Let, Since, we, have},
 % Defining keywords that contain blank spaces seems to be very inconvenient. Therefore "us" and "show" are individual keywords, "Let" must have the same color everywhere and "that" can not be higlighted as a keyword, because that would also show up at wrong places.
   sensitive=false,
+  keywordstyle=[1]{\color{ftlSignature}},
+  keywordstyle=[2]{\color{ftlProof}},
+  keywordstyle=[3]{\color{ftlAssume}},
+  morestring=[s][\color{ftlRead}]{[read}{]},
+  morestring=[s][\color{ftlRead}]{[synonym}{]},
+  morestring=[s][\color{ftlAssume}]{Let\ us\ show}{that},
   morecomment=[l]{\#},
-  morestring=[s]{[read}{]},
-  morestring=[s]{[synonym}{]},
-  commentstyle={\color{commentColor}},
-  stringstyle={\color{readColor}},
-  keywordstyle=[1]{\color{signatureColor}},
-  keywordstyle=[2]{\color{proofColor}},
-  keywordstyle=[3]{\color{assumeColor}},
+  commentstyle={\color{ftlComment}},
 }
-
-\usepackage{color}
-\definecolor{commentColor}{RGB}{204,0,0}
-\definecolor{readColor}{RGB}{255,132,0}
-\definecolor{signatureColor}{RGB}{0,102,153}
-\definecolor{proofColor}{RGB}{0,153,255}
-\definecolor{assumeColor}{RGB}{0,153,102}
 
 \author{Erik Sturzenhecker, Felix Thiele}
 \title{A Start to the formalization of Linear Algebra in ForTheL}
@@ -86,6 +105,7 @@
 In this project we build a linear algebra library in ForTheL with Naproche-SAD. ForTheL, which stands for Formal Theory Language, is a language that comes close to human language. This reduces many of the initial hurdles people encounter in the formalization of mathematics. Naproche can not only interpret ForTheL code, but is also backed with a strong Automated Theorem Prover, to which we shall refer to as e-prover. This makes many Proofs in our library easier, since some trivial steps can be skipped. At the same time this comes with massive performance issues, since checking this small library is a comparably very time intensive task.
 
 \subsection{Results}
+The complete project can be found under \url{https://github.com/Felix-Thiele/linear_algebra_ftl}.
 Some of the results given in this library are:
 \newline
 The \textbf{definitions} of:
@@ -110,7 +130,7 @@ And the \textbf{proofs} of:
 \newpage
 \lstset{style=lean}
 \section{The Lean File}
-For inspiration on how to formalize linear algebra for a proof checker we looked into the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small lean library by Kenny Lau containing formalizations of various mathematical topics. Lean is a theorem prover and a programming language based on dependent type theory. There is an extensive library of mathematical lean texts, the mathlib (\url{https://github.com/leanprover-community/mathlib}), maintained by lean users, which is used and build upon in vector\_space.lean.
+For inspiration on how to formalize linear algebra for a proof checker, we looked into the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small lean library by Kenny Lau containing formalizations of various mathematical topics. Lean is a theorem prover and a programming language based on dependent type theory. There is an extensive library of mathematical lean texts, the mathlib (\url{https://github.com/leanprover-community/mathlib}), maintained by lean users, which is used and build upon in vector\_space.lean.
 
 
 
@@ -128,14 +148,38 @@ The file vector\_space.lean covers the following definitions and statements of l
 \end{itemize}
 
 
-
-\subsection{Characteristic Features}
+%
+\subsection{Characteristic Features} \label{characteristics}
 The notions above are defined in the canonical way and the proofs are of course trivial from an algebraic standpoint. Thus, there is no need for huge lambda terms (which are otherwise not uncommon in lean texts) and the code is fairly easy to understand.
 
+The lean file uses the following notions (type classes) from the mathlib: {\lean field}, {\lean discrete\_field} (a field where equality of elements is decidable), {\lean add\_comm\_group}, {\lean vector\_space}, {\lean ring}, {\lean group}.
+The classes {\lean has\_zero}, {\lean has\_one}, {\lean has\_add}, {\lean has\_mul}, {\lean has\_neg}, {\lean has\_inv}, {\lean has\_scalar} from the built-in lean library are crucial for the description and handling of algebraic structures in lean.
+The following is an example of how algebraic structures are successively defined as type classes in the mathlib, by extending existing type classes:
+\begin{lstlisting}
+universe u
+
+class has_zero (§\textalpha§ : Type u) := (zero : §\textalpha§)
+class has_add  (§\textalpha§ : Type u) := (add : §\textalpha§ → §\textalpha§ → §\textalpha§)
+class has_neg  (§\textalpha§ : Type u) := (neg : §\textalpha§ → §\textalpha§)
+
+class add_semigroup (§\textalpha§ : Type u) extends has_add §\textalpha§ :=
+(add_assoc : $\forall$ a b c : §\textalpha§, a + b + c = a + (b + c))
+
+class add_comm_semigroup (§\textalpha§ : Type u) extends add_semigroup §\textalpha§ :=
+(add_comm : $\forall$ a b : §\textalpha§, a + b = b + a)
+
+class add_monoid (§\textalpha§ : Type u) extends add_semigroup §\textalpha§, has_zero §\textalpha§ :=
+(zero_add : $\forall$ a : §\textalpha§, 0 + a = a) (add_zero : $\forall$ a : §\textalpha§, a + 0 = a)
+
+class add_comm_monoid (§\textalpha§ : Type u) extends add_monoid §\textalpha§, add_comm_semigroup §\textalpha§
+
+class add_group (§\textalpha§ : Type u) extends add_monoid §\textalpha§, has_neg §\textalpha§ :=
+(add_left_neg : $\forall$ a : §\textalpha§, -a + a = 0)
+
+class add_comm_group (§\textalpha§ : Type u) extends add_group §\textalpha§, add_comm_monoid §\textalpha§
+\end{lstlisting}
 
 
-- using the following notions from the mathilb: ... \\
-- type classes: has\_add, has\_zero, etc. \\
 - @[simp] (-> easy statements named above)\\
 - ...
 
@@ -185,7 +229,7 @@ This file reading structure is depicted below.
 \end{center}
 \end{figure}
 
-Additionally, it can sometimes be helpful to split the P\_ files even more, especially when more multiple theorems are supposed to follow on a single D\_ file. In our case, P\_vector\_space contained five (partly independent) theorems, each needing some lemmata. Reasoning and ontological checking of the proofs became considerably slower when the respective theorem was preceded by other lemmata and theorems. The solution was to write four different proof files (P\_vector\_space\_1, \_2, \_3 and \_4), each starting with only the required statements of the preceding proof files - in axiomatized form.
+Additionally, it can sometimes be helpful to split the P\_ files even more, especially when more multiple theorems are supposed to follow on a single D\_ file. In our case, P\_vector\_space contained five (partly independent) theorems, each needing some lemmas. Reasoning and ontological checking of the proofs became considerably slower when the respective theorem was preceded by other lemmas and theorems. The solution was to write four different proof files (P\_vector\_space\_1, \_2, \_3 and \_4), each starting with only the required statements of the preceding proof files - in axiomatized form.
 
 
 \subsection{The Implementation}
@@ -320,6 +364,7 @@ Both behaviors are especially surprising, since all the statements about compost
 
 \newpage
 \section{Comparison of Lean and Naproche/ForTheL}
+Our approach to formalize algebraic objects as instances of a more general {\ftl structure} object, which enables us to successively enhance these objects with more algebraic structure, was inspired by the type class setup in vector\_space.lean as described in \ref{characteristics}.
 
 
 \newpage 
