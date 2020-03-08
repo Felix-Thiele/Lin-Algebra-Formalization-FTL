@@ -72,7 +72,7 @@ This graph translates to the actual file readings in the following way:
 | 010 func_smul            | 07.03.2020 17:00         | 03:52.63 | ? |
 | 011 homomorphisms        | 06.03.2020 23:00         | 02:14.34 | ? |
 | 012 field2VS             | 06.03.2020 14:00         | ? | 00:31.30 |
-| 013 dual                 | 06.03.2020 14:00         | 07:09.33 | 10:14.99 |
+| 013 dual                 | 06.03.2020 14:00         | ? | 10:14.99 |
 | 100 ring                 | 06.03.2020 14:00 (empty) | 00:06.42 | ? |
 | 101 unit_group           | 06.03.2020 14:00         | 01:09.01 | ? |
 | 102 endomorphisms        | 07.03.2020 15:00         | 10:38.45 | ? |
