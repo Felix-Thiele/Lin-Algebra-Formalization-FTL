@@ -3,13 +3,12 @@
 Let K denote a field. 
 
 # We assume this axiom for now.
-Axiom Exi.
-Let V be a vector space over K. Let x,y < V. Assume that x != y.
-  There exists a function g such that g is linear over K from V to field2VS(K) and g[x] != g[y].
+Axiom Exi. Let V be a vector space over K. Let x,y < V. Assume that x != y.
+There exists a function g such that g is linear over K from V to K and g[x] != g[y].
 
 Definition.
 Let V be a vector space over K. 
-dual(K,V) = Hom(K,V,field2VS(K)).
+dual(K,V) = Hom(K,V,K).
 
 Definition.
 Let V be a vector space over K.
