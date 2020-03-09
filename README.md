@@ -36,7 +36,7 @@ This graph translates to the actual file readings in the following way:
 ### Results
 
 The **definitions** of:
-- groups, rings, fieldsgroups, rings, fields
+- groups, rings, fields
 - vector spaces, subspaces, dual spaces
 - homomorphisms, endomorphisms, automorphisms of vector spaces
 - lists, linear independence
