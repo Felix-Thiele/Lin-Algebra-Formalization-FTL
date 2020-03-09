@@ -68,7 +68,7 @@ space Hom(K,V,W).
 | 008 func_add             | 10:51.88              |                      |
 | 009 func_neg             | 17:47.46              |                      |
 | 010 func_smul            | 03:52.63              |                      |
-| 011 homomorphisms        | 02:14.34              |                      |
+| 011 homomorphisms        | 02:14.34              | 02:16.22             |
 | 012 field2VS             |                       | 00:31.30             |
 | 013 dual                 |                       | 10:14.99             |
 | 100 ring                 | 00:06.42              |                      |
