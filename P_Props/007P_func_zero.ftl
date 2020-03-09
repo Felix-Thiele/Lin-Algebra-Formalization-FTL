@@ -2,6 +2,7 @@
 
 Let K denote a field.
 
+
 Theorem. Let 2Vectorspace(K,V,W).
 Then FuncZero(K,V,W) is linear over K from V to W.
 proof. 

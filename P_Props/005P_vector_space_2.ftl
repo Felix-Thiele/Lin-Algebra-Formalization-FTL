@@ -2,6 +2,7 @@
 
 Let K denote a field.
 
+
 Axiom ZeroSmul. Let V be a vector space over K. Let v < V.
 Then 0{K} @{V} v = 0{V}.
 # proof : 005P_vector_space_1.ftl

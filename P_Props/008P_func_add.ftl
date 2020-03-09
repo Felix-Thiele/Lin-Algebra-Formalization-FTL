@@ -1,6 +1,5 @@
 [read linear_algebra_ftl/008D_func_add.ftl]
 
-# Takes about 10 minutes
 
 Theorem. Let 2Vectorspace(K,V,W).
 Then FuncAdd(K,V,W) is from Prod(|Hom(K,V,W)|,|Hom(K,V,W)|) to |Hom(K,V,W)|.

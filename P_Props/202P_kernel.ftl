@@ -1,12 +1,14 @@
-read linear_algebra_ftl/202D_kernel.ftl]
+[read linear_algebra_ftl/202D_kernel.ftl]
 
 Let K denote a field.
+
 
 Theorem. Let V,W be vector spaces over K. Let f < Hom(K,V,W).
 Let u,v < V. Let f[u] = f[v]. Then u -{V} v << Ker(f).
 proof.
  u -{V} v < V.
 end.
+
 
 Theorem. Let V,W be vector spaces over K. Let f < Hom(K,V,W).
 Assume Ker(f) = {0{V}}. Then f is injective.
@@ -31,6 +33,7 @@ proof.
  0{V} +{V} v = v.
  Thus u = v.
 end.
+
 
 Theorem. Let V,W be vector spaces over K.
 Let f < Hom(K,V,W). Then Ker(f) is a subspace of V over K.

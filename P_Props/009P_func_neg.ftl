@@ -1,9 +1,7 @@
 [read linear_algebra_ftl/009D_func_neg.ftl]
 
-# Func Neg
-#takes about 15 min
-
 Let K denote a Field.
+
 
 Theorem. Let 2Vectorspace(K,V,W).
 Then FuncNeg(K,V,W) is from |Hom(K,V,W)| to |Hom(K,V,W)|.

@@ -2,6 +2,7 @@
 
 Let R denote a ring.
 
+
 Theorem. Let r,s,t < Un(R).
  Assume r *{R} s = 1{R} and s *{R} r = 1{R}.
  Assume r *{R} t = 1{R} and t *{R} r = 1{R}.
@@ -35,7 +36,7 @@ Lemma. Let r,s < Un(R). Then r *{Un(R)} s = r *{R} s.
 
 Theorem. Un(R) is a group.
 proof.
- carr,one,mul,inv << Dom(Un(R)).
+ (Un(R) has carr,one,mul,inv).
  |Un(R)| is a set.
  1{Un(R)} < Un(R).
 

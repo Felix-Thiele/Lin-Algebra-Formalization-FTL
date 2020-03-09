@@ -1,10 +1,9 @@
 [read linear_algebra_ftl/103D_automorphisms.ftl]
 
-# Takes about 5 minutes.
-
 Let K denote a field.
 Let M,N denote sets.
 Let f,g denote functions.
+
 
 Lemma. Let f be bijective from M to N. Then f^(-1)*f = id{M}.
 proof.
@@ -86,14 +85,14 @@ end.
 Theorem. Let V be a vector space over K.
 |Aut(K,V)| = {h | h is an isomorphism over K from V to V}.
 proof.
- Then end(K,V) is a ring.
- mul{end(K,V)} is from Prod(|end(K,V)|,|end(K,V)|) to |end(K,V)|.
+ Then End(K,V) is a ring.
+ mul{End(K,V)} is from Prod(|End(K,V)|,|End(K,V)|) to |End(K,V)|.
  Let us show that for all f : ((f < Aut(K,V)) => (f is an isomorphism over K from V to V)).
   Let f < Aut(K,V).
   Then f < Hom(K,V,V).
   Let us show that f is bijective from |V| to |V|.
-   f < Un(end(K,V)).
-   Take g < end(K,V) such that f *{end(K,V)} g = 1{end(K,V)} and g *{end(K,V)} f = 1{end(K,V)}.
+   f < Un(End(K,V)).
+   Take g < End(K,V) such that f *{End(K,V)} g = 1{End(K,V)} and g *{End(K,V)} f = 1{End(K,V)}.
    Thus f*g = id{|V|} and g*f = id{|V|}.
    f is from |V| to |V|.
    g is from |V| to |V|.
@@ -102,11 +101,11 @@ proof.
  end.
  Let us show that for all f : ((f < Aut(K,V)) iff (f is an isomorphism over K from V to V)).
   Let f be an isomorphism over K from V to V.
-  Then f < end(K,V).
-  f^(-1) < end(K,V).
-  Let us show that f *{end(K,V)} f^(-1) = 1{end(K,V)} and f^(-1) *{end(K,V)} f = 1{end(K,V)}.
-   f *{end(K,V)} f^(-1) = f*f^(-1) = id{|V|}.
-   f^(-1) *{end(K,V)} f = f^(-1)*f = id{|V|}.   
+  Then f < End(K,V).
+  f^(-1) < End(K,V).
+  Let us show that f *{End(K,V)} f^(-1) = 1{End(K,V)} and f^(-1) *{End(K,V)} f = 1{End(K,V)}.
+   f *{End(K,V)} f^(-1) = f*f^(-1) = id{|V|}.
+   f^(-1) *{End(K,V)} f = f^(-1)*f = id{|V|}.   
   end.
   Thus f < Aut(K,V).
  end.

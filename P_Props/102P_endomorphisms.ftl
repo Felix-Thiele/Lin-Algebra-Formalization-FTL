@@ -1,7 +1,5 @@
 [read linear_algebra_ftl/102D_endomorphisms.ftl]
 
-# Takes about 8 minutes.
-
 Let K denote a field.
 
 Theorem. Let V be a vector space over K. Then id{|V|} is linear over K from V to V.
@@ -59,63 +57,63 @@ proof.
 end.
 
 
-Lemma. Let V be a vector space over K. Let f,g < end(K,V).
-(f,g) << Dom(mul{end(K,V)}).
+Lemma. Let V be a vector space over K. Let f,g < End(K,V).
+(f,g) << Dom(mul{End(K,V)}).
 proof.
- mul{end(K,V)} = FuncComp(K,V).
- Dom(FuncComp(K,V)) = Prod(|end(K,V)|,|end(K,V)|).
+ mul{End(K,V)} = FuncComp(K,V).
+ Dom(FuncComp(K,V)) = Prod(|End(K,V)|,|End(K,V)|).
 end.
 
 
-Lemma. Let V be a vector space over K. Let f,g < end(K,V).
-f *{end(K,V)} g = f*g.
+Lemma. Let V be a vector space over K. Let f,g < End(K,V).
+f *{End(K,V)} g = f*g.
 
 
 Lemma. Let V be a vector space over K.
-mul{end(K,V)} is from Prod(|end(K,V)|,|end(K,V)|) to |end(K,V)|.
+mul{End(K,V)} is from Prod(|End(K,V)|,|End(K,V)|) to |End(K,V)|.
 proof.
- Let x << Prod(|end(K,V)|,|end(K,V)|).
- Take f,g < end(K,V) such that x = (f,g).
+ Let x << Prod(|End(K,V)|,|End(K,V)|).
+ Take f,g < End(K,V) such that x = (f,g).
  f is linear over K from V to V.
  g is linear over K from V to V.
  f*g is linear over K from V to V.
- f*g < end(K,V).
- f *{end(K,V)} g = f*g.
- Thus mul{end(K,V)}[x] < end(K,V).
+ f*g < End(K,V).
+ f *{End(K,V)} g = f*g.
+ Thus mul{End(K,V)}[x] < End(K,V).
 end.
 
 
-Lemma. Let V be a vector space over K. Let g,h < end(K,V).
-Then (g +{end(K,V)} h) < end(K,V).
+Lemma. Let V be a vector space over K. Let g,h < End(K,V).
+Then (g +{End(K,V)} h) < End(K,V).
 proof.
- add{end(K,V)} is from Prod(|end(K,V)|,|end(K,V)|) to |end(K,V)|.
+ add{End(K,V)} is from Prod(|End(K,V)|,|End(K,V)|) to |End(K,V)|.
 end.
 
 
-Lemma. Let V be a vector space over K. Let f,g,h < end(K,V).
-Then f *{end(K,V)} (g +{end(K,V)} h) < end(K,V).
+Lemma. Let V be a vector space over K. Let f,g,h < End(K,V).
+Then f *{End(K,V)} (g +{End(K,V)} h) < End(K,V).
 proof.
- (g +{end(K,V)} h) < end(K,V).
- mul{end(K,V)} is from Prod(|end(K,V)|,|end(K,V)|) to |end(K,V)|.
+ (g +{End(K,V)} h) < End(K,V).
+ mul{End(K,V)} is from Prod(|End(K,V)|,|End(K,V)|) to |End(K,V)|.
 end.
 
 
-Lemma. Let V be a vector space over K. Let f,g,h < end(K,V).
-Then (f *{end(K,V)} g) < end(K,V).
+Lemma. Let V be a vector space over K. Let f,g,h < End(K,V).
+Then (f *{End(K,V)} g) < End(K,V).
 proof.
- mul{end(K,V)} is from Prod(|end(K,V)|,|end(K,V)|) to |end(K,V)|.
+ mul{End(K,V)} is from Prod(|End(K,V)|,|End(K,V)|) to |End(K,V)|.
 end.
 
 
-Lemma. Let V be a vector space over K. Let f,g,h < end(K,V).
-Then (f *{end(K,V)} g) +{end(K,V)} (f *{end(K,V)} h) < end(K,V).
+Lemma. Let V be a vector space over K. Let f,g,h < End(K,V).
+Then (f *{End(K,V)} g) +{End(K,V)} (f *{End(K,V)} h) < End(K,V).
 proof.
- f *{end(K,V)} g < end(K,V).
- f *{end(K,V)} h < end(K,V).
+ f *{End(K,V)} g < End(K,V).
+ f *{End(K,V)} h < End(K,V).
 end.
 
 
-Lemma. Let V be a vector space over K. Let f < end(K,V). Let v < V.
+Lemma. Let V be a vector space over K. Let f < End(K,V). Let v < V.
 f[v] < V.
 
 
@@ -123,11 +121,11 @@ Lemma. Let V be a vector space over K.
 add{V} is from Prod(|V|,|V|) to |V|.
 
 
-Lemma. Let V be a vector space over K. Let g,h < end(K,V). Let v < V.
-(g +{end(K,V)} h)[v] = g[v] +{V} h[v].
+Lemma. Let V be a vector space over K. Let g,h < End(K,V). Let v < V.
+(g +{End(K,V)} h)[v] = g[v] +{V} h[v].
 
 
-Lemma. Let V be a vector space over K. Let f,g < end(K,V). Let v < V.
+Lemma. Let V be a vector space over K. Let f,g < End(K,V). Let v < V.
 (f*g)[v] = f[g[v]].
 proof.
  For all w << Dom(g) we have g[w] << Dom(f).
@@ -135,15 +133,15 @@ proof.
 end.
 
 
-Lemma. Let V be a vector space over K. Let f,g,h < end(K,V).
-Then f *{end(K,V)} (g +{end(K,V)} h) = (f *{end(K,V)} g) +{end(K,V)} (f *{end(K,V)} h).
+Lemma. Let V be a vector space over K. Let f,g,h < End(K,V).
+Then f *{End(K,V)} (g +{End(K,V)} h) = (f *{End(K,V)} g) +{End(K,V)} (f *{End(K,V)} h).
 proof.
  Dom(f*g) = |V|.
  Dom(f*h) = |V|.
  For all v < V : f[g[v]] = (f*g)[v].
  For all v < V : f[h[v]] = (f*h)[v].
 
- Let R = end(K,V).
+ Let R = End(K,V).
  f *{R} (g +{R} h) = f*(g +{R} h).
  f *{R} g = f*g.
  f *{R} h = f*h.
@@ -152,7 +150,7 @@ proof.
  For all v < V : v << Dom((f*g) +{R} (f*h)).
  Let us show that for all v < V : (f*(g +{R} h))[v] = ((f*g) +{R} (f*h))[v].
   Let v < V.
-  g +{R} h < end(K,V).
+  g +{R} h < End(K,V).
   (g +{R} h)[v] < V.
   (f*(g +{R} h))[v] = f[(g +{R} h)[v]]. 
   (g +{R} h)[v] = g[v] +{V} h[v].
@@ -169,7 +167,7 @@ proof.
   f[h[v]] = (f*h)[v].
   f[g[v]] +{V} f[h[v]] = (f*g)[v] +{V} (f*h)[v].
   Let us show that (f*g)[v] +{V} (f*h)[v] = ((f*g) +{R} (f*h))[v].
-   f*g, f*h < end(K,V).
+   f*g, f*h < End(K,V).
   end.
  end.
 
@@ -179,15 +177,15 @@ proof.
 end.
 
 
-Lemma. Let V be a vector space over K. Let f,g,h < end(K,V).
-Then (f +{end(K,V)} g) *{end(K,V)} h = (f *{end(K,V)} h) +{end(K,V)} (g *{end(K,V)} h).
+Lemma. Let V be a vector space over K. Let f,g,h < End(K,V).
+Then (f +{End(K,V)} g) *{End(K,V)} h = (f *{End(K,V)} h) +{End(K,V)} (g *{End(K,V)} h).
 proof.
  Dom(f*h) = |V|.
  Dom(g*h) = |V|.
  For all v < V : f[h[v]] = (f*h)[v].
  For all v < V : g[h[v]] = (g*h)[v].
 
- Let R = end(K,V).
+ Let R = End(K,V).
  (f +{R} g) *{R} h = (f +{R} g)*h.
  f *{R} h = f*h.
  g *{R} h = g*h.
@@ -197,7 +195,7 @@ proof.
  For all v < V : v << Dom((f*h) +{R} (g*h)).
  Let us show that for all v < V : ((f +{R} g)*h)[v] = ((f*h) +{R} (g*h))[v].
   Let v < V.  
-  f +{R} g < end(K,V).
+  f +{R} g < End(K,V).
   (f +{R} g)[v] < V.
   ((f +{R} g)*h)[v] = (f +{R} g)[h[v]]. 
   (f +{R} g)[h[v]] = f[h[v]] +{V} g[h[v]].
@@ -206,7 +204,7 @@ proof.
   g[h[v]] = (g*h)[v].
   f[h[v]] +{V} g[h[v]] = (f*h)[v] +{V} (g*h)[v].
   Let us show that (f*h)[v] +{V} (g*h)[v] = ((f*h) +{R} (g*h))[v].
-   f*h, g*h < end(K,V).
+   f*h, g*h < End(K,V).
   end.
  end.
 
@@ -216,11 +214,11 @@ proof.
 end.
 
 
-Theorem. Let V be a vector space over K. end(K,V) is a ring.
+Theorem. Let V be a vector space over K. End(K,V) is a ring.
 proof.
- Let R = end(K,V).
+ Let R = End(K,V).
  Let us show that R is a ring.
-  carr,zero,one,add,neg,mul << Dom(R).
+  (R has carr,zero,one,add,neg,mul).
   R is an abelian group.
 
   1{R} < R.

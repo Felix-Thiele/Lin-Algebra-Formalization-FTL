@@ -2,9 +2,10 @@
 
 Let K denote a field.
 
+
 Theorem. Let K be a field. Then K is a vector space over K.
 proof.
- carr,zero,add,neg,smul << Dom(K).
+ (K has carr,zero,add,neg,smul).
  K is an abelian group.
  smul{K} is a function from Prod(|K|,|K|) to |K|.
  For all u < K                 :       1{K} @{K} u = u.

@@ -1,11 +1,13 @@
 [read linear_algebra_ftl/013D_dual.ftl]
 
-# takes about 5 min
-
 Let K denote a field.
+
 
 Signature. field2VS(K) is a notion.
 Axiom. field2VS(K) = K.
+# This is a residue of an older formalization. Replacing field2VS(K) by K
+# in the proofs below would make them much slower.
+
 
 Theorem. Let V be a vector space over K.
 V2ddV(K,V) is injective.

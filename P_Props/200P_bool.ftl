@@ -1,8 +1,9 @@
 [read linear_algebra_ftl/200D_bool.ftl]
 
+
 Theorem. B is a field.
 proof.
- carr,zero,one,add,neg,mul,inv << Dom(B).
+ (B has carr,zero,one,add,neg,mul,inv).
  |B| is a set.
  0{B} < B.
  add{B} is a function from Prod(|B|,|B|) to |B|.
