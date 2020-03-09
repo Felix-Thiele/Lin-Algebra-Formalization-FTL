@@ -57,26 +57,26 @@ space Hom(K,V,W).
 (can depend on which A_ and D_ files have been checked before)
 | file name                | checking time (Felix) | checking time (Erik) |
 | ------------------------ | --------------------- | -------------------- |
-| 000 set                  | 00:00.04 | ? |
-| 001 function             | 00:14.73 | ? |
-| 002 structure            | 00:03.48 | ? |
-| 003 abelian_group        | 00:47.57 | ? |
-| 004 field                | 00:48.61 | |
-| 005 vector_space         | 06:37.78 + 05:13.98 + 05:17.70 + 00:16.41 | ? |
-| 006 linear_function      | 00:46.87 | 00:46.15 |
-| 007 func_zero            | 01:20.37 | |
-| 008 func_add             | 10:51.88 | |
-| 009 func_neg             | 17:47.46 | |
-| 010 func_smul            | 03:52.63 | |
-| 011 homomorphisms        | 02:14.34 | |
-| 012 field2VS             | | 00:31.30 |
-| 013 dual                 | | 10:14.99 |
-| 100 ring                 | 00:06.42 | ? |
-| 101 unit_group           | 01:09.01 | ? |
-| 102 endomorphisms        | 10:38.45 | 16:59.71 |
-| 103 automorphisms        | 05:50.22 | ? |
-| 200 bool                 | 00:14.69 | 1:04.55 |
-| 201 subspace             | | 16:22.47 (eprover.exe uses about 4.8 GB RAM at some point) |
-| 202 kernel               | 01:44.35 | 01:30.42 |
-| 203 list                 | 00:49.94 | ? |
-| 204 linearly_independent | 00:28.07 | ? |
+| 000 set                  | 00:00.04              |                      |
+| 001 function             | 00:14.73              |                      |
+| 002 structure            | 00:03.48              |                      |
+| 003 abelian_group        | 00:47.57              |                      |
+| 004 field                | 00:48.61              |                      |
+| 005 vector_space         | 06:37.78 + 05:13.98 + 05:17.70 + 00:16.41 |  |
+| 006 linear_function      | 00:46.87              | 00:46.15             |
+| 007 func_zero            | 01:20.37              |                      |
+| 008 func_add             | 10:51.88              |                      |
+| 009 func_neg             | 17:47.46              |                      |
+| 010 func_smul            | 03:52.63              |                      |
+| 011 homomorphisms        | 02:14.34              |                      |
+| 012 field2VS             |                       | 00:31.30             |
+| 013 dual                 |                       | 10:14.99             |
+| 100 ring                 | 00:06.42              |                      |
+| 101 unit_group           | 01:09.01              |                      |
+| 102 endomorphisms        | 10:38.45              | 16:59.71             |
+| 103 automorphisms        | 05:50.22              |                      |
+| 200 bool                 | 00:14.69              | 1:04.55              |
+| 201 subspace             |                       | 16:22.47 (eprover.exe uses about 4.8 GB RAM at some point) |
+| 202 kernel               | 01:44.35              | 01:30.42             |
+| 203 list                 | 00:49.94              |                      |
+| 204 linearly_independent | 00:28.07              |                      |
