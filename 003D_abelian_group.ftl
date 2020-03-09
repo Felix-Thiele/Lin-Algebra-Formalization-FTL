@@ -1,7 +1,7 @@
 [read linear_algebra_ftl/A_Props/002A_structure.ftl]
 
 Definition. An abelian group is a structure G such that
-     (carr,zero,add,neg << Dom(G))
+     (G has carr,zero,add,neg)
  and (|G| is a set)
  and (0{G} < G)
  and (add{G} is a function from Prod(|G|,|G|) to |G|)

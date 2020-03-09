@@ -40,3 +40,4 @@ Let (S has a,b,c,d) stand for (a,b,c,d << Dom(S)).
 Let (S has a,b,c,d,e) stand for (a,b,c,d,e << Dom(S)).
 Let (S has a,b,c,d,e,f) stand for (a,b,c,d,e,f << Dom(S)).
 Let (S has a,b,c,d,e,f,g) stand for (a,b,c,d,e,f,g << Dom(S)).
+Let (S has a,b,c,d,e,f,g,h) stand for (a,b,c,d,e,f,g,h << Dom(S)).

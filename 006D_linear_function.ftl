@@ -13,7 +13,7 @@ Signature. Let V and W be vector spaces over K.
 Hom(K,V,W) is a structure.
 
 Axiom. Let V and W be vector spaces over K.
-carr << Dom(Hom(K,V,W)).
+(Hom(K,V,W) has carr).
 
 Axiom. Let V and W be vector spaces over K.
 |Hom(K,V,W)| is the set of functions f such that f is linear over K from V to W.

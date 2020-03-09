@@ -3,7 +3,7 @@
 [synonym space/-s]
 
 Definition. Let K be a field. A vector space over K is a structure V such that
-     (carr,zero,add,neg,smul << Dom(V))
+     (V has carr,zero,add,neg,smul)
  and (V is an abelian group)
  and (smul{V} is a function from Prod(|K|,|V|) to |V|)
  and (for all u < V                 :       1{K} @{V} u = u)

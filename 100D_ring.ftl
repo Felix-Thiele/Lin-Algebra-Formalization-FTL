@@ -3,7 +3,7 @@
 # Ring = Ring with 1
 
 Definition. A ring is a structure R such that
-     (carr,zero,one,add,neg,mul << Dom(R))
+     (R has carr,zero,one,add,neg,mul)
  and (R is an abelian group)
  and (1{R} < R)
  and (mul{R} is a function from Prod(|R|,|R|) to |R|)

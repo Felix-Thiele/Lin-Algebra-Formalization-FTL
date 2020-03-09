@@ -5,9 +5,9 @@
 Signature.
 A List is a function.
 
-Definition. A liststr is a structure K such that (carr, zero << Dom(K))  
-                          and (|K| is a set) 
-                          and (0{K} < K).
+Definition. A liststr is a structure K such that (K has carr, zero)  
+ and (|K| is a set) 
+ and (0{K} < K).
 
 Signature.
 Assume L is a list.

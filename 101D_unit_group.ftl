@@ -2,7 +2,7 @@
 
 
 Definition. A group is a structure G such that
-     (carr,one,mul,inv << Dom(G))
+     (G has carr,one,mul,inv)
  and (|G| is a set)
  and (1{G} < G)
  and (mul{G} is a function from Prod(|G|,|G|) to |G|)
@@ -15,7 +15,7 @@ Definition. A group is a structure G such that
 Let R denote a ring.
 
 Signature. Un(R) is a structure.
-Axiom. carr << Dom(Un(R)).
+Axiom. (Un(R) has carr).
 Axiom. |Un(R)| is a set.
 Axiom. |Un(R)| = {r | r < R and there is s < R such that (r *{R} s = 1{R} and s *{R} r = 1{R})}.
 
@@ -30,7 +30,7 @@ Axiom. For all r < Un(R) : r *{R} ringInv(R)[r] = 1{R}.
 Axiom. For all r < Un(R) : ringInv(R)[r] *{R} r = 1{R}.
 
 
-Axiom. one, mul, inv << Dom(Un(R)).
-Axiom. 1{Un(R)} = 1{R}.
+Axiom. (Un(R) has one,mul,inv).
+Axiom. 1{Un(R)}   = 1{R}.
 Axiom. mul{Un(R)} = mul{R}|{Prod(|Un(R)|,|Un(R)|)}.
 Axiom. inv{Un(R)} = ringInv(R).

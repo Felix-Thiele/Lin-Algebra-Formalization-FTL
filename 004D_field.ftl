@@ -2,7 +2,7 @@
 
 
 Definition. A field is a structure K such that
-     (carr,zero,one,add,neg,mul,inv << Dom(K))
+     (K has carr,zero,one,add,neg,mul,inv)
  and (K is an abelian group)
  and (1{K} < K)
  and (mul{K} is a function from Prod(|K|,|K|) to |K|)

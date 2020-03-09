@@ -22,3 +22,4 @@ Axiom. Let subspace(K,V,U). subspace2VS(U)[zero] = 0{V}.
 Axiom. Let subspace(K,V,U). subspace2VS(U)[add] = (add{V}|{Prod(U,U)}).
 Axiom. Let subspace(K,V,U). subspace2VS(U)[neg] = (neg{V}|{U}).
 Axiom. Let subspace(K,V,U). subspace2VS(U)[smul] = (smul{V}|{Prod(|K|,U)}).
+

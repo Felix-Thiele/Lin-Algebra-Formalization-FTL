@@ -10,6 +10,6 @@ FuncComp(K,V) is a function such that (Dom(FuncComp(K,V)) = Prod(|End(K,V)|,|End
   and (for all f,g < End(K,V) FuncComp(K,V)[(f,g)] = f*g).
 
 
-Axiom. Let V be a vector space over K. one,mul << Dom(End(K,V)).
-Axiom. Let V be a vector space over K. End(K,V)[one] = id{|V|}.
-Axiom. Let V be a vector space over K. End(K,V)[mul] = FuncComp(K,V).
+Axiom. Let V be a vector space over K. (End(K,V) has one,mul).
+Axiom. Let V be a vector space over K. 1{End(K,V)}   = id{|V|}.
+Axiom. Let V be a vector space over K. mul{End(K,V)} = FuncComp(K,V).

@@ -21,14 +21,12 @@ Axiom. and[(ff,tt)] = ff.
 Axiom. and[(tt,ff)] = ff.
 Axiom. and[(tt,tt)] = tt.
 
-Signature. B is a function.
-Axiom. Dom(B) = {carr,zero,one,add,mul,neg,inv}.
+Signature. B is a structure.
+Axiom. (B has carr,zero,one,add,mul,neg,inv).
 
-Lemma. B is a structure.
-
-Axiom. |B| = bools.
-Axiom. 0{B} = ff.
-Axiom. 1{B} = tt.
+Axiom. |B|    = bools.
+Axiom. 0{B}   = ff.
+Axiom. 1{B}   = tt.
 Axiom. add{B} = xor.
 Axiom. mul{B} = and.
 Axiom. neg{B} = id{bools}.
