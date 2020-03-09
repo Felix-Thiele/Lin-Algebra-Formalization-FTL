@@ -76,7 +76,7 @@ space Hom(K,V,W).
 | 102 endomorphisms        | 10:38.45 | ? |
 | 103 automorphisms        | 05:50.22 | ? |
 | 200 bool                 | 00:14.69 | 1:04.55 |
-| 201 subspace             | ? | 16:22.47 |
+| 201 subspace             | ? | 16:22.47 (eprover.exe uses about 4.8 GB RAM at some point) |
 | 202 kernel               | 01:44.35 | ? |
 | 203 list                 | 00:49.94 | ? |
 | 204 linearly_independent | 00:28.07 | ? |
