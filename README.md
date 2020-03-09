@@ -72,9 +72,9 @@ space Hom(K,V,W).
 | 012 field2VS             |                       | 00:31.30             |
 | 013 dual                 |                       | 10:14.99             |
 | 100 ring                 | 00:06.42              |                      |
-| 101 unit_group           | 01:09.01              |                      |
+| 101 unit_group           | 01:09.01              | 00:49.54             |
 | 102 endomorphisms        | 10:38.45              | 16:59.71             |
-| 103 automorphisms        | 05:50.22              |                      |
+| 103 automorphisms        | 05:50.22              | 04:57.58             |
 | 200 bool                 | 00:14.69              | 1:04.55              |
 | 201 subspace             |                       | 16:22.47 (eprover.exe uses about 4.8 GB RAM at some point) |
 | 202 kernel               | 01:44.35              | 01:30.42             |
