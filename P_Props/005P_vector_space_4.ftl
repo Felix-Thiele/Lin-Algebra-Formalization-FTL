@@ -4,17 +4,18 @@ Let K denote a field.
 
 
 Definition. Let V be a vector space over K. Let a < K. Let v < V.
-dummy(K,V,a,v) is ((a @{V} (~{V} v)) +{V} (a @{V} v) , ~{V} (a @{V} v)).
+localVar(K,V,a,v) is ((a @{V} (~{V} v)) +{V} (a @{V} v) , ~{V} (a @{V} v)).
 
-# It doesn't work when you substitute the "dummy(K,V,a,v)" below by its Definition.
+# This makes the ontological checking faster.
+# It doesn't work when you substitute the "localVar(K,V,a,v)" below by its Definition.
 
 
 Axiom. Let V be a vector space over K. Let a < K. Let v < V.
-Then dummy(K,V,a,v) = ~{V} (a @{V} v).
+Then localVar(K,V,a,v) = ~{V} (a @{V} v).
 # proof : 005P_vector_space_3.ftl
 
 Axiom. Let V be a vector space over K. Let a < K. Let v < V.
-Then dummy(K,V,a,v) = a @{V} (~{V} v).
+Then localVar(K,V,a,v) = a @{V} (~{V} v).
 # proof : 005P_vector_space_3.ftl
 
 
