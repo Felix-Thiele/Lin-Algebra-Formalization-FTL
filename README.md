@@ -54,7 +54,7 @@ space Hom(K,V,W).
 
 
 ## Checking Times of the P_ Files
-
+(can depend on which A_ and D_ files have been checked before)
 | file name                | checking time (Felix) | checking time (Erik) |
 | ------------------------ | --------------------- | -------------------- |
 | 000 set                  | 00:00.04 | ? |
@@ -75,7 +75,7 @@ space Hom(K,V,W).
 | 101 unit_group           | 01:09.01 | ? |
 | 102 endomorphisms        | 10:38.45 | ? |
 | 103 automorphisms        | 05:50.22 | ? |
-| 200 bool                 | 00:14.69 | ? |
+| 200 bool                 | 00:14.69 | 1:04.55 |
 | 201 subspace             | ? | 16:22.47 |
 | 202 kernel               | 01:44.35 | ? |
 | 203 list                 | 00:49.94 | ? |
