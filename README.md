@@ -16,7 +16,7 @@ https://github.com/Naproche/Naproche-SAD
 
 ### Idea
 
-This project was developed to build a mathematical library for the formalization of linear algebra in ForTheL, a language close to natural language.
+This project was developed to build a mathematical library for the formalization of linear algebra in ForTheL, a formal mathematical language close to natural language.
 
 It is based on the lean file found under https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean.
 
