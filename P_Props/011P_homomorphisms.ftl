@@ -45,7 +45,7 @@ proof.
     a @{H} (v +{H} w) = FuncSMul(K,V,W)[(a,FuncAdd(K,V,W)[(v,w)])] 
     = FuncAdd(K,V,W)[(FuncSMul(K,V,W)[(a,v)], FuncSMul(K,V,W)[(a,w)])] =(a @{H} v) +{H} (a @{H} w).
   end.
-  # for some reason, repetition accelerates the process massively
+  # For some reason, repetition accelerates the process massively.
   Let us show that H is a vector space over K.
     (H has carr,zero,add,neg,smul)
      and (H is an abelian group)
