@@ -249,17 +249,15 @@ Our D\_ Set and D\_ Function files our kept very lightweight and only include ke
 
 \subsubsection{Algebraic Structures}
 Many of the objects we examine in this library have a similar structure. For example abelian groups, fields, vector spaces and rings all have a carrier, a zero element, and an addition operation. We introduce an object called structure in 002D\_structure.ftl.
-
 \begin{lstlisting}
 Signature. lang is a set.
 Axiom. lang = {carr,zero,one,add,mul,neg,inv,smul}.
 Definition. A structure is a function S such that Dom(S) is subset of lang.
 \end{lstlisting}
 
-We can now define a each of the linear algebra structures above as a structure with the necessary components of {\ftl lang} in its domain. This allows for easy expansions of these structures one example of which we shall see in the section about Field2VS. Now we define the following abbreviations:
 
+We can now define a each of the linear algebra structures above as a structure with the necessary components of {\ftl lang} in its domain. This allows for easy expansions of these structures one example of which we shall see in \ref{field2VS}. Now we define the following abbreviations:
 \begin{lstlisting}
-Let S denote a structure.
 Let |S| stand for S[carr].
 Let 0{S} stand for S[zero].
 Let 1{S} stand for S[one].
@@ -277,10 +275,15 @@ Let a /{S} b stand for mul{S}[(a,inv{S}[b])].
 Let a @{S} b stand for smul{S}[(a,b)].
 Let a < S stand for a << |S|.
 Let a < S* stand for a << |S|\{0{S}}.
+
+Let (S has a) stand for (a << Dom(S)).
+Let (S has a,b) stand for (a,b << Dom(S)).
+...
+Let (S has a,b,c,d,e,f,g,h) stand for (a,b,c,d,e,f,g,h << Dom(S)).
 \end{lstlisting}
 
-\newpage
-As an example, this is our definition of an abelian group:
+This approach resembles the notion of a structure in first-order logic: Our {\ftl structure} is the interpretation of (a subset of) the language {\ftl lang}, consisting of a set (if {\ftl |S|} is defined to be a set), constants and functions (if {\ftl zero}, {\ftl add}, etc. are defined to be suchlike).
+This is done, for example, in the following definition of an abelian group, additionally postulating the corresponding (first-order) axioms:
 \begin{lstlisting}
 Definition. An abelian group is a structure G such that
      (G has carr,zero,add,neg)
@@ -297,7 +300,7 @@ Definition. An abelian group is a structure G such that
 
 \subsubsection{Homomorphisms}
 After the definition of various algebraic structures, we define linear maps between vector spaces.
-We introduce the set of homomorphisms as the carrier set of a new structure Hom(K,V,W).
+We introduce the set of homomorphisms as the carrier set of a new structure {\ftl Hom(K,V,W)}.
 \begin{lstlisting}
 Let K denote a Field.
 
@@ -317,16 +320,16 @@ Axiom. Let V and W be vector spaces over K.
 |Hom(K,V,W)| is the set of functions f such that f is linear over K from V to W.
 \end{lstlisting}
 
-Regarding this structure as a vector space requires quite an extensive preparation, which is done in the func\_ files, defining the zero, addition, negation, and scalar multiplication on Hom(K,V,W). These are split from the D\_homomorphisms file because the corresponding P\_ files hold long proofs which become easier to check separately.
-For brevity in D\_func\_zero we introduce the following abbreviation:
+Regarding this structure as a vector space requires quite an extensive preparation, which is done in the func\_ files, defining the zero, addition, negation, and scalar multiplication on {\ftl Hom(K,V,W)}. These are split from the D\_homomorphisms file because the corresponding P\_ files hold long proofs which become easier to check separately.
+For brevity, in D\_func\_zero we introduce the following abbreviation:
 \begin{lstlisting}
 Let 2Vectorspace(K,V,W) stand for
 (K is a field and (V is a vector space over K) and (W is a vector space over K)).
 \end{lstlisting}
 
-The {\ftl structure} approach allows us to also regard Hom(K,V,V) as a ring, which is done in the files about endomorphisms.
+The {\ftl structure} approach allows us to also regard {\ftl Hom(K,V,W)} as a ring, which is done in the files about endomorphisms.
 
-\subsubsection{Field2VS}
+\subsubsection{Field2VS} \label{field2VS}
 Proving that a field is a vector space over itself becomes again easy through the structure construction. We don't have to redefine the part of the structure that already exists but can instead just add scalar multiplication to the field. This is done in the following way:
 \begin{lstlisting}
 Let K denote a field.
@@ -354,7 +357,7 @@ We then define the group of automorphisms of a given vector space simply as the 
 
 \subsubsection{Lists}
 
-A list is defined as function from a set to a structure with a carrier and a zero element. The zero element ensures, that the list is not defined over an empty set of objects. 
+A list is defined as function from a set to a structure with a carrier and a zero element. The zero element ensures, that the list is not defined over an empty set of objects.
 
 
 \subsection{Experiences}
@@ -372,7 +375,11 @@ Both behaviors are especially surprising, since all the statements about compost
 
 \newpage
 \section{Comparison of Lean and Naproche/ForTheL}
-Our approach to formalize algebraic objects as instances of a more general {\ftl structure} object, which enables us to successively enhance these objects with more algebraic structure, was inspired by the type class setup in vector\_space.lean as described in \ref{characteristics}.
+Our approach to formalize algebraic objects as instances of a more general {\ftl structure} object, which enables us to successively enhance these objects with more algebraic structure, was inspired by the type class setup in vector\_space.lean and the lean mathlib as described in \ref{characteristics}.
+While the mathlib establishes many basic algebraic structures in small steps, we restricted the definitions in ForTheL to only those structures used in our library.
+
+In total, vector\_space.lean takes about 15 seconds to compile and check. Ontological checking is done immediately.
+Naproche: 100 minutes.
 
 
 \newpage 
