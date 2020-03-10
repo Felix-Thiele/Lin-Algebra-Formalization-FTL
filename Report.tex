@@ -25,11 +25,12 @@
 \usepackage{listings}
 
 \lstdefinelanguage{Lean}{
-  keywords=[1]{class, lemma, theorem, lemma, def, \textlambda, by, include, @[simp], end, Type, extends, universe, universes, variable, variables, namespace, import},
+  keywords=[1]{class, lemma, theorem, lemma, def, by, at, include, @[simp], end, Type, Prop, extends, universe, universes, variable, variables, namespace, import},
   keywordstyle=[1]{\color{leanBlue}},
+  morestring=[s][\color{leanBlue}]{@[}{]},
 }
 \lstdefinestyle{lean}{
-    language={Lean},
+	language={Lean},
     basicstyle=\lean\footnotesize,
     breakatwhitespace=false,
     breaklines=true,
@@ -48,6 +49,20 @@
     escapeinside={§}{§},
 }
 
+\lstdefinelanguage{ForTheL}{
+  keywords=[1]{Signature, Axiom, Theorem, Definition},
+  keywords=[2]{Proof, End, qed, by},
+  keywords=[3]{and, Assume, Let, Since, we, have},
+  sensitive=false,
+  keywordstyle=[1]{\color{ftlSignature}},
+  keywordstyle=[2]{\color{ftlProof}},
+  keywordstyle=[3]{\color{ftlAssume}},
+  morestring=[s][\color{ftlRead}]{[read}{]},
+  morestring=[s][\color{ftlRead}]{[synonym}{]},
+  morestring=[s][\color{ftlAssume}]{Let\ us\ show}{that},
+  morecomment=[l]{\#},
+  commentstyle={\color{ftlComment}},
+}
 \lstdefinestyle{ftl}{
     language={ForTheL},
     basicstyle=\ftl\footnotesize,
@@ -64,21 +79,9 @@
     frame=trbl,
     frameround=tttt,
     framesep=3pt,
+    escapeinside={§}{§},
 }
-\lstdefinelanguage{ForTheL}{
-  keywords=[1]{Signature, Axiom, Theorem, Definition},
-  keywords=[2]{Proof, End, qed, by},
-  keywords=[3]{and, Assume, Let, Since, we, have},
-  sensitive=false,
-  keywordstyle=[1]{\color{ftlSignature}},
-  keywordstyle=[2]{\color{ftlProof}},
-  keywordstyle=[3]{\color{ftlAssume}},
-  morestring=[s][\color{ftlRead}]{[read}{]},
-  morestring=[s][\color{ftlRead}]{[synonym}{]},
-  morestring=[s][\color{ftlAssume}]{Let\ us\ show}{that},
-  morecomment=[l]{\#},
-  commentstyle={\color{ftlComment}},
-}
+
 
 \author{Erik Sturzenhecker, Felix Thiele}
 \title{A Start to the formalization of Linear Algebra in ForTheL}
@@ -126,7 +129,7 @@ For inspiration on how to formalize linear algebra for a proof checker, we looke
 
 
 
-\subsection{Mathematical Content}
+\subsection{Mathematical Content} \label{mathematicalContent}
 The file vector\_space.lean covers the following definitions and statements of linear algebra:
 \begin{itemize}
 \item {\lean field.to\_vector\_space}: Any field is a vector space over itself.
@@ -172,10 +175,24 @@ class §\textcolor{leanYellow}{add\_comm\_group}§ (§\textalpha§ : Type u) ext
 \end{lstlisting}
 
 
-- @[simp] (-> easy statements named above)\\
-- ...
+Especially useful for algebraic proofs is the lean tactic {\lean simp} (simplify). Easy statements like the ones mentioned in \ref{mathematicalContent} can be added to this tactic via {\lean @[simp]}:
+\begin{lstlisting}
+@[simp] def §\textcolor{leanYellow}{ker}§ (A : linear_space K V W) : V → Prop := (§\textcolor{leanBlue}{\textlambda}§ v, A.T v = 0)
 
+@[simp] lemma §\textcolor{leanYellow}{map\_neg}§ : A.T (-v) = -(A.T v) :=
+eq_neg_of_add_eq_zero (by {rw [←map_add], simp})
 
+@[simp] lemma §\textcolor{leanYellow}{map\_sub}§ : A.T (u-v) = A.T u - A.T v := by simp
+\end{lstlisting}
+This allows for omitting detailed chains of equations and instead let {\lean simp} find the proof details automatically:
+\begin{lstlisting}
+theorem §\textcolor{leanYellow}{ker\_neg}§ (HV : A.ker v) : A.ker (-v) :=
+by {unfold ker at *, simp [HV]}
+
+theorem §\textcolor{leanYellow}{ker\_sub}§ (HU : A.ker u) (HV : A.ker v) : A.ker (u - v) :=
+by {unfold ker at *, simp [HU,HV]}
+\end{lstlisting}
+Being able to tell lean which statements to use in the {\lean simp} tactic, while everything else has to be directly referenced, gives a great performance advantage.
 
 \subsection{Adjusting the Code}
 The latest version of vector\_space.lean is from November 2017. Since then, it seems that the mathlib has developed to a point where it became incompatible with vector\_space.lean.
@@ -279,8 +296,7 @@ Definition. An abelian group is a structure G such that
 
 
 \subsubsection{Homomorphisms}
-
-After the definition of various structures on sets, we define linear maps between vector spaces.
+After the definition of various algebraic structures, we define linear maps between vector spaces.
 We introduce the set of homomorphisms as the carrier set of a new structure Hom(K,V,W).
 \begin{lstlisting}
 Let K denote a Field.
@@ -334,7 +350,7 @@ qed.
 
 \subsubsection{Automorphism Group}
 While the lean file introduces the general linear group by proving statements about invertible linear maps, we took a step back and defined the multiplicative group of an arbitrary ring in D\_unit\_group. This branching at the top of the project graph reduces the required reasoning in the proof file.
-We then define the group of automorphisms of a given vector space simply as the unit group of its endomorphism ring. P\_autmorphisms contains the proof, that this group is exactly the set of bijective endomorphisms.
+We then define the group of automorphisms of a given vector space simply as the unit group of its endomorphism ring. P\_autmorphisms contains the proof that this group is exactly the set of bijective endomorphisms.
 
 \subsubsection{Lists}
 
@@ -370,8 +386,8 @@ Firstly Naproche needs an increased transparency in what the e-prover is doing. 
 
 ForTheL has a 
 \begin{lstlisting}
-Let us show statementX.
-reasoning
+Let us show §statementX.§
+§reasoning§
 end.
 \end{lstlisting} 
 functionality, to clean up the proof structure. We recommend adding a similar functionality
