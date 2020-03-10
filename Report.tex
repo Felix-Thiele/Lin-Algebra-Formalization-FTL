@@ -41,7 +41,7 @@
     showstringspaces=false,
     showtabs=false,
     tabsize=2,
-    breakindent=0pt,
+    breakindent=10pt,
     frame=trbl,
     frameround=tttt,
     framesep=3pt,
@@ -177,6 +177,9 @@ class §\textcolor{leanYellow}{add\_comm\_group}§ (§\textalpha§ : Type u) ext
 
 Especially useful for algebraic proofs is the lean tactic {\lean simp} (simplify). Easy statements like the ones mentioned in \ref{mathematicalContent} can be added to this tactic via {\lean @[simp]}:
 \begin{lstlisting}
+variables {K V W : Type} [discrete_field K] [add_comm_group V]
+	[vector_space K V]
+
 @[simp] def §\textcolor{leanYellow}{ker}§ (A : linear_space K V W) : V → Prop := (§\textcolor{leanBlue}{\textlambda}§ v, A.T v = 0)
 
 @[simp] lemma §\textcolor{leanYellow}{map\_neg}§ : A.T (-v) = -(A.T v) :=
@@ -195,12 +198,16 @@ by {unfold ker at *, simp [HU,HV]}
 Being able to tell lean which statements to use in the {\lean simp} tactic, while everything else has to be directly referenced, gives a great performance advantage.
 
 \subsection{Adjusting the Code}
-The latest version of vector\_space.lean is from November 2017. Since then, it seems that the mathlib has developed to a point where it became incompatible with vector\_space.lean.
+The latest version of vector\_space.lean was from November 2017. Since then, it seems that the mathlib has developed to a point where it became incompatible with vector\_space.lean.
 However, slight adjustments in the file made it work with the current version of the mathlib. This comprises the following changes:
 \begin{itemize}
-\item bla
-\item blub
+\item While the original file used {\ftl [field K]} as the only assumption for working with a {\ftl vector space K V}, we had to change this to {\lean [discrete\_field K]}. Also, the mathlib definition of a vector space now requires that V is already an abelian group, so we added {\lean [add\_comm\_group V]} as a second assumption at the same places.
+\item We renamed {\lean subspace} to {\lean sub\_vector\_space}, because the name conflicted with the (apparently new) mathlib definition of a vector subspace.
+\item The mathlib change described in the first point also a splitting of some instances of vector space ...
+\item smul\_left\_distrib -> smul\_add, smul\_right\_distrib -> add\_smul
+\item Some minor syntactical changes.
 \end{itemize}
+We could determine these necessary changes by looking at the underlying parts of the mathlib as well as the errors and proof states displayed in the "Lean Goal" window.
 
 
 
