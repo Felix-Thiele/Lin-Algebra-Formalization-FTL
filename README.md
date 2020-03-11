@@ -26,11 +26,11 @@ The lean file uses the mathlib https://github.com/leanprover-community/mathlib.
 
 ### Structure
 
-![](project_structure.pdf)
+![](project_structure.png)
 
 This graph translates to the actual file readings in the following way:
 
-![](project_structure_explained.pdf)
+![](project_structure_explained.png)
 
 
 ### Results
