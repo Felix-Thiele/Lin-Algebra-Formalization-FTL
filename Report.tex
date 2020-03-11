@@ -97,7 +97,11 @@
 \newpage 
 \section{Introduction}
 \subsection{Naproche}
-In this project we build a linear algebra library in ForTheL with Naproche-SAD. ForTheL, which stands for Formal Theory Language, is a language that comes close to human language. This reduces many of the initial hurdles people encounter in the formalization of mathematics. Naproche can not only interpret ForTheL texts, but is also backed with a strong automated theorem prover, to which we shall refer to as e-prover. This makes many proofs in our library easier, since some trivial steps can be skipped. At the same time this comes with massive performance issues, since checking this small library is a comparably very time intensive task.
+In this project we build a linear algebra library in ForTheL with Naproche-SAD. ForTheL, which stands for Formal Theory Language, is a language that comes close to human language.
+This reduces many of the initial hurdles people encounter in the formalization of mathematics.
+Naproche can not only interpret ForTheL texts, but is also backed with a strong automated theorem prover, to which we shall refer to as e-prover.
+This makes many proofs in our library easier, since some trivial steps can be skipped.
+At the same time this comes with massive performance issues, since checking this small library is a comparably very time intensive task.
 
 \subsection{Results}
 The complete project can be found under \url{https://github.com/Felix-Thiele/linear_algebra_ftl}.
@@ -125,7 +129,9 @@ And the \textbf{proofs} of:
 \newpage
 \lstset{style=lean}
 \section{The Lean File}
-For inspiration on how to formalize linear algebra for a proof checker, we looked into the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small Lean library by Kenny Lau containing formalizations of various mathematical topics. Lean is a theorem prover and a programming language based on dependent type theory. There is an extensive library of mathematical Lean texts, the mathlib (\url{https://github.com/leanprover-community/mathlib}), maintained by Lean users, which is used and build upon in vector\_space.lean.
+For inspiration on how to formalize linear algebra for a proof checker, we looked into the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small Lean library by Kenny Lau containing formalizations of various mathematical topics.
+Lean is a theorem prover and a programming language based on dependent type theory.
+There is an extensive library of mathematical Lean texts, the mathlib (\url{https://github.com/leanprover-community/mathlib}), maintained by Lean users, which is used and build upon in vector\_space.lean.
 
 
 
@@ -425,7 +431,7 @@ end.
 
 0{V} = (a @{V} v) §\text{-}§{V} (a @{V} v).
 \end{lstlisting}
-This is taken from 005P\_vector\_space\_4.ftl. At this point, the e-prover is heavily slowed down by the amount of preliminaries. The ontological check of the last line would fail without the lines before explaining that the subtraction on the right-hand side is indeed valid. Nested tuples and function application, together with multiple cartesian products, seem to overshadow the allegedly obvious.
+This is taken from 005P\_vector\_space\_4.ftl. At this point, the e-prover is heavily slowed down by the amount of preliminaries. The ontological check of the last line would fail without the lines before explaining that the subtraction on the right-hand side is indeed valid. Nested tuples and function application, together with multiple cartesian products, seem to overshadow the allegedly obvious. Chaining several equation usually leads to even more performance issues.
 
 \subsubsection{Other Experiences}
 Starting a file with
@@ -465,7 +471,11 @@ It seems like this project has hit somewhat of a ceiling in what Naproche is cap
 Even small changes in beginning files can massively impact the check times of files further down the project graph.
 While the main problem that needs to be addressed is a more efficient structuring and analysis of the cache, we propose the following ideas to improve the writing experience.
 
-Firstly Naproche needs an increased transparency in what the e-prover is doing. On the one hand the e-prover is a huge blessing, simplifying many steps. On the other hand it is the source of many problems, since the mathematician cannot guess where the e-prover gets stuck. Also, the e-prover will often take longer or even cannot compile previously working passages, if they are moved to a later part of the file. This is probably due to the increased breadth of the internal search tree. To counter these effects, while keeping the luxury of an assisting e-prover, we suggest the e-prover return the proofs of each statement, which can then be either pasted into the ForTheL text or be saved in a separate file. This decoupling of the e-prover to the checking process will not only save time, but also guarantee more stability.
+Firstly Naproche needs an increased transparency in what the e-prover is doing. On the one hand the e-prover is a huge blessing, simplifying many steps.
+On the other hand it is the source of many problems, since the mathematician cannot guess where the e-prover gets stuck. Also, the e-prover will often take longer or even cannot compile previously working passages, if they are moved to a later part of the file.
+This is probably due to the increased breadth of the internal search tree.
+To counter these effects, while keeping the luxury of an assisting e-prover, we suggest the e-prover return the proofs of each statement, which can then be either pasted into the ForTheL text or saved in a separate file.
+This decoupling of the e-prover to the checking process will not only save time, but also guarantee more stability.
 
 ForTheL has a 
 \begin{lstlisting}
