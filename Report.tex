@@ -405,7 +405,7 @@ Of course, Naproche and ForTheL are designed to resemble natural mathematical la
 In both the Lean and our ForTheL files, groups and abelian groups are defined completely separately, since the first uses multiplicative notation, while the second is written additively.
 While it is no problem for humans to switch from one notation to the other, it would not have been practical in our {\ftl structure} approach.
 
-Lean detects ontolocial errors immediately as they are just type errors, whereas the e-prover's problems with ontological checking, as described in \ref{ontologialChecking}, require additional reasoning like {\ftl (a,v) << Dom(smul\{V\})}, which has no real counterpart in textbook mathematics, contains no new information for the reader and forces the user to think about usually suppressed details like the functional aspect of scalar multiplication.
+Lean detects ontolocial errors immediately as they are just type errors, whereas the e-prover's problems with ontological checking, as described in \ref{ontologialChecking}, require additional reasoning like $$ \text{{\ftl FuncSMul(K,V,W)[(1{K},g)] and g are functions}}$$, which has no real counterpart in textbook mathematics, contains no new information for the reader and forces the user to think about usually suppressed details like the functional aspects of these objects.
 
 In total, vector\_space.lean takes about 15 seconds to compile and check. In contrast, checking all files in our library takes Naproche about 100 minutes.
 
