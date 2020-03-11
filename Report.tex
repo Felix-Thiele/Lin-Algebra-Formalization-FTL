@@ -101,10 +101,10 @@ In this project we build a linear algebra library in ForTheL with Naproche-SAD. 
 This reduces many of the initial hurdles people encounter in the formalization of mathematics.
 Naproche can not only interpret ForTheL texts, but is also backed with a strong automated theorem prover, to which we shall refer to as e-prover.
 This makes many proofs in our library easier, since some trivial steps can be skipped.
-At the same time this comes with massive performance issues, since checking this small library is a comparably very time intensive task.
+At the same time this comes with massive performance issues, since checking even this small library is a time intensive task.
 
 \subsection{Results}
-The complete project can be found under \url{https://github.com/Felix-Thiele/linear_algebra_ftl}.
+The complete project can be found under\\ \url{https://github.com/Felix-Thiele/linear_algebra_ftl}.\\
 Some of the results given in this library are:
 \newline
 The \textbf{definitions} of:
@@ -129,7 +129,7 @@ And the \textbf{proofs} of:
 \newpage
 \lstset{style=lean}
 \section{The Lean File}
-For inspiration on how to formalize linear algebra for a proof checker, we looked into the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small Lean library by Kenny Lau containing formalizations of various mathematical topics.
+This formalization is based on the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small Lean library by Kenny Lau containing formalizations of various mathematical topics.
 Lean is a theorem prover and a programming language based on dependent type theory.
 There is an extensive library of mathematical Lean texts, the mathlib (\url{https://github.com/leanprover-community/mathlib}), maintained by Lean users, which is used and build upon in vector\_space.lean.
 
@@ -151,7 +151,7 @@ The file vector\_space.lean covers the following definitions and statements of l
 
 %
 \subsection{Characteristic Features} \label{characteristics}
-The notions above are defined in the canonical way and the proofs are of course trivial from an algebraic standpoint. Thus, there is no need for huge lambda terms (which are otherwise not uncommon in Lean texts) and the code is fairly easy to understand.
+Due to the simplicity of the treated topics, there is no need for huge lambda terms and the code is fairly easy to understand.
 
 The Lean file uses the following notions (type classes) from the mathlib: {\lean field}, {\lean discrete\_field} (a field where equality of elements is decidable), {\lean add\_comm\_group}, {\lean vector\_space}, {\lean ring}, {\lean group}.
 The classes {\lean has\_zero}, {\lean has\_one}, {\lean has\_add}, {\lean has\_mul}, {\lean has\_neg}, {\lean has\_inv}, {\lean has\_scalar} from the built-in lean library are crucial for the description and handling of algebraic structures in Lean.
@@ -204,8 +204,8 @@ by {unfold ker at *, simp [HU,HV]}
 Being able to tell lean which statements to use in the {\lean simp} tactic, while everything else has to be directly referenced, gives a performance advantage.
 
 \subsection{Adjusting the Code}
-The latest version of vector\_space.lean was from November 2017. Since then, it seems that the mathlib has developed to a point where it became incompatible with vector\_space.lean.
-However, slight adjustments in the file made it work with the current version of the mathlib. This comprises the following changes:
+The latest version of vector\_space.lean was from November 2017. Since then, the mathlib has developed to a point where it became incompatible with vector\_space.lean.
+The following adjustments make up for this:
 \begin{itemize}
 \item While the original file used {\ftl [field K]} as the only assumption for working with a {\ftl vector space K V}, we had to change this to {\lean [discrete\_field K]}. Also, the mathlib definition of a vector space now requires that V is already an abelian group, so we added {\lean [add\_comm\_group V]} as a second assumption at the same places.
 \item We renamed {\lean subspace} to {\lean sub\_vector\_space}, since the name conflicted with the (apparently new) mathlib definition of a vector subspace.
@@ -213,7 +213,7 @@ However, slight adjustments in the file made it work with the current version of
 \item We adopted the mathlib renamings of {\lean smul\_left\_distrib} and {\lean smul\_ right\_distrib} to {\lean smul\_add} and {\lean add\_smul}, respectively. These are fields of the type class {\lean module}, respectively {\lean vector space} in our case.
 \item Some minor syntactical changes.
 \end{itemize}
-We were able to determine these necessary changes by looking at the underlying parts of the mathlib as well as the errors and proof states displayed in the "Lean Goal" window. Our final version of the file can be found under \url{https://github.com/Felix-Thiele/linear_algebra_ftl/blob/master/vector_space.lean}.
+We are able to determine these necessary changes by checking the errors and proof states displayed in the "Lean Goal" window. An important feature of Lean that is missing in Naproche. Our final version of the file can be found under \url{https://github.com/Felix-Thiele/linear_algebra_ftl/blob/master/vector_space.lean}.
 
 
 
@@ -251,8 +251,8 @@ This file reading structure is depicted below.
 \end{center}
 \end{figure}
 
-Additionally, it can sometimes be helpful to split the P\_ files even more, especially when more multiple theorems are supposed to follow on a single D\_ file. In our case, P\_vector\_space contained five (partly independent) theorems, each needing some lemmas. Reasoning and ontological checking of the proofs became considerably slower when the respective theorem was preceded by other lemmas and theorems. The solution was to write four different proof files (P\_vector\_space\_1, \_2, \_3 and \_4), each starting with only the required statements of the preceding proof files - in axiomatized form.
-
+Additionally, it can sometimes be helpful to split the P\_ files into multiple P\_ files, to decrease checking times. In our library this is the case in P\_vector\_space, which containes five (partly independent) theorems, each needing some lemmas. Here we split P\_vector\_space into the files (P\_vector\_space\_1, \_2, \_3 and \_4), each starting with only the required statements of the preceding proof files - in axiomatized form. This is fine for the sake of functionality in a small project like this. In bigger projects we recommend also splitting the Axiom Files.
+\newpage
 
 \subsection{The Implementation}
 
@@ -269,7 +269,7 @@ Definition. A structure is a function S such that Dom(S) is subset of lang.
 \end{lstlisting}
 
 
-We can now define a each of the linear algebra structures above as a structure with the necessary components of {\ftl lang} in its domain. This allows for easy expansions of these structures one example of which we shall see in \ref{field2VS}. Now we define the following abbreviations:
+We can now define a each of the linear algebra objects above as a structure with the necessary components of {\ftl lang} in its domain. This allows for easy comparisons and expansions of these structures, one example of which we shall see in \ref{field2VS}. Now we define the following abbreviations:
 \begin{lstlisting}
 Let |S| stand for S[carr].
 Let 0{S} stand for S[zero].
@@ -343,7 +343,7 @@ Let 2VectorSpace(K,V,W) stand for
 The {\ftl structure} approach allows us to also regard {\ftl Hom(K,V,W)} as a ring, which is done in the files about endomorphisms.
 
 \subsubsection{Field2VS} \label{field2VS}
-Proving that a field is a vector space over itself becomes again easy through the structure construction. We do not have to redefine the part of the structure that already exists but can instead just add scalar multiplication to the field. This is done in the following way:
+Proving that a field is a vector space over itself becomes easy with our structure construction. We do not have to redefine the part of the structure that already exists but can instead just add scalar multiplication to the field. This is done in the following way:
 \begin{lstlisting}
 Let K denote a field.
 Axiom. (K has smul).
@@ -375,14 +375,15 @@ A list is defined as function from a set to a structure with a carrier and a zer
 
 \subsection{Experiences}
 \subsubsection{Instability regarding Changes in the Preliminaries} \label{instabilites}
-The e-prover (especially the Reasoner) seems to not always make a good job in ignoring preliminaries that are "obviously" irrelevant for the current task.
-For example, we tried removing definitions and axioms regarding function composition from the files D\_function and A\_function. Although they are only needed for the files about endomorphisms and automorphisms, this had a huge impact on the checking of most of the other proof files.
+The e-prover is not very effective in ignoring preliminaries that are irrelevant for the current task.
+For example, removing definitions and axioms regarding function composition from the files D\_function and A\_function has a huge impact on the checking time of most other proof files although they are only needed for the files regarding endomorphisms and automorphisms.
 Some proofs benefited from this reduction of preliminaries, needing only half the checking time as before.
 P\_dual, on the other hand, now needed about 20 minutes instead of seven.
 Both behaviors are especially surprising, since all the statements about composition use notions that do not appear and cannot be used in these other contexts.
 
 
 \subsubsection{Ontological Checking} \label{ontologialChecking}
+
 The following proof is an extract form 010P\_ func\_ smul.ftl:
 \begin{lstlisting}
 Theorem. Let 2VectorSpace(K,V,W).
@@ -396,6 +397,9 @@ proof.
 end.
 \end{lstlisting}
 The proof is five lines long. The reasoning is done in the lines two and four. Line five can also be considered reasoning, but is more a reminder of sort, referencing what previous statement to use. Lines one and three are of pure ontological nature. So we use almost half of our texts for ontological purposes, which is fairly common throughout our proof files. In \ref{nextsteps} we give a proposal on how to structure these ontological parts more clearly for the human reader.
+
+These Ontological reasoning statements are especially crucial in long algebraic terms, and in many equations.
+Often times these statements can slow down the e-prover substantially just by the amount of ontological preliminaries.
 
 
 \subsubsection{Functional Approach to Algebraic Structures} \label{functionalapproach}
@@ -414,24 +418,11 @@ Axiom. a + (b + c) = (a + b) + c.
 Axiom. a + b = b + a.
 \end{lstlisting}
 
-Instead, we took a more function based approach, as described in \ref{algebraicStructures}, where the notion of an abelian group was introduced via a {\ftl Definition}, stating, for example, that
+Instead, this library uses functional approach, as described in \ref{algebraicStructures}, where the notion of an abelian group was introduced via a {\ftl Definition}, stating, for example, that
 $$\text{\ftl add\{G\} is a function from Prod(|G|,|G|) to |G|.}$$
 This makes it easy to distinguish between elements of and operations on different sets.
-We chose this approach, because it seems more elegant and closer to usual mathematics. Using a {\ftl Definition} instead of signatures and axioms, immediately allows us to formulate how a specific structure is shown to be a field, vector space, ring or group.
-However, it might (at the moment) not be the best choice for formalizing algebra in Naproche, because it seems to come with big performance disadvantages, compared to the first alternative:
-
-In our proof files, problems with ontological checking occur especially with statements containing longer algebraic terms, so we have to add ontological reasoning before it:
-\begin{lstlisting}
-Let us show that (a @{V} v , ~{V} (a @{V} v)) << Dom(add{V}).
- a @{V} v < V.
- ~{V} (a @{V} v) < V.
- (a @{V} v , ~{V} (a @{V} v)) << Prod(|V|,|V|).
- Dom(add{V}) = Prod(|V|,|V|).
-end.
-
-0{V} = (a @{V} v) §\text{-}§{V} (a @{V} v).
-\end{lstlisting}
-This is taken from 005P\_vector\_space\_4.ftl. At this point, the e-prover is heavily slowed down by the amount of preliminaries. The ontological check of the last line would fail without the lines before explaining that the subtraction on the right-hand side is indeed valid. Nested tuples and function application, together with multiple cartesian products, seem to overshadow the allegedly obvious. Chaining several equation usually leads to even more performance issues.
+This approach, is more general and closer to usual mathematics. Using a {\ftl Definition} instead of signatures and axioms, immediately allows us to formulate how a specific structure is shown to be a field, vector space, ring or group.
+Our approach comes with many long algebraic chained statements that require a lot of ontological reasoning, which in turn slows down the e-prover. Therefor, the first alternative would run faster in the current version of naproche.
 
 \subsubsection{Other Experiences}
 Starting a file with
@@ -440,7 +431,6 @@ is very convenient because it allows for omitting the same sentence in every def
 However, the line
 $$\text{\ftl Let V denote a vector space over K.}$$
 does not work in the current Naproche version, because {\ftl K} is a free undeclared variable.
-
 \newpage
 \section{Comparison of Lean and Naproche/ForTheL}
 Our approach to formalize algebraic objects as instances of a more general {\ftl structure} object, which enables us to successively enhance these objects with more algebraic structure, was inspired by the type class setup in vector\_space.lean and the Lean mathlib as described in \ref{characteristics}.
