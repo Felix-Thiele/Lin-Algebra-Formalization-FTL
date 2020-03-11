@@ -175,7 +175,7 @@ class §\textcolor{leanYellow}{add\_comm\_group}§ (§\textalpha§ : Type u) ext
 \end{lstlisting}
 
 
-Especially useful for algebraic proofs is the Lean tactic {\lean simp} (simplify). Easy statements like the ones mentioned in \ref{mathematicalContent} can be added to this tactic via {\lean @[simp]}:
+Especially useful for algebraic proofs is the Lean tactic {\lean simp} (simplify). Easy statements like the ones mentioned in \ref{mathematicalContent}, which help with term rewriting, can be added to this tactic via {\lean @[simp]}:
 \begin{lstlisting}
 variables {K V W : Type} [discrete_field K] [add_comm_group V]
 	[vector_space K V]
@@ -255,7 +255,7 @@ Additionally, it can sometimes be helpful to split the P\_ files even more, espe
 Our D\_ Set and D\_ Function files our kept very lightweight and only include key statements. This is due to both files being so close to the root node of the library graph. Adding more definitions will substantially slow down the e-prover in all following files.
 
 \subsubsection{Algebraic Structures} \label{algebraicStructures}
-Many of the objects we examine in this library have a similar structure. For example abelian groups, fields, vector spaces and rings all have a carrier, a zero element, and an addition operation. We introduce an object called structure in 002D\_structure.ftl.
+Many of the objects we examine in this library have a similar structure. For example, abelian groups, fields, vector spaces and rings all have a carrier, a zero element, and an addition operation. We introduce an object called structure in 002D\_structure.ftl.
 \begin{lstlisting}
 Signature. lang is a set.
 Axiom. lang = {carr,zero,one,add,mul,neg,inv,smul}.
@@ -377,7 +377,7 @@ Some proofs benefited from this reduction of preliminaries, needing only half th
 P\_dual, on the other hand, now needed about 20 minutes instead of seven.
 Both behaviors are especially surprising, since all the statements about compostion use notions that do not appear and can not be used in these other contexts.
 
-\subsubsection{Problems with Ontological Checking}
+\subsubsection{Problems with Ontological Checking} \label{ontologialChecking}
 
 \subsubsection{Other Experiences}
 
@@ -393,9 +393,9 @@ Of course, Naproche and ForTheL are designed to resemble natural mathematical la
 In both the Lean and our ForTheL files, groups and abelian groups are defined completely separately, since the first uses multiplicative notation, while the second is written additively.
 While it is no problem for humans to switch from one notation to the other, it would not have been practical in our {\ftl structure} approach.
 
-While Lean detects ontolocial errors immediately (as they are just type errors), we found that...
+Lean detects ontolocial errors immediately as they are just type errors, whereas the e-prover's problems with ontological checking, as described in \ref{ontologialChecking}, require additional reasoning like {\ftl (a,v) << Dom(smul\{V\})}, which has no real counterpart in textbook mathematics, contains no new information for the reader and forces the user to think about usually suppressed details like the functional aspect of scalar multiplication.
 
-In total, vector\_space.lean takes about 15 seconds to compile and check, whereas checking all files in our library takes Naproche about 100 minutes.
+In total, vector\_space.lean takes about 15 seconds to compile and check. In contrast, checking all files in our library takes Naproche about 100 minutes.
 
 
 \newpage 
@@ -426,10 +426,10 @@ Additionally to this, we think ForTheL would greatly benefit from code sectionin
 statementX (by theoremY).
 \end{lstlisting}  commands. Introducing code sections will allow broader restrictions. This would also reduce the instabilities described in \ref{instabilites}.
 
-At the moment, functions and sets are hard coded into the naproche system. Bigger projects will require more transparency in precisely what is axiomatized and how these basic notions are defined. The observations described in \ref{functionalapproach} suggest a built-in support for n-ary functions.
+At the moment, functions and sets are hard coded into the naproche system. Bigger projects will require more transparency in precisely what is axiomatized and how these basic notions are defined. The observations described in \ref{functionalapproach} suggest a built-in support for n-ary functions.\\
 
+- UTF-8 would be nice \\
 
-- UTF-8 would be nice
 - "Let V denote a vector space over K." doesn't work yet
 
 \end{document}
