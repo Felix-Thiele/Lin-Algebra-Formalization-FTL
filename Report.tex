@@ -115,7 +115,7 @@ And the \textbf{proofs} of:
 \item A field is a vector space over itself.
 \item The linear maps between $K$-vector spaces $V$ and $W$ form a vector space Hom($K$,$V$,$W$).
 \item If $f$ is linear, Ker($f$) is a subspace.
-\item If $f$ is linear and Ker($f$) $=$ \{0\}, then $f$ is injective.
+\item If $f$ is linear and Ker$(f)=\{0\}$, then $f$ is injective.
 \item Any $K$-vector space $V$ can be embedded into the double dual space $(V^{*})^{*}$
 \item The endomorphisms of a $K$-vector space $V$ form a ring End($K$,$V$).
 \item The invertible elements of a ring form a multiplicative group.
@@ -204,7 +204,7 @@ However, slight adjustments in the file made it work with the current version of
 \item While the original file used {\ftl [field K]} as the only assumption for working with a {\ftl vector space K V}, we had to change this to {\lean [discrete\_field K]}. Also, the mathlib definition of a vector space now requires that V is already an abelian group, so we added {\lean [add\_comm\_group V]} as a second assumption at the same places.
 \item We renamed {\lean subspace} to {\lean sub\_vector\_space}, since the name conflicted with the (apparently new) mathlib definition of a vector subspace.
 \item The mathlib change described in the first point also demanded changes in places where objects like the {\lean linear\_space K V W} are proven to be a vector space over K: We had to cut parts from the old proof of the object being a vector space and pasting them into a new preceding proof of it being an abelian group. 
-\item We adopted the mathlib renamings of {\lean smul\_left\_distrib} and {\lean smul\_ right\_distrib} to {\lean smul\_add} and {\lean add\_smul}, respectively. These are fields of the structure {\lean module.core}.
+\item We adopted the mathlib renamings of {\lean smul\_left\_distrib} and {\lean smul\_ right\_distrib} to {\lean smul\_add} and {\lean add\_smul}, respectively. These are fields of the type class {\lean module}, respectively {\lean vector space} in our case.
 \item Some minor syntactical changes.
 \end{itemize}
 We were able to determine these necessary changes by looking at the underlying parts of the mathlib as well as the errors and proof states displayed in the "Lean Goal" window. Our final version of the file can be found under \url{https://github.com/Felix-Thiele/linear_algebra_ftl/blob/master/vector_space.lean}.
@@ -403,12 +403,18 @@ While the mathlib establishes many basic algebraic structures in small steps, we
 
 In this and some more matters, our formalization is much closer to lecture or textbook style mathematics than the Lean version is:
 Of course, Naproche and ForTheL are designed to resemble natural mathematical language, which makes them much more readable for mathematicians than the code-like texts written in Lean. For algebraic expressions, the usual mathematical abbreviations can be realized in ForTheL by using patterns as seen in \ref{algebraicStructures}.
-
+While Lean can deal with implicit arguments like the domain of an algebraic operation, we had to be more explicit:
+$$\text{\ftl (a +\{K\} b) @\{V\} v = (a @\{V\} v) +\{V\} (b @\{V\} v)).}$$
+Such level of detail usually occurs only in the first week of a linear algebra lecture.
 
 In both the Lean and our ForTheL files, groups and abelian groups are defined completely separately, since the first uses multiplicative notation, whereas the second is written additively.
 While it is no problem for humans to switch from one notation to the other, it would not have been practical in our {\ftl structure} approach.
 
-Lean detects ontolocial errors immediately as they are just type errors, whereas the e-prover's problems with ontological checking, require additional reasoning. Examples are $$\text{\ftl FuncSMul(K,V,W)[(1\{K\},g)] and g are functions.}$$ as described in \ref{ontologialChecking}, or $$\text{\ftl For all a < K and all v < V : (a,v) << Dom(smul\{V\}).}$$ which we needed to state in some places.
+Lean detects ontolocial errors immediately as they are just type errors, whereas the e-prover's problems with ontological checking, require additional reasoning. Examples are
+$$\text{\ftl FuncSMul(K,V,W)[(1\{K\},g)] and g are functions.}$$
+as described in \ref{ontologialChecking}, or
+$$\text{\ftl For all a < K and all v < V : (a,v) << Dom(smul\{V\}).}$$
+which we needed to state in some places.
 These have no real counterparts in textbook mathematics, contain no new information for the reader and force the user to think about usually suppressed details like the functional aspects of these objects.
 
 In total, vector\_space.lean takes about 15 seconds to compile and check. In contrast, checking all files in our library takes Naproche about 100 minutes.
@@ -437,12 +443,11 @@ we have statementX.
 \end{lstlisting} 
 that is only for ontological reasoning. In this project we find that these parts of the proofs make up for an extensive part of our texts. This leads to less readability, since these parts are mostly superfluous from a human point of view.
 
-Additionally to this, we think ForTheL would greatly benefit from code sectioning functionality. This would not only improve transparency of the texts, but also speed up checking times. At the moment, the e-prover can only be restricted by 
-\begin{lstlisting}
-statementX (by theoremY).
-\end{lstlisting}  commands. Introducing code sections will allow broader restrictions. This would also reduce the instabilities described in \ref{instabilites}.
+Additionally to this, we think ForTheL would greatly benefit from code sectioning functionality. This would not only improve transparency of the texts, but also speed up checking times. At the moment, the e-prover can only be restricted by commands like
+$$\text{\ftl statementX (by theoremY).}$$
+Introducing code sections will allow broader restrictions. This would also reduce the instabilities described in \ref{instabilites}.
 
-At the moment, functions and sets are hard coded into the naproche system. Bigger projects will require more transparency in precisely what is axiomatized and how these basic notions are defined. The observations described in \ref{functionalapproach} suggest a built-in support for n-ary functions.
+At the moment, functions and sets are hard coded into the Naproche system. Bigger projects will require more transparency in precisely what is axiomatized and how these basic notions are defined. The observations described in \ref{functionalapproach} suggest a built-in support for n-ary functions.
 
 Integrating LaTeX code into ForTheL would be another nice feature bringing the texts even closer to usual mathematical language.
 
