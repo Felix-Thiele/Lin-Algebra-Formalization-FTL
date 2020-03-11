@@ -97,7 +97,7 @@
 \newpage 
 \section{Introduction}
 \subsection{Naproche}
-In this project we build a linear algebra library in ForTheL with Naproche-SAD. ForTheL, which stands for Formal Theory Language, is a language that comes close to human language. This reduces many of the initial hurdles people encounter in the formalization of mathematics. Naproche can not only interpret ForTheL code, but is also backed with a strong Automated Theorem Prover, to which we shall refer to as e-prover. This makes many Proofs in our library easier, since some trivial steps can be skipped. At the same time this comes with massive performance issues, since checking this small library is a comparably very time intensive task.
+In this project we build a linear algebra library in ForTheL with Naproche-SAD. ForTheL, which stands for Formal Theory Language, is a language that comes close to human language. This reduces many of the initial hurdles people encounter in the formalization of mathematics. Naproche can not only interpret ForTheL code, but is also backed with a strong automated theorem prover, to which we shall refer to as e-prover. This makes many proofs in our library easier, since some trivial steps can be skipped. At the same time this comes with massive performance issues, since checking this small library is a comparably very time intensive task.
 
 \subsection{Results}
 The complete project can be found under \url{https://github.com/Felix-Thiele/linear_algebra_ftl}.
@@ -426,10 +426,8 @@ Additionally to this, we think ForTheL would greatly benefit from code sectionin
 statementX (by theoremY).
 \end{lstlisting}  commands. Introducing code sections will allow broader restrictions. This would also reduce the instabilities described in \ref{instabilites}.
 
-At the moment, functions and sets are hard coded into the naproche system. Bigger projects will require more transparency in precisely what is axiomatized and how these basic notions are defined. The observations described in \ref{functionalapproach} suggest a built-in support for n-ary functions.\\
+At the moment, functions and sets are hard coded into the naproche system. Bigger projects will require more transparency in precisely what is axiomatized and how these basic notions are defined. The observations described in \ref{functionalapproach} suggest a built-in support for n-ary functions.
 
-- UTF-8 would be nice \\
-
-- "Let V denote a vector space over K." doesn't work yet
+Integrating LaTeX code into ForTheL would be another nice feature bringing the code even closer to human language.
 
 \end{document}
