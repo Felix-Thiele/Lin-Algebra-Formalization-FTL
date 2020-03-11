@@ -3,12 +3,15 @@ import algebra.field
 
 set_option class.instance_max_depth 64
 
+
 instance field.to_vector_space {K : Type} [discrete_field K] :
-vector_space K K := {..ring.to_module} -- hier standen spitze Klammern, die nicht funktioniert haben
+vector_space K K := {..ring.to_module}
 
 lemma eq_zero_of_add_self_eq {α : Type} [add_group α]
 {a : α} (H : a + a = a) : a = 0 :=
 add_left_cancel (by {rw add_zero, exact H})
+
+
 
 class sub_vector_space (K : Type) (V : Type) [discrete_field K] [add_comm_group V] [vector_space K V] (p : V → Prop) :=
     (p_zero : p 0)
@@ -17,11 +20,6 @@ class sub_vector_space (K : Type) (V : Type) [discrete_field K] [add_comm_group 
     (p_smul : ∀ (c:K) v, p v → p (c • v))
 
 namespace sub_vector_space
-
--- jedes [field K] musste ersetzt werden durch [discrete_field K]
--- und [vector_space K V] scheint jetzt die Annahme [add_comm_group V]
--- zu brauchen, welche ich an den entsprechenden Stellen ergänzt habe
-
 
 variables (K : Type) {V : Type} [discrete_field K] [add_comm_group V] [vector_space K V]
 {p : V → Prop} [sub_vector_space K V p]
@@ -94,6 +92,7 @@ instance : vector_space K {x // p x} :=
 end sub_vector_space
 
 
+
 structure linear_space (K V W : Type) [discrete_field K] [add_comm_group V] [add_comm_group W]
 [vector_space K V] [vector_space K W] :=
     (T : V → W)
@@ -104,6 +103,7 @@ namespace linear_space
 
 variables {K V W : Type} [discrete_field K] [add_comm_group V] [add_comm_group W] [vector_space K V] [vector_space K W]
 variables {c d : K}
+
 
 
 section basic
@@ -129,6 +129,7 @@ eq_neg_of_add_eq_zero (by {rw [←map_add], simp})
 @[simp] lemma map_sub : A.T (u-v) = A.T u - A.T v := by simp
 
 end basic
+
 
 
 @[simp] def ker (A : linear_space K V W) : V → Prop := (λ v, A.T v = 0)
@@ -167,6 +168,7 @@ instance : sub_vector_space K V A.ker :=
 }
 
 end ker
+
 
 
 section Hom
@@ -225,18 +227,11 @@ theorem smul_left_distrib : c⬝(A+B) = c⬝A + c⬝B := ext (λ v, by simp [smu
 theorem smul_right_distrib : (c+d)⬝A = c⬝A + d⬝A := ext (λ v, by simp [add_smul])
 theorem mul_smul : (c*d)⬝A = c⬝(d⬝A) := ext (λ v, by simp [mul_smul])
 theorem one_smul : 1⬝A = A := ext (λ v, by simp [one_smul])
--- musste die nächsten beiden theorems selbst schreiben
 theorem smul_zero' (z : linear_space K V W) (p : z=0) (c : K) : c ⬝ z = z :=
  ext (λ v, by rw p; simp [smul_zero])
 def smul_zero {h₁ : discrete_field K} {h₂ : add_comm_group V} {h₃ : add_comm_group W}
  {h₄ : vector_space K V} {h₅ : vector_space K W} := (@smul_zero' K V W h₁ h₂ h₃ h₄ h₅ zero rfl)
--- smul_zero habe ich so umständlich geschrieben, weil er bei
--- "smul zero : c ⬝ 0 = 0" nicht erkennen konnte,
--- dass es sich um Elemente von linear_space K V W handelt
 theorem zero_smul : 0 ⬝ A = 0 := ext (λ v, by simp [zero_smul])
-
--- musste einiges aus "instance vector_space K (...)" in
--- das zusätzlich ergänzte "instance add_comm_group (...)" auslagern
 
 instance : add_comm_group (linear_space K V W) :=
 {   add                 := add,
@@ -249,9 +244,6 @@ instance : add_comm_group (linear_space K V W) :=
     add_comm            := add_comm,    
 }
 
--- scheinbar gab es einige Umbenennungen in der mathlib:
--- smul_left_distrib -> smul_add
--- smul_right_distrib -> add_smul
 instance : vector_space K (linear_space K V W) :=
 {
     smul                := smul,
@@ -268,11 +260,13 @@ end Hom
 def Hom {K : Type} (V W : Type) [discrete_field K] [add_comm_group V] [add_comm_group W] [vector_space K V] [vector_space K W] :=
 vector_space K (linear_space K V W)
 
+
+
 def vector_space.dual {K: Type} (V: Type) [discrete_field K] [add_comm_group V] [vector_space K V] :=
 @Hom K V K
 
--- \ast
 postfix `∗`:100 := vector_space.dual
+
 
 
 section matrix_ring
@@ -327,8 +321,9 @@ instance : ring (linear_space K V V) :=
 
 end matrix_ring
 
-variables (K V)
 
+
+variables (K V)
 
 namespace general_linear
 
