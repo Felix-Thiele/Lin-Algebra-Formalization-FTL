@@ -125,7 +125,7 @@ And the \textbf{proofs} of:
 \newpage
 \lstset{style=lean}
 \section{The Lean File}
-For inspiration on how to formalize linear algebra for a proof checker, we looked into the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small lean library by Kenny Lau containing formalizations of various mathematical topics. Lean is a theorem prover and a programming language based on dependent type theory. There is an extensive library of mathematical lean texts, the mathlib (\url{https://github.com/leanprover-community/mathlib}), maintained by lean users, which is used and build upon in vector\_space.lean.
+For inspiration on how to formalize linear algebra for a proof checker, we looked into the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small Lean library by Kenny Lau containing formalizations of various mathematical topics. Lean is a theorem prover and a programming language based on dependent type theory. There is an extensive library of mathematical Lean texts, the mathlib (\url{https://github.com/leanprover-community/mathlib}), maintained by Lean users, which is used and build upon in vector\_space.lean.
 
 
 
@@ -145,10 +145,10 @@ The file vector\_space.lean covers the following definitions and statements of l
 
 %
 \subsection{Characteristic Features} \label{characteristics}
-The notions above are defined in the canonical way and the proofs are of course trivial from an algebraic standpoint. Thus, there is no need for huge lambda terms (which are otherwise not uncommon in lean texts) and the code is fairly easy to understand.
+The notions above are defined in the canonical way and the proofs are of course trivial from an algebraic standpoint. Thus, there is no need for huge lambda terms (which are otherwise not uncommon in Lean texts) and the code is fairly easy to understand.
 
-The lean file uses the following notions (type classes) from the mathlib: {\lean field}, {\lean discrete\_field} (a field where equality of elements is decidable), {\lean add\_comm\_group}, {\lean vector\_space}, {\lean ring}, {\lean group}.
-The classes {\lean has\_zero}, {\lean has\_one}, {\lean has\_add}, {\lean has\_mul}, {\lean has\_neg}, {\lean has\_inv}, {\lean has\_scalar} from the built-in lean library are crucial for the description and handling of algebraic structures in lean.
+The Lean file uses the following notions (type classes) from the mathlib: {\lean field}, {\lean discrete\_field} (a field where equality of elements is decidable), {\lean add\_comm\_group}, {\lean vector\_space}, {\lean ring}, {\lean group}.
+The classes {\lean has\_zero}, {\lean has\_one}, {\lean has\_add}, {\lean has\_mul}, {\lean has\_neg}, {\lean has\_inv}, {\lean has\_scalar} from the built-in lean library are crucial for the description and handling of algebraic structures in Lean.
 The following is an example of how algebraic structures are successively defined as type classes in the mathlib, by extending existing type classes:
 \begin{lstlisting}
 universe u
@@ -175,7 +175,7 @@ class §\textcolor{leanYellow}{add\_comm\_group}§ (§\textalpha§ : Type u) ext
 \end{lstlisting}
 
 
-Especially useful for algebraic proofs is the lean tactic {\lean simp} (simplify). Easy statements like the ones mentioned in \ref{mathematicalContent} can be added to this tactic via {\lean @[simp]}:
+Especially useful for algebraic proofs is the Lean tactic {\lean simp} (simplify). Easy statements like the ones mentioned in \ref{mathematicalContent} can be added to this tactic via {\lean @[simp]}:
 \begin{lstlisting}
 variables {K V W : Type} [discrete_field K] [add_comm_group V]
 	[vector_space K V]
@@ -203,8 +203,8 @@ However, slight adjustments in the file made it work with the current version of
 \begin{itemize}
 \item While the original file used {\ftl [field K]} as the only assumption for working with a {\ftl vector space K V}, we had to change this to {\lean [discrete\_field K]}. Also, the mathlib definition of a vector space now requires that V is already an abelian group, so we added {\lean [add\_comm\_group V]} as a second assumption at the same places.
 \item We renamed {\lean subspace} to {\lean sub\_vector\_space}, because the name conflicted with the (apparently new) mathlib definition of a vector subspace.
-\item The mathlib change described in the first point also a splitting of some instances of vector space ...
-\item smul\_left\_distrib -> smul\_add, smul\_right\_distrib -> add\_smul
+\item The mathlib change described in the first point also demanded a splitting of some instances of vector space ...
+\item We adopted the mathlib renamings of {\lean smul\_left\_distrib} and {\lean smul\_ right\_distrib} to {\lean smul\_add} and {\lean add\_smul}, respectively. These are fields of the structure {\lean module.core}.
 \item Some minor syntactical changes.
 \end{itemize}
 We could determine these necessary changes by looking at the underlying parts of the mathlib as well as the errors and proof states displayed in the "Lean Goal" window.
@@ -254,7 +254,7 @@ Additionally, it can sometimes be helpful to split the P\_ files even more, espe
 
 Our D\_ Set and D\_ Function files our kept very lightweight and only include key statements. This is due to both files being so close to the root node of the library graph. Adding more definitions will substantially slow down the e-prover in all following files.
 
-\subsubsection{Algebraic Structures}
+\subsubsection{Algebraic Structures} \label{algebraicStructures}
 Many of the objects we examine in this library have a similar structure. For example abelian groups, fields, vector spaces and rings all have a carrier, a zero element, and an addition operation. We introduce an object called structure in 002D\_structure.ftl.
 \begin{lstlisting}
 Signature. lang is a set.
@@ -359,7 +359,7 @@ qed.
 
 
 \subsubsection{Automorphism Group}
-While the lean file introduces the general linear group by proving statements about invertible linear maps, we took a step back and defined the multiplicative group of an arbitrary ring in D\_unit\_group. This branching at the top of the project graph reduces the required reasoning in the proof file.
+While the Lean file introduces the general linear group by proving statements about invertible linear maps, we took a step back and defined the multiplicative group of an arbitrary ring in D\_unit\_group. This branching at the top of the project graph reduces the required reasoning in the proof file.
 We then define the group of automorphisms of a given vector space simply as the unit group of its endomorphism ring. P\_autmorphisms contains the proof that this group is exactly the set of bijective endomorphisms.
 
 \subsubsection{Lists}
@@ -377,16 +377,25 @@ Some proofs benefited from this reduction of preliminaries, needing only half th
 P\_dual, on the other hand, now needed about 20 minutes instead of seven.
 Both behaviors are especially surprising, since all the statements about compostion use notions that do not appear and can not be used in these other contexts.
 
+\subsubsection{Problems with Ontological Checking}
+
 \subsubsection{Other Experiences}
 
 
 \newpage
 \section{Comparison of Lean and Naproche/ForTheL}
-Our approach to formalize algebraic objects as instances of a more general {\ftl structure} object, which enables us to successively enhance these objects with more algebraic structure, was inspired by the type class setup in vector\_space.lean and the lean mathlib as described in \ref{characteristics}.
+Our approach to formalize algebraic objects as instances of a more general {\ftl structure} object, which enables us to successively enhance these objects with more algebraic structure, was inspired by the type class setup in vector\_space.lean and the Lean mathlib as described in \ref{characteristics}.
 While the mathlib establishes many basic algebraic structures in small steps, we restricted the definitions in ForTheL to only those structures used in our library.
 
-In total, vector\_space.lean takes about 15 seconds to compile and check. Ontological checking is done immediately.
-Naproche: 100 minutes.
+In this and some more matters, our formalization is much closer to lecture or textbook style mathematics than the Lean version is:
+Of course, Naproche and ForTheL are designed to resemble natural mathematical language, wich makes them much more readable for mathematicians than the code-like texts written in Lean. For algebraic expressions, the usual mathematical abbreviations can be realized in ForTheL by using patterns as seen in \ref{algebraicStructures}.
+
+In both the Lean and our ForTheL files, groups and abelian groups are defined completely separately, since the first uses multiplicative notation, while the second is written additively.
+While it is no problem for humans to switch from one notation to the other, it would not have been practical in our {\ftl structure} approach.
+
+While Lean detects ontolocial errors immediately (as they are just type errors), we found that...
+
+In total, vector\_space.lean takes about 15 seconds to compile and check, whereas checking all files in our library takes Naproche about 100 minutes.
 
 
 \newpage 
@@ -418,5 +427,9 @@ statementX (by theoremY).
 \end{lstlisting}  commands. Introducing code sections will allow broader restrictions. This would also reduce the instabilities described in \ref{instabilites}.
 
 At the moment, functions and sets are hard coded into the naproche system. Bigger projects will require more transparency in precisely what is axiomatized and how these basic notions are defined. The observations described in \ref{functionalapproach} suggest a built-in support for n-ary functions.
+
+
+- UTF-8 would be nice
+- "Let V denote a vector space over K." doesn't work yet
 
 \end{document}
