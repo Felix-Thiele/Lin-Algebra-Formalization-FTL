@@ -336,7 +336,7 @@ Axiom. Let V and W be vector spaces over K.
 Regarding this structure as a vector space requires quite an extensive preparation, which is done in the func\_ files, defining the zero, addition, negation, and scalar multiplication on {\ftl Hom(K,V,W)}. These are split from the D\_homomorphisms file because the corresponding P\_ files hold long proofs which become easier to check separately.
 For brevity, in D\_func\_zero we introduce the following abbreviation:
 \begin{lstlisting}
-Let 2Vectorspace(K,V,W) stand for
+Let 2VectorSpace(K,V,W) stand for
 (K is a field and (V is a vector space over K) and (W is a vector space over K)).
 \end{lstlisting}
 
@@ -385,7 +385,7 @@ Both behaviors are especially surprising, since all the statements about composi
 \subsubsection{Ontological Checking} \label{ontologialChecking}
 The following proof is an extract form 010P\_ func\_ smul.ftl:
 \begin{lstlisting}
-Theorem. Let 2Vectorspace(K,V,W).
+Theorem. Let 2VectorSpace(K,V,W).
 Let g < Hom(K,V,W). Then FuncSMul(K,V,W)[(1{K},g)] = g.
 proof.
   FuncSMul(K,V,W)[(1{K},g)] §and§ g are functions.
