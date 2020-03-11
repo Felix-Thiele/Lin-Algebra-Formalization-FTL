@@ -169,7 +169,7 @@ class §\textcolor{leanYellow}{add\_monoid}§ (§\textalpha§ : Type u) extends 
 class §\textcolor{leanYellow}{add\_comm\_monoid}§ (§\textalpha§ : Type u) extends add_monoid §\textalpha§, add_comm_semigroup §\textalpha§
 
 class §\textcolor{leanYellow}{add\_group}§ (§\textalpha§ : Type u) extends add_monoid §\textalpha§, has_neg §\textalpha§ :=
-(add_left_neg : $\forall$ a : §\textalpha§, -a + a = 0)
+(add_left_neg : $\forall$ a : §\textalpha§, §\text{-}§a + a = 0)
 
 class §\textcolor{leanYellow}{add\_comm\_group}§ (§\textalpha§ : Type u) extends add_group §\textalpha§, add_comm_monoid §\textalpha§
 \end{lstlisting}
@@ -182,17 +182,17 @@ variables {K V W : Type} [discrete_field K] [add_comm_group V]
 
 @[simp] def §\textcolor{leanYellow}{ker}§ (A : linear_space K V W) : V → Prop := (§\textcolor{leanBlue}{\textlambda}§ v, A.T v = 0)
 
-@[simp] lemma §\textcolor{leanYellow}{map\_neg}§ : A.T (-v) = -(A.T v) :=
+@[simp] lemma §\textcolor{leanYellow}{map\_neg}§ : A.T (§\text{-}§v) = §\text{-}§(A.T v) :=
 eq_neg_of_add_eq_zero (by {rw [←map_add], simp})
 
-@[simp] lemma §\textcolor{leanYellow}{map\_sub}§ : A.T (u-v) = A.T u - A.T v := by simp
+@[simp] lemma §\textcolor{leanYellow}{map\_sub}§ : A.T (u§\text{-}§v) = A.T u §\text{-}§ A.T v := by simp
 \end{lstlisting}
 This allows for omitting detailed chains of equations and instead let {\lean simp} find the proof details automatically:
 \begin{lstlisting}
-theorem §\textcolor{leanYellow}{ker\_neg}§ (HV : A.ker v) : A.ker (-v) :=
+theorem §\textcolor{leanYellow}{ker\_neg}§ (HV : A.ker v) : A.ker (§\text{-}§v) :=
 by {unfold ker at *, simp [HV]}
 
-theorem §\textcolor{leanYellow}{ker\_sub}§ (HU : A.ker u) (HV : A.ker v) : A.ker (u - v) :=
+theorem §\textcolor{leanYellow}{ker\_sub}§ (HU : A.ker u) (HV : A.ker v) : A.ker (u §\text{-}§ v) :=
 by {unfold ker at *, simp [HU,HV]}
 \end{lstlisting}
 Being able to tell lean which statements to use in the {\lean simp} tactic, while everything else has to be directly referenced, gives a performance advantage.
@@ -277,7 +277,7 @@ Let smul{S} stand for S[smul].
 Let a +{S} b stand for add{S}[(a,b)].
 Let a *{S} b stand for mul{S}[(a,b)].
 Let ~{S} a stand for neg{S}[a].
-Let a -{S} b stand for add{S}[(a,neg{S}[b])].
+Let a §\text{-}§{S} b stand for add{S}[(a,neg{S}[b])].
 Let a /{S} b stand for mul{S}[(a,inv{S}[b])].
 Let a @{S} b stand for smul{S}[(a,b)].
 Let a < S stand for a << |S|.
@@ -299,7 +299,7 @@ Definition. An abelian group is a structure G such that
  and (add{G} is a function from Prod(|G|,|G|) to |G|)
  and (neg{G} is a function from |G| to |G|)
  and (for all a < G     :       a +{G} 0{G} = a)
- and (for all a < G     :          a -{G} a = 0{G})
+ and (for all a < G     :          a §\text{-}§{G} a = 0{G})
  and (for all a,b,c < G : a +{G} (b +{G} c) = (a +{G} b) +{G} c)
  and (for all a,b < G   :          a +{G} b = b +{G} a). 
 \end{lstlisting}
@@ -369,13 +369,35 @@ A list is defined as function from a set to a structure with a carrier and a zer
 
 \subsection{Experiences}
 \subsubsection{Functional Approach to Algebraic Structures} \label{functionalapproach}
+At the start of our project, we had to decide upon ab formalizing algebraic operations:
+One approach, similar to some of Naproche's example texts, would have looked like
+\begin{lstlisting}
+Signature. 0 is an element.
+Signature. a + b is an element.
+Signature. §\text{-}§a is an element.
+...
+Let a §\text{-}§ b stand for a + (§\text{-}§b).
+...
+Axiom. a + 0 = a.
+Axiom. a §\text{-}§ a = 0.
+...
+\end{lstlisting}
+
+Instead, we took a more functional approach, as described in \ref{algebraicStructures}, where the notion of an abelian group was introduced via a {\ftl Definition}, stating, for example, that {\ftl add\{G\} is a function from Prod(|G|,|G|) to |G|}.
+This makes it easy to distinguish between elements of and operations on different sets.
+We chose this approach, because it seems more elegant and closer to usual mathematics. Using a {\ftl Definition} instead of signatures and axioms, immediately allows us to formulate how a specific structure is shown to be a field, vector space, ring or group.
+However, it might (at the moment) not be the best choice for formalizing algebra in Naproche, because it seems to come with big performance disadvantages, compared to the first alternative:
+
+
+
 
 \subsubsection{Instability regarding Changes in the Preliminaries} \label{instabilites}
 The e-prover (especially the Reasoner) seems to not always make a good job in ignoring preliminaries that are "obviously" irrelevant for the current task.
 For example, we tried removing definitions and axioms regarding function composition from the files D\_function and A\_function. Although they are only needed for the files about endomorphisms and automorphisms, this had a huge impact on the checking of most of the other proof files.
 Some proofs benefited from this reduction of preliminaries, needing only half the checking time as before.
 P\_dual, on the other hand, now needed about 20 minutes instead of seven.
-Both behaviors are especially surprising, since all the statements about compostion use notions that do not appear and can not be used in these other contexts.
+Both behaviors are especially surprising, since all the statements about composition use notions that do not appear and can not be used in these other contexts.
+
 
 \subsubsection{Ontological Checking} \label{ontologialChecking}
 The following proof is an extract form 010P\_ func\_ smul.ftl:
@@ -391,6 +413,7 @@ proof.
 end.
 \end{lstlisting}
 The proof is five lines long. The reasoning is done in the lines two and four. Line five can also be considered reasoning, but is more a reminder of sort, referencing what previous statement to use. Lines one and three are of pure ontological nature. So we use almost half of our texts for ontological purposes, which is fairly common throughout our library. In \ref{nextsteps} we give a proposal on how to structure these ontological parts more clearly for the human reader.
+
 
 \subsubsection{Other Experiences}
 "Let V denote a vector space over K." doesn't work yet
@@ -415,7 +438,7 @@ $$\text{\ftl FuncSMul(K,V,W)[(1\{K\},g)] and g are functions.}$$
 as described in \ref{ontologialChecking}, or
 $$\text{\ftl For all a < K and all v < V : (a,v) << Dom(smul\{V\}).}$$
 which we needed to state in some places.
-These have no real counterparts in textbook mathematics, contain no new information for the reader and force the user to think about usually suppressed details like the functional aspects of these objects.
+These have no real counterparts in textbook mathematics, contain no new information for the human reader and force the user to think about usually suppressed details like the functional aspects of these objects.
 
 In total, vector\_space.lean takes about 15 seconds to compile and check. In contrast, checking all files in our library takes Naproche about 100 minutes.
 
