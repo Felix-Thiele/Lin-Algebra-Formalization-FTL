@@ -195,19 +195,19 @@ by {unfold ker at *, simp [HV]}
 theorem §\textcolor{leanYellow}{ker\_sub}§ (HU : A.ker u) (HV : A.ker v) : A.ker (u - v) :=
 by {unfold ker at *, simp [HU,HV]}
 \end{lstlisting}
-Being able to tell lean which statements to use in the {\lean simp} tactic, while everything else has to be directly referenced, gives a great performance advantage.
+Being able to tell lean which statements to use in the {\lean simp} tactic, while everything else has to be directly referenced, gives a performance advantage.
 
 \subsection{Adjusting the Code}
 The latest version of vector\_space.lean was from November 2017. Since then, it seems that the mathlib has developed to a point where it became incompatible with vector\_space.lean.
 However, slight adjustments in the file made it work with the current version of the mathlib. This comprises the following changes:
 \begin{itemize}
 \item While the original file used {\ftl [field K]} as the only assumption for working with a {\ftl vector space K V}, we had to change this to {\lean [discrete\_field K]}. Also, the mathlib definition of a vector space now requires that V is already an abelian group, so we added {\lean [add\_comm\_group V]} as a second assumption at the same places.
-\item We renamed {\lean subspace} to {\lean sub\_vector\_space}, because the name conflicted with the (apparently new) mathlib definition of a vector subspace.
-\item The mathlib change described in the first point also demanded a splitting of some instances of vector space ...
+\item We renamed {\lean subspace} to {\lean sub\_vector\_space}, since the name conflicted with the (apparently new) mathlib definition of a vector subspace.
+\item The mathlib change described in the first point also demanded changes in places where objects like the {\lean linear\_space K V W} are proven to be a vector space over K: We had to cut parts from the old proof of the object being a vector space and pasting them into a new preceding proof of it being an abelian group. 
 \item We adopted the mathlib renamings of {\lean smul\_left\_distrib} and {\lean smul\_ right\_distrib} to {\lean smul\_add} and {\lean add\_smul}, respectively. These are fields of the structure {\lean module.core}.
 \item Some minor syntactical changes.
 \end{itemize}
-We could determine these necessary changes by looking at the underlying parts of the mathlib as well as the errors and proof states displayed in the "Lean Goal" window.
+We could determine these necessary changes by looking at the underlying parts of the mathlib as well as the errors and proof states displayed in the "Lean Goal" window. Our final version of the file can be found under \url{https://github.com/Felix-Thiele/linear_algebra_ftl/blob/master/vector_space.lean}.
 
 
 
