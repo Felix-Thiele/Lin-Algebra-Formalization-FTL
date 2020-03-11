@@ -378,8 +378,21 @@ P\_dual, on the other hand, now needed about 20 minutes instead of seven.
 Both behaviors are especially surprising, since all the statements about compostion use notions that do not appear and can not be used in these other contexts.
 
 \subsubsection{Problems with Ontological Checking} \label{ontologialChecking}
+The following proof is an extract form 010P\_ func\_ smul.ftl:
 
-\subsubsection{Other Experiences}
+\begin{lstlisting}
+Theorem. Let 2Vectorspace(K,V,W).
+Let g < Hom(K,V,W). Then FuncSMul(K,V,W)[(1{K},g)] = g.
+proof.
+  FuncSMul(K,V,W)[(1{K},g)] and g are functions.
+  Dom(FuncSMul(K,V,W)[(1{K},g)]) = |V| = Dom(g).
+  W[smul] is a function from Prod(|K|,|W|) to |W|.
+  For all v<V FuncSMul(K,V,W)[(1{K},g)][v] = 1{K} @{W} g[v] = g[v].
+  Hence the thesis (by FunExt).
+end.
+\end{lstlisting}
+
+The proof is five lines long. The reasoning is done in the lines 2 and 4. Line five can also be considered reasoning, but is more a reminder of sort, referencing what previous statement to use. Lines 1 and 3 are of pure ontological nature. So we use almost half of our code for ontological purposes. In \ref{nextsteps} we give a proposal on how to structure these ontological parts more clearly for the human reader.
 
 
 \newpage
@@ -399,7 +412,7 @@ In total, vector\_space.lean takes about 15 seconds to compile and check. In con
 
 
 \newpage 
-\section{Next Steps in Naproche and ForTheL}
+\section{Next Steps in Naproche and ForTheL}\label{nextsteps}
 
 It seems like this project has hit somewhat of a ceiling in what Naproche is capable of. 
 Even small changes in beginning files can massively impact the check times of files further down the project graph.
