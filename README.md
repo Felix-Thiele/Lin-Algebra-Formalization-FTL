@@ -54,7 +54,7 @@ space Hom(K,V,W).
 
 
 ## Checking Times of the P_ Files
-These times were recorded on a computer with a on Intel Core i7-8700K and 16 GB of RAM.
+These times were recorded on a computer with an Intel Core i7-8700K and 16 GB of RAM.
 | file name                | checking time         |
 | ------------------------ | --------------------- |
 | 000 set                  | 00:00.04              |
