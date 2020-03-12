@@ -128,7 +128,7 @@ And the \textbf{proofs} of:
 \newpage
 \lstset{style=lean}
 \section{The Lean File}
-For inspiration on how to formalize linear algebra for a proof checker, we looked into the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small Lean library by Kenny Lau containing formalizations of various mathematical topics.
+This formalization is based on the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small Lean library by Kenny Lau containing formalizations of various mathematical topics.
 Lean is a theorem prover and a programming language based on dependent type theory.
 There is an extensive library of mathematical Lean texts, the mathlib (\url{https://github.com/leanprover-community/mathlib}), maintained by Lean users, which is used and build upon in vector\_space.lean.
 
@@ -213,7 +213,7 @@ The following adjustments make up for this:
 \item We adopted the mathlib renamings of {\lean smul\_left\_distrib} and {\lean smul\_ right\_distrib} to {\lean smul\_add} and {\lean add\_smul}, respectively. These are fields of the type class {\lean module}, respectively {\lean vector space} in our case.
 \item Some minor syntactical changes.
 \end{itemize}
-We determined these necessary changes by looking at the underlying parts of the mathlib as well as checking the errors and proof states displayed in the "Lean Goal" window - an important feature of Lean that is missing in Naproche. Our final version of the file can be found under \url{https://github.com/Felix-Thiele/linear_algebra_ftl/blob/master/vector_space.lean}.
+We are able to determine these necessary changes by checking the errors and proof states displayed in the "Lean Goal" window - an important feature of Lean that is missing in Naproche. Our final version of the file can be found under \url{https://github.com/Felix-Thiele/linear_algebra_ftl/blob/master/vector_space.lean}.
 
 
 
