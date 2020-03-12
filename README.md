@@ -48,9 +48,9 @@ space Hom(K,V,W).
 - If f is linear, Ker(f) is a subspace.
 - If f is linear and Ker(f) = {0}, then f is injective.
 - Any K-vector space V can be embedded into the double dual space
-(V*)*
+(V*)*.
 - The endomorphisms of a K-vector space V form a ring End(K,V).
-- The invertible elements of a ring form a multiplicative group
+- The invertible elements of a ring form a multiplicative group.
 
 
 ## Checking Times of the P_ Files
