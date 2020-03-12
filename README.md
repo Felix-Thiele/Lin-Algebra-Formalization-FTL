@@ -55,7 +55,7 @@ space Hom(K,V,W).
 
 ## Checking Times of the P_ Files
 These times were recorded on a computer with an Intel Core i7-8700K and 16 GB of RAM.
-They can depend on what files have benn checked before each corresponding file.
+They can depend on what files have been checked before each corresponding file.
 | file name                | checking time         |
 | ------------------------ | --------------------- |
 | 000 set                  | 00:00.04              |
@@ -73,14 +73,14 @@ They can depend on what files have benn checked before each corresponding file.
 | 009 func_neg             | 17:47.46              |
 | 010 func_smul            | 03:52.63              |
 | 011 homomorphisms        | 02:14.34              |
-| 012 field2VS             |00:31.30               |
-| 013 dual                 |10:14.99               |
+| 012 field2VS             | 00:31.30              |
+| 013 dual                 | 10:14.99              |
 | 100 ring                 | 00:06.42              |
 | 101 unit_group           | 01:09.01              |
 | 102 endomorphisms        | 10:38.45              |
 | 103 automorphisms        | 05:50.22              |
 | 200 bool                 | 00:14.69              |
-| 201 subspace             |16:22.47               |
+| 201 subspace             | 16:22.47              |
 | 202 kernel               | 01:44.35              |
 | 203 list                 | 00:49.94              |
 | 204 linearly_independent | 00:28.07              |
