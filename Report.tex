@@ -43,7 +43,6 @@
     tabsize=2,
     breakindent=10pt,
     frame=trbl,
-    frameround=tttt,
     framesep=3pt,
     mathescape=true,
     escapeinside={§}{§},
@@ -97,11 +96,11 @@
 \newpage 
 \section{Introduction}
 \subsection{Naproche}
-In this project we build a linear algebra library in ForTheL with Naproche-SAD. ForTheL, which stands for Formal Theory Language, is a language that comes close to human language.
+In this project we build a linear algebra library in ForTheL with Naproche-SAD. ForTheL, which stands for Formal Theory Language, is a language for formal mathematics that comes close to human language and common mathematical writing.
 This reduces many of the initial hurdles people encounter in the formalization of mathematics.
 Naproche can not only interpret ForTheL texts, but is also backed with a strong automated theorem prover, to which we shall refer to as e-prover.
 This makes many proofs in our library easier, since some trivial steps can be skipped.
-At the same time this comes with massive performance issues, since checking even this small library is a time intensive task.
+At the same time, this comes with massive performance issues, since checking even this small library is a time intensive task.
 
 \subsection{Results}
 The complete project can be found under\\ \url{https://github.com/Felix-Thiele/linear_algebra_ftl}.\\
@@ -129,7 +128,7 @@ And the \textbf{proofs} of:
 \newpage
 \lstset{style=lean}
 \section{The Lean File}
-This formalization is based on the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small Lean library by Kenny Lau containing formalizations of various mathematical topics.
+For inspiration on how to formalize linear algebra for a proof checker, we looked into the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small Lean library by Kenny Lau containing formalizations of various mathematical topics.
 Lean is a theorem prover and a programming language based on dependent type theory.
 There is an extensive library of mathematical Lean texts, the mathlib (\url{https://github.com/leanprover-community/mathlib}), maintained by Lean users, which is used and build upon in vector\_space.lean.
 
@@ -139,7 +138,7 @@ There is an extensive library of mathematical Lean texts, the mathlib (\url{http
 The file vector\_space.lean covers the following definitions and statements of linear algebra:
 \begin{itemize}
 \item {\lean field.to\_vector\_space}: Any field is a vector space over itself.
-\item {\lean sub\_vector\_space}: Definition of a vector subsace. Definition and proof of the vector space structure on it.
+\item {\lean sub\_vector\_space}: Definition of a vector subspace. Definition and proof of the vector space structure on it.
 \item {\lean linear\_space K V W}: Definition of the set of linear maps between two $K$-vector spaces $V$ and $W$. Easy proofs about linear maps.
 \item {\lean ker}: Definition of the kernel of a linear map. Some small proofs.
 \item Definition and proof of the vector space structure on {\lean linear\_space K V W}.
@@ -154,7 +153,7 @@ The file vector\_space.lean covers the following definitions and statements of l
 Due to the simplicity of the treated topics, there is no need for huge lambda terms and the code is fairly easy to understand.
 
 The Lean file uses the following notions (type classes) from the mathlib: {\lean field}, {\lean discrete\_field} (a field where equality of elements is decidable), {\lean add\_comm\_group}, {\lean vector\_space}, {\lean ring}, {\lean group}.
-The classes {\lean has\_zero}, {\lean has\_one}, {\lean has\_add}, {\lean has\_mul}, {\lean has\_neg}, {\lean has\_inv}, {\lean has\_scalar} from the built-in lean library are crucial for the description and handling of algebraic structures in Lean.
+The classes {\lean has\_zero}, {\lean has\_one}, {\lean has\_add}, {\lean has\_mul}, {\lean has\_neg}, {\lean has\_inv}, {\lean has\_scalar} from the built-in Lean library are crucial for the description and handling of algebraic structures in Lean.
 The following is an example of how algebraic structures are successively defined as type classes in the mathlib, by extending existing type classes:
 \begin{lstlisting}
 universe u
@@ -194,6 +193,7 @@ eq_neg_of_add_eq_zero (by {rw [←map_add], simp})
 @[simp] lemma §\textcolor{leanYellow}{map\_sub}§ : A.T (u§\text{-}§v) = A.T u §\text{-}§ A.T v := by simp
 \end{lstlisting}
 This allows for omitting detailed chains of equations and instead let {\lean simp} find the proof details automatically:
+\newpage
 \begin{lstlisting}
 theorem §\textcolor{leanYellow}{ker\_neg}§ (HV : A.ker v) : A.ker (§\text{-}§v) :=
 by {unfold ker at *, simp [HV]}
@@ -201,19 +201,19 @@ by {unfold ker at *, simp [HV]}
 theorem §\textcolor{leanYellow}{ker\_sub}§ (HU : A.ker u) (HV : A.ker v) : A.ker (u §\text{-}§ v) :=
 by {unfold ker at *, simp [HU,HV]}
 \end{lstlisting}
-Being able to tell lean which statements to use in the {\lean simp} tactic, while everything else has to be directly referenced, gives a performance advantage.
+Being able to tell Lean which statements to use in the {\lean simp} tactic, while everything else has to be directly referenced, gives a performance advantage.
 
 \subsection{Adjusting the Code}
 The latest version of vector\_space.lean was from November 2017. Since then, the mathlib has developed to a point where it became incompatible with vector\_space.lean.
 The following adjustments make up for this:
 \begin{itemize}
-\item While the original file used {\ftl [field K]} as the only assumption for working with a {\ftl vector space K V}, we had to change this to {\lean [discrete\_field K]}. Also, the mathlib definition of a vector space now requires that V is already an abelian group, so we added {\lean [add\_comm\_group V]} as a second assumption at the same places.
+\item While the original file used {\ftl [field K]} as the only assumption for working with a {\ftl vector space K V}, we had to change this to {\lean [discrete\_field K]}. Also, the mathlib definition of a vector space now requires that {\ftl V} is already an abelian group, so we added {\lean [add\_comm\_group V]} as a second assumption in the same places.
 \item We renamed {\lean subspace} to {\lean sub\_vector\_space}, since the name conflicted with the (apparently new) mathlib definition of a vector subspace.
 \item The mathlib change described in the first point also demanded changes in places where objects like the {\lean linear\_space K V W} are proven to be a vector space over K: We had to cut parts from the old proof of the object being a vector space and pasting them into a new preceding proof of it being an abelian group. 
 \item We adopted the mathlib renamings of {\lean smul\_left\_distrib} and {\lean smul\_ right\_distrib} to {\lean smul\_add} and {\lean add\_smul}, respectively. These are fields of the type class {\lean module}, respectively {\lean vector space} in our case.
 \item Some minor syntactical changes.
 \end{itemize}
-We are able to determine these necessary changes by checking the errors and proof states displayed in the "Lean Goal" window. An important feature of Lean that is missing in Naproche. Our final version of the file can be found under \url{https://github.com/Felix-Thiele/linear_algebra_ftl/blob/master/vector_space.lean}.
+We determined these necessary changes by looking at the underlying parts of the mathlib as well as checking the errors and proof states displayed in the "Lean Goal" window - an important feature of Lean that is missing in Naproche. Our final version of the file can be found under \url{https://github.com/Felix-Thiele/linear_algebra_ftl/blob/master/vector_space.lean}.
 
 
 
@@ -236,7 +236,7 @@ Our structure is depicted in the graph below.
 \newpage
 
 The e-prover is not fast enough to compile the entire library with all proofs in reasonable time. 
-Instead, for every file we introduce two new files inserting "A\_" and "P\_" respectively in front of the file names. We insert "D\_" before our original file. This gives us an Axiom, Proof and Definition file. 
+Instead, for every file we introduce two new files, inserting "A\_" and "P\_" respectively in front of the file names. We insert "D\_" before our original file. This gives us an Axiom, Proof and Definition file. 
 The Definition file holds all the definitions of the given topic. 
 The Proof file holds the theorems and their proofs. The Axiom file holds all the statements of the Proof file in axiomatized form. 
 The Proof and Axiom files only read their corresponding Definition file, while Definition files read the Axiom files of all the topics they are building upon. 
@@ -251,7 +251,7 @@ This file reading structure is depicted below.
 \end{center}
 \end{figure}
 
-Additionally, it can sometimes be helpful to split the P\_ files into multiple P\_ files, to decrease checking times. In our library this is the case in P\_vector\_space, which containes five (partly independent) theorems, each needing some lemmas. Here we split P\_vector\_space into the files (P\_vector\_space\_1, \_2, \_3 and \_4), each starting with only the required statements of the preceding proof files - in axiomatized form. This is fine for the sake of functionality in a small project like this. In bigger projects we recommend also splitting the Axiom Files.
+Additionally, it can sometimes be helpful to split the P\_ files into multiple P\_ files, to decrease checking times. In our library this is the case in P\_vector\_space, which contains five (partly independent) theorems, each needing some lemmas. Here we split P\_vector\_space into the files (P\_vector\_space\_1, \_2, \_3 and \_4), each starting with only the required statements of the preceding proof files - in axiomatized form. This is fine for the sake of functionality in a small project like this. In bigger projects we recommend also splitting the Axiom Files.
 \newpage
 
 \subsection{The Implementation}
@@ -418,11 +418,11 @@ Axiom. a + (b + c) = (a + b) + c.
 Axiom. a + b = b + a.
 \end{lstlisting}
 
-Instead, this library uses functional approach, as described in \ref{algebraicStructures}, where the notion of an abelian group was introduced via a {\ftl Definition}, stating, for example, that
+Instead, this library uses a more function based approach, as described in \ref{algebraicStructures}, where the notion of an abelian group was introduced via a {\ftl Definition}, stating, for example, that
 $$\text{\ftl add\{G\} is a function from Prod(|G|,|G|) to |G|.}$$
 This makes it easy to distinguish between elements of and operations on different sets.
-This approach, is more general and closer to usual mathematics. Using a {\ftl Definition} instead of signatures and axioms, immediately allows us to formulate how a specific structure is shown to be a field, vector space, ring or group.
-Our approach comes with many long algebraic chained statements that require a lot of ontological reasoning, which in turn slows down the e-prover. Therefor, the first alternative would run faster in the current version of naproche.
+This approach is more general and closer to usual mathematics. Using a {\ftl Definition} instead of signatures and axioms, immediately allows us to formulate how a specific structure is shown to be a field, vector space, ring or group.
+Our approach comes with many long algebraic chained statements that require a lot of ontological reasoning, which in turn slows down the e-prover. Therefore, the first alternative would run faster in the current version of naproche.
 
 \subsubsection{Other Experiences}
 Starting a file with
@@ -431,6 +431,8 @@ is very convenient because it allows for omitting the same sentence in every def
 However, the line
 $$\text{\ftl Let V denote a vector space over K.}$$
 does not work in the current Naproche version, because {\ftl K} is a free undeclared variable.
+
+
 \newpage
 \section{Comparison of Lean and Naproche/ForTheL}
 Our approach to formalize algebraic objects as instances of a more general {\ftl structure} object, which enables us to successively enhance these objects with more algebraic structure, was inspired by the type class setup in vector\_space.lean and the Lean mathlib as described in \ref{characteristics}.
