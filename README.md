@@ -55,6 +55,7 @@ space Hom(K,V,W).
 
 ## Checking Times of the P_ Files
 These times were recorded on a computer with an Intel Core i7-8700K and 16 GB of RAM.
+They can depend on what files have benn checked before each corresponding file.
 | file name                | checking time         |
 | ------------------------ | --------------------- |
 | 000 set                  | 00:00.04              |
