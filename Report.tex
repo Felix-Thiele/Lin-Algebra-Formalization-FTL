@@ -50,8 +50,8 @@
 
 \lstdefinelanguage{ForTheL}{
   keywords=[1]{Signature, Axiom, Theorem, Definition},
-  keywords=[2]{Proof, End, qed, by},
-  keywords=[3]{and, Assume, Let, Since, we, have},
+  keywords=[2]{Proof, End, qed, by, Since},
+  keywords=[3]{and, Assume, Let, we, have},
   sensitive=false,
   keywordstyle=[1]{\color{ftlSignature}},
   keywordstyle=[2]{\color{ftlProof}},
@@ -128,7 +128,7 @@ And the \textbf{proofs} of:
 \newpage
 \lstset{style=lean}
 \section{The Lean File}
-This formalization is based on the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small Lean library by Kenny Lau containing formalizations of various mathematical topics.
+For inspiration on how to formalize linear algebra for a proof checker, we looked into the file "vector\_space.lean" found under \url{https://github.com/kckennylau/Lean/blob/master/linear_algebra/vector_space.lean}. It is part of a small Lean library by Kenny Lau containing formalizations of various mathematical topics.
 Lean is a theorem prover and a programming language based on dependent type theory.
 There is an extensive library of mathematical Lean texts, the mathlib (\url{https://github.com/leanprover-community/mathlib}), maintained by Lean users, which is used and build upon in vector\_space.lean.
 
@@ -213,7 +213,7 @@ The following adjustments make up for this:
 \item We adopted the mathlib renamings of {\lean smul\_left\_distrib} and {\lean smul\_ right\_distrib} to {\lean smul\_add} and {\lean add\_smul}, respectively. These are fields of the type class {\lean module}, respectively {\lean vector space} in our case.
 \item Some minor syntactical changes.
 \end{itemize}
-We are able to determine these necessary changes by checking the errors and proof states displayed in the "Lean Goal" window - an important feature of Lean that is missing in Naproche. Our final version of the file can be found under \url{https://github.com/Felix-Thiele/linear_algebra_ftl/blob/master/vector_space.lean}.
+We determined these necessary changes by looking at the underlying parts of the mathlib as well as checking the errors and proof states displayed in the "Lean Goal" window - an important feature of Lean that is missing in Naproche. Our final version of the file can be found under \url{https://github.com/Felix-Thiele/linear_algebra_ftl/blob/master/vector_space.lean}.
 
 
 
@@ -236,10 +236,10 @@ Our structure is depicted in the graph below.
 \newpage
 
 The e-prover is not fast enough to compile the entire library with all proofs in reasonable time. 
-Instead, for every file we introduce two new files, inserting "A\_" and "P\_" respectively in front of the file names. We insert "D\_" before our original file. This gives us an Axiom, Proof and Definition file. 
-The Definition file holds all the definitions of the given topic. 
-The Proof file holds the theorems and their proofs. The Axiom file holds all the statements of the Proof file in axiomatized form. 
-The Proof and Axiom files only read their corresponding Definition file, while Definition files read the Axiom files of all the topics they are building upon. 
+Instead, for every file we introduce two new files, inserting "A\_" and "P\_" respectively in front of the file names. We insert "D\_" before our original file. This gives us an axiom, proof and definition file. 
+The definition file holds all the definitions of the given topic. 
+The proof file holds the theorems and their proofs. The axiom file holds all the statements of the proof file in axiomatized form. 
+The proof and axiom files only read their corresponding definition file, while definition files read the axiom files of all the topics they are building upon. 
 This ensures a fast compilation since we do not need to reprove proven statements. 
 This file reading structure is depicted below.
 
@@ -251,14 +251,14 @@ This file reading structure is depicted below.
 \end{center}
 \end{figure}
 
-Additionally, it can sometimes be helpful to split the P\_ files into multiple P\_ files, to decrease checking times. In our library this is the case in P\_vector\_space, which contains five (partly independent) theorems, each needing some lemmas. Here we split P\_vector\_space into the files (P\_vector\_space\_1, \_2, \_3 and \_4), each starting with only the required statements of the preceding proof files - in axiomatized form. This is fine for the sake of functionality in a small project like this. In bigger projects we recommend also splitting the Axiom Files.
+Additionally, it can sometimes be helpful to split the proof files into multiple  files, to decrease checking times. In our library this is the case with P\_vector\_space, which contained five (partly independent) theorems, each needing some lemmas. We split it into into the files P\_vector\_space\_1, \_2, \_3 and \_4, each starting with only the required statements of the preceding proof files - in axiomatized form. This is fine for the sake of functionality in a small project like this. In bigger projects we recommend also splitting the axiom files.
 \newpage
 
 \subsection{The Implementation}
 
 \subsubsection{Sets and Functions}
 
-Our D\_ Set and D\_ Function files our kept very lightweight and only include key statements. This is due to both files being so close to the root node of the library graph. Adding more definitions will substantially slow down the e-prover in all following files.
+Our D\_ Set and D\_ Function files are kept very lightweight and only include key statements. This is due to both files being so close to the root node of the library graph. Adding more definitions will substantially slow down the e-prover in all following files.
 
 \subsubsection{Algebraic Structures} \label{algebraicStructures}
 Many of the objects we examine in this library have a similar structure. For example, abelian groups, fields, vector spaces and rings all have a carrier, a zero element, and an addition operation. We introduce an object called structure in 002D\_structure.ftl.
@@ -333,7 +333,7 @@ Axiom. Let V and W be vector spaces over K.
 |Hom(K,V,W)| is the set of functions f such that f is linear over K from V to W.
 \end{lstlisting}
 
-Regarding this structure as a vector space requires quite an extensive preparation, which is done in the func\_ files, defining the zero, addition, negation, and scalar multiplication on {\ftl Hom(K,V,W)}. These are split from the D\_homomorphisms file because the corresponding P\_ files hold long proofs which become easier to check separately.
+Regarding this structure as a vector space requires quite an extensive preparation, which is done in the func\_ files, defining the zero, addition, negation, and scalar multiplication on {\ftl Hom(K,V,W)}. These are split from the D\_homomorphisms file because the corresponding P\_ files hold long proofs, which become easier to check separately.
 For brevity, in D\_func\_zero we introduce the following abbreviation:
 \begin{lstlisting}
 Let 2VectorSpace(K,V,W) stand for
@@ -343,7 +343,7 @@ Let 2VectorSpace(K,V,W) stand for
 The {\ftl structure} approach allows us to also regard {\ftl Hom(K,V,W)} as a ring, which is done in the files about endomorphisms.
 
 \subsubsection{Field2VS} \label{field2VS}
-Proving that a field is a vector space over itself becomes easy with our structure construction. We do not have to redefine the part of the structure that already exists but can instead just add scalar multiplication to the field. This is done in the following way:
+Proving that a field is a vector space over itself becomes easy with our {\ftl structure} construction. We do not have to redefine the part of the structure that already exists but can instead just add scalar multiplication to the field. This is done in the following way:
 \begin{lstlisting}
 Let K denote a field.
 Axiom. (K has smul).
@@ -377,8 +377,8 @@ A list is defined as function from a set to a structure with a carrier and a zer
 \subsubsection{Instability regarding Changes in the Preliminaries} \label{instabilites}
 The e-prover is not very effective in ignoring preliminaries that are irrelevant for the current task.
 For example, removing definitions and axioms regarding function composition from the files D\_function and A\_function has a huge impact on the checking time of most other proof files although they are only needed for the files regarding endomorphisms and automorphisms.
-Some proofs benefited from this reduction of preliminaries, needing only half the checking time as before.
-P\_dual, on the other hand, now needed about 20 minutes instead of seven.
+Some proofs benefit from this reduction of preliminaries, needing only half the checking time as before.
+P\_dual, on the other hand, would now need about 20 minutes instead of seven.
 Both behaviors are especially surprising, since all the statements about composition use notions that do not appear and cannot be used in these other contexts.
 
 
@@ -422,7 +422,7 @@ Instead, this library uses a more function based approach, as described in \ref{
 $$\text{\ftl add\{G\} is a function from Prod(|G|,|G|) to |G|.}$$
 This makes it easy to distinguish between elements of and operations on different sets.
 This approach is more general and closer to usual mathematics. Using a {\ftl Definition} instead of signatures and axioms, immediately allows us to formulate how a specific structure is shown to be a field, vector space, ring or group.
-Our approach comes with many long algebraic chained statements that require a lot of ontological reasoning, which in turn slows down the e-prover. Therefore, the first alternative would run faster in the current version of naproche.
+For long chains of algebraic statements, our apporach requires a lot of ontological reasoning, which in turn slows down the e-prover. The first alternative would run faster in the current version of Naproche because it avoids nesting of tuples and function applications.
 
 \subsubsection{Other Experiences}
 Starting a file with
@@ -444,7 +444,7 @@ While Lean can deal with implicit arguments like the domain of an algebraic oper
 $$\text{\ftl (a +\{K\} b) @\{V\} v = (a @\{V\} v) +\{V\} (b @\{V\} v)).}$$
 Such level of detail usually occurs only in the first week of a linear algebra lecture.
 
-In both the Lean and our ForTheL files, groups and abelian groups are defined completely separately, since the first uses multiplicative notation, whereas the second is written additively.
+In both the Lean and our ForTheL files, groups and abelian groups are defined completely separately, since the first one uses multiplicative notation, whereas the second one is written additively.
 While it is no problem for humans to switch from one notation to the other, it would not have been practical in our {\ftl structure} approach.
 
 Lean detects ontolocial errors immediately as they are just type errors, whereas the e-prover's problems with ontological checking, require additional reasoning. Examples are
@@ -463,16 +463,16 @@ It seems like this project has hit somewhat of a ceiling in what Naproche is cap
 Even small changes in beginning files can massively impact the check times of files further down the project graph.
 While the main problem that needs to be addressed is a more efficient structuring and analysis of the cache, we propose the following ideas to improve the writing experience.
 
-Firstly Naproche needs an increased transparency in what the e-prover is doing. On the one hand the e-prover is a huge blessing, simplifying many steps.
-On the other hand it is the source of many problems, since the mathematician cannot guess where the e-prover gets stuck. Also, the e-prover will often take longer or even cannot compile previously working passages, if they are moved to a later part of the file.
+Firstly, Naproche needs an increased transparency in what the e-prover is doing. On the one hand the e-prover is a huge blessing, simplifying many steps.
+On the other hand it is the source of many problems, since the user cannot guess where the e-prover gets stuck. Also, the e-prover will often take longer or even cannot compile previously working passages, if they are moved to a later part of the file.
 This is probably due to the increased breadth of the internal search tree.
 To counter these effects, while keeping the luxury of an assisting e-prover, we suggest the e-prover return the proofs of each statement, which can then be either pasted into the ForTheL text or saved in a separate file.
 This decoupling of the e-prover to the checking process will not only save time, but also guarantee more stability.
 
 ForTheL has a 
 \begin{lstlisting}
-Let us show §statementX.§
-§reasoning§
+Let us show that statementX.
+reasoning
 end.
 \end{lstlisting} 
 functionality, to clean up the proof structure. We recommend adding a similar functionality
