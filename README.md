@@ -3,7 +3,7 @@
 The goal of this project is to formalize some linear algebra in ForTheL.
 
 The project is being continued with formalizations of represenation theory of algebras at
-https://github.com/Erik-Pi/ForTheL.
+https://github.com/naproche-community/FLib/tree/master/representations.
 
 ## Getting Started
 
